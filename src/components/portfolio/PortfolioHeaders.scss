@@ -1,0 +1,11 @@
+#headers-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > div {
+      width: 100%;
+      padding: 0 3px;
+      text-align: center;
+    }
+}
