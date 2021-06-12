@@ -2,7 +2,7 @@
 /**
  * An index or mutual fund that users can pool their money into.
  */
-interface Fund {
+export interface Fund {
     ownerEmail: string
     portfolio: Portfolio
 }

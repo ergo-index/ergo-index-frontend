@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -77,7 +76,7 @@ export const Portfolio = () => {
                 Add token
             </Button>
             <div>
-                <Button onClick={() => onClickSave}>Save</Button>
+                <Button onClick={onClickSave}>Save</Button>
             </div>
         </>
     )
