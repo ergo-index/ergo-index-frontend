@@ -8,6 +8,10 @@ import { clearErrMsgAction, logIn, loginFailAction } from '../../state/ducks/use
 import { RootState } from '../../state/store';
 import Landing0 from './Landing0';
 import Landing1 from './Landing1';
+import Landing2 from './Landing2';
+import Landing3 from './Landing3';
+
+
 import Nav from './Nav';
 import './Landing.scss';
 
@@ -57,6 +61,9 @@ const Landing = () => {
             />
             <Landing0 showModal={showModal} />
             <Landing1 />
+            <Landing2 />
+            <Landing3 />
+
 
             <Modal style={{textAlign: "center"}}
                    title="Log in"
@@ -103,6 +110,7 @@ const Landing = () => {
                     </Button>
                 </Form>
             </Modal>
+            {/* <Landing1 /> */}
         </>
     );
 };

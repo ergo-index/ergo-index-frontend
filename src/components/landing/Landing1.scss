@@ -52,3 +52,16 @@
                 min-height: 880px;
               }
 }
+
+
+.list{
+  width: max-content;
+
+  & li{
+    width: max-content;
+    text-align: left;
+    overflow-wrap: break-word;
+
+
+  }
+}

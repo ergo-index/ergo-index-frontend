@@ -179,7 +179,7 @@ export const checkAuthentication = (
     jwtAxiosId: number | null
 ): AppThunk => async dispatch => {
   // TODO: Remove next line once backend is running. This is just a workaround to bypass logging in
-  dispatch(loginSuccessAction());
+  // dispatch(loginSuccessAction());
   const cookies = document.cookie.split(';');
   for (const cookie of cookies) {
     if (cookie.split("=")[0] === "ERGO_INDEX_FUND" && cookie.split("=")[1]) {
