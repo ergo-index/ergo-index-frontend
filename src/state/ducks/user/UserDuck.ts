@@ -9,7 +9,7 @@ import {
   setupJwtInterceptor,
   teardownJwtInterceptor,
   UserModel
-} from "../../../api/userAPI";
+} from '../../../api/userAPI';
 
 interface UserState {
   profile: UserModel | null

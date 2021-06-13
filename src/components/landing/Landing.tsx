@@ -2,14 +2,17 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, Input, Modal } from 'antd';
 import { useForm } from 'antd/es/form/Form';
-import QueueAnim from 'rc-queue-anim';
+import { enquireScreen } from 'enquire-js';
 
 import { clearErrMsgAction, logIn, loginFailAction } from '../../state/ducks/user/UserDuck';
 import { RootState } from '../../state/store';
+import Landing0 from './Landing0';
+import Landing1 from './Landing1';
+import Nav from './Nav';
 import './Landing.scss';
 
 /**
- * The main dashboard for logged in users.
+ * The landing page for unauthenticated users.
  */
 const Landing = () => {
     const dispatch = useDispatch();
@@ -18,6 +21,12 @@ const Landing = () => {
     const { errMsg, loginLoading, jwtAxiosId } = useSelector(
         (state: RootState) => state.userState
     );
+
+    // Determine if we're on a mobile device or not
+    let isMobile: boolean = false;
+    enquireScreen((mobile: any) => {
+        isMobile = mobile;
+    });
 
     function showModal() {
         dispatch(clearErrMsgAction());
@@ -43,25 +52,11 @@ const Landing = () => {
     
     return (
         <>
-            <div className="landing0">
-                <QueueAnim
-                    key="QueueAnim"
-                    type={['bottom', 'top']}
-                    delay={200}
-                    className="landing0-text-wrapper"
-                >
-                    <div key="title" className="landing0-title">
-                        <img src="/ergo-index.fund_large.png" width="100%" alt="img" />
-                    </div>
-                    <div key="content" className="landing0-content">
-                        ergo-index.fund is a non-custodial platform that enables users to pool their funds together
-                        to invest in a portfolio of tokens on the Ergo blockchain.
-                    </div>
-                    <Button ghost key="button" className="landing0-button" onClick={showModal}>
-                        Sign Up
-                    </Button>
-                </QueueAnim>
-            </div>
+            <Nav
+                isMobile={isMobile}
+            />
+            <Landing0 showModal={showModal} />
+            <Landing1 />
 
             <Modal style={{textAlign: "center"}}
                    title="Log in"

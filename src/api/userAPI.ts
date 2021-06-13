@@ -38,7 +38,7 @@ export const teardownJwtInterceptor = (id: number) => {
  * @param password the password of the user being authenticated
  */
 export async function apiLogInUser(email: string, password: string) {
-    const url = `${apiBase}/new/token`
+    const url = `${apiBase}/token/new`
 
     return await axios.post<{ refresh: string, access: string }>(url, {
         username: email,
