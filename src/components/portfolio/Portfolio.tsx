@@ -25,8 +25,8 @@ export const Portfolio = () => {
 
     const onUpdateName = (e: any) => {
         setFundName(e.target.value);
-        
-      };
+
+    };
 
 
     /**
@@ -70,28 +70,40 @@ export const Portfolio = () => {
 
     return (
 
-        <>
-            Fund Name (acts as unique ID)
-            <Input value={fundName} onChange={onUpdateName} style={{ marginBottom: "20px" }} />
-            <PortfolioHeaders />
-            {rows && rows.map((row, index) => (
-                <InputRow
-                    key={index}
-                    onUpdateData={(key: string, value: any) => onUpdateData(index, key, value)}
-                    onRemoveRow={() => removeRow(index)}
-                    token={row.token}
-                    portfolioPercent={row.portfolioPercent}
-                    buyTarget={row.buyTarget}
-                    sellTarget={row.sellTarget}
-                />
-            ))}
-            <Button type="dashed" onClick={() => addRow()} block icon={<PlusOutlined />}>
-                Add token
-            </Button>
+        <div className="portfolio__container">
+            <h1 className="portfolio__header">Create Fund</h1>
+
+
+
+            <div className="portfolio__table">
+                <PortfolioHeaders />
+                {rows && rows.map((row, index) => (
+                    <InputRow
+                        key={index}
+                        onUpdateData={(key: string, value: any) => onUpdateData(index, key, value)}
+                        onRemoveRow={() => removeRow(index)}
+                        token={row.token}
+                        portfolioPercent={row.portfolioPercent}
+                        buyTarget={row.buyTarget}
+                        sellTarget={row.sellTarget}
+                    />
+                ))}
+
+
+                <Button type="dashed" onClick={() => addRow()} block icon={<PlusOutlined />}>
+                    Add token
+                </Button>
+            
+
+            <div className="portfolio__name">
+                Fund Name (acts as unique ID)
+                <Input value={fundName} onChange={onUpdateName} />
+            </div>
+            </div>
             <div>
                 <Button onClick={onClickSave}>Save</Button>
             </div>
-        </>
+        </div>
     )
 }
 

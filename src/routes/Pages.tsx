@@ -7,6 +7,7 @@ import { loadProfile } from '../state/ducks/user/UserDuck';
 import LoggedOutRoute from './LoggedOutRoute';
 import LoggedInRoute from './LoggedInRoute';
 import Dashboard from '../components/dashboard/Dashboard';
+import Portfolio from '../components/portfolio/Portfolio';
 import NotFound from '../components/notFound/NotFound';
 import Landing from '../components/landing/Landing';
 
@@ -32,6 +33,7 @@ const Pages = () => {
         <Switch>
             <LoggedOutRoute path='/' exact={true} component={Landing} />
             <LoggedInRoute path='/dashboard' exact={true} component={Dashboard} />
+            <LoggedInRoute path='/portfolio' exact={true} component={Portfolio} />
             <Route component={NotFound} />
         </Switch>
     )

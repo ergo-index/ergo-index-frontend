@@ -53,14 +53,6 @@ export default fundSlice.reducer;
 
 
 
-
-
-
-
-
-
-
-
 // const DELETEFUND: string = 'UPDATEFUND';
 // const UPDATEFUND: string = 'UPDATEFUND';
 // const CREATEFUND: string = 'CREATEFUND';
