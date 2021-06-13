@@ -4,7 +4,7 @@ import { Button, Form, Input, Modal } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import { enquireScreen } from 'enquire-js';
 
-import { clearErrMsgAction, logIn, loginFailAction } from '../../state/ducks/user/UserDuck';
+import {clearErrMsgAction, logIn, loginFailAction, signUp} from '../../state/ducks/user/UserDuck';
 import { RootState } from '../../state/store';
 import Landing0 from './Landing0';
 import Landing1 from './Landing1';
@@ -20,9 +20,11 @@ import './Landing.scss';
  */
 const Landing = () => {
     const dispatch = useDispatch();
-    const [form] = useForm();
-    const [modalVisible, setModalVisible] = useState(false);
-    const { errMsg, loginLoading, jwtAxiosId } = useSelector(
+    const [loginForm] = useForm();
+    const [signUpForm] = useForm();
+    const [loginModalVisible, setLoginModalVisible] = useState(false);
+    const [signUpModalVisible, setSignUpModalVisible] = useState(false);
+    const { errMsg, loginLoading, signUpLoading, jwtAxiosId } = useSelector(
         (state: RootState) => state.userState
     );
 
@@ -32,13 +34,18 @@ const Landing = () => {
         isMobile = mobile;
     });
 
-    function showModal() {
+    function showLoginModal() {
         dispatch(clearErrMsgAction());
-        setModalVisible(true);
+        setLoginModalVisible(true);
+    }
+
+    function showSignUpModal() {
+        dispatch(clearErrMsgAction());
+        setSignUpModalVisible(true);
     }
 
     function handleLoginSubmit() {
-        form
+        loginForm
             .validateFields()
             .then(values => {
                 dispatch(logIn(values.email, values.password, jwtAxiosId));
@@ -48,9 +55,26 @@ const Landing = () => {
             });
     }
 
-    function handleCancel() {
-        setModalVisible(false);
-        form.resetFields();
+    function handleSignUpSubmit() {
+        signUpForm
+            .validateFields()
+            .then(values => {
+                dispatch(signUp(values.email, values.password, values.name, jwtAxiosId));
+            })
+            .catch(info => {
+                console.log('Validate Failed:', info);
+            });
+    }
+
+    function handleCancelLogin() {
+        setLoginModalVisible(false);
+        loginForm.resetFields();
+        dispatch(loginFailAction(""));
+    }
+
+    function handleCancelSignUp() {
+        setSignUpModalVisible(false);
+        signUpForm.resetFields();
         dispatch(loginFailAction(""));
     }
     
@@ -58,26 +82,29 @@ const Landing = () => {
         <>
             <Nav
                 isMobile={isMobile}
+                onClickLogin={showLoginModal}
+                onClickSignUp={showSignUpModal}
             />
-            <Landing0 showModal={showModal} />
+            <Landing0 showModal={showSignUpModal} />
             <Landing1 />
             <Landing2 />
             <Landing3 />
 
 
             <Modal style={{textAlign: "center"}}
-                   title="Log in"
-                   visible={modalVisible}
+                   title="Log In"
+                   visible={loginModalVisible}
                    onOk={handleLoginSubmit}
                    okText="Log in"
                    confirmLoading={loginLoading === 'pending'}
-                   onCancel={handleCancel}
+                   onCancel={handleCancelLogin}
                    footer={null}
             >
                 {errMsg && <div style={{color: "red"}}>{errMsg}</div>}
                 <Form
+                    requiredMark={false}
                     layout="vertical"
-                    form={form}
+                    form={loginForm}
                     name="basic"
                 >
                     <Form.Item
@@ -105,12 +132,72 @@ const Landing = () => {
                     >
                         <Input.Password placeholder="password" />
                     </Form.Item>
-                    <Button onClick={handleLoginSubmit} type="primary" htmlType="submit" style={{width: "100%"}}>
+                    <Button loading={loginLoading === 'pending'} onClick={handleLoginSubmit} type="primary" htmlType="submit" style={{width: "100%"}}>
                         Log in
                     </Button>
                 </Form>
             </Modal>
             {/* <Landing1 /> */}
+
+            <Modal style={{textAlign: "center"}}
+                   title="Sign Up"
+                   visible={signUpModalVisible}
+                   onOk={handleSignUpSubmit}
+                   okText="Sign Up"
+                   confirmLoading={signUpLoading === 'pending'}
+                   onCancel={handleCancelSignUp}
+                   footer={null}
+            >
+                {errMsg && <div style={{color: "red"}}>{errMsg}</div>}
+                <Form
+                    requiredMark={false}
+                    layout="vertical"
+                    form={signUpForm}
+                    name="basic"
+                >
+                    <Form.Item
+                        label="Email"
+                        name="email"
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please enter your email address."
+                            }
+                        ]}
+                    >
+                        <Input placeholder="satoshi@ergo-index.fund" />
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Password"
+                        name="password"
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please enter your password"
+                            }
+                        ]}
+                    >
+                        <Input.Password placeholder="password" />
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Name"
+                        name="name"
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please enter your name"
+                            }
+                        ]}
+                    >
+                        <Input placeholder="Satoshi Nakamoto" />
+                    </Form.Item>
+                    <Button onClick={handleSignUpSubmit} type="primary" htmlType="submit" style={{width: "100%"}}>
+                        Sign Up
+                    </Button>
+                </Form>
+            </Modal>
         </>
     );
 };

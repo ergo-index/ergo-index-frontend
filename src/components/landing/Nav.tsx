@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Menu } from 'antd';
 import TweenOne from 'rc-tween-one';
 
 import './Nav.scss';
@@ -6,109 +7,13 @@ import './Nav.scss';
 /**
  * Nav bar on the landing page for unauthenticated users.
  */
-const Nav00DataSource = {
-    page: { className: 'home-page' },
-    logo: {
-        className: 'header0-logo',
-        children: 'https://os.alipayobjects.com/rmsportal/mlcYmsRilwraoAe.svg',
-    },
-    Menu: {
-        className: 'header0-menu',
-        children: [
-            {
-                name: 'item0',
-                className: 'header0-item',
-                children: {
-                    href: '#',
-                    children: [{ children: '导航一', name: 'text' }],
-                },
-                subItem: [
-                    {
-                        name: 'sub0',
-                        className: 'item-sub',
-                        children: {
-                            className: 'item-sub-item',
-                            children: [
-                                {
-                                    name: 'image0',
-                                    className: 'item-image',
-                                    children:
-                                        'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                                },
-                                {
-                                    name: 'title',
-                                    className: 'item-title',
-                                    children: 'Ant Design',
-                                },
-                                {
-                                    name: 'content',
-                                    className: 'item-content',
-                                    children: '企业级 UI 设计体系',
-                                },
-                            ],
-                        },
-                    },
-                    {
-                        name: 'sub1',
-                        className: 'item-sub',
-                        children: {
-                            className: 'item-sub-item',
-                            children: [
-                                {
-                                    name: 'image0',
-                                    className: 'item-image',
-                                    children:
-                                        'https://gw.alipayobjects.com/zos/rmsportal/ruHbkzzMKShUpDYMEmHM.svg',
-                                },
-                                {
-                                    name: 'title',
-                                    className: 'item-title',
-                                    children: 'Ant Design',
-                                },
-                                {
-                                    name: 'content',
-                                    className: 'item-content',
-                                    children: '企业级 UI 设计体系',
-                                },
-                            ],
-                        },
-                    },
-                ],
-            },
-            {
-                name: 'item1',
-                className: 'header0-item',
-                children: {
-                    href: '#',
-                    children: [{ children: '导航二', name: 'text' }],
-                },
-            },
-            {
-                name: 'item2',
-                className: 'header0-item',
-                children: {
-                    href: '#',
-                    children: [{ children: '导航三', name: 'text' }],
-                },
-            },
-            {
-                name: 'item3',
-                className: 'header0-item',
-                children: {
-                    href: '#',
-                    children: [{ children: '导航四', name: 'text' }],
-                },
-            },
-        ],
-    },
-    mobileMenu: { className: 'header0-mobile-menu' },
-};
 interface NavProps {
     isMobile: boolean
+    onClickLogin: () => void
+    onClickSignUp: () => void
 }
-const Nav = ({ isMobile }: NavProps) => {
+const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
     const [phoneOpen, setPhoneOpen] = useState(false);
-    const dataSource = Nav00DataSource;
 
     return (
         <TweenOne
@@ -117,18 +22,17 @@ const Nav = ({ isMobile }: NavProps) => {
             className="header0 home-page-wrapper"
         >
             <div
-                {...dataSource.page}
-                className={`${dataSource.page.className}${phoneOpen ? ' open' : ''}`}
+                className={`home-page${phoneOpen ? ' open' : ''}`}
             >
                 <TweenOne
                     animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
-                    {...dataSource.logo}
+                    className="header0-logo"
                 >
-                    <img width="100%" src={dataSource.logo.children} alt="img" />
+                    <img height="90%" width="90%" src="/ergo-index.fund_large.png" alt="logo" />
                 </TweenOne>
                 {isMobile && (
                     <div
-                        {...dataSource.mobileMenu}
+                        className="header0-mobile-menu"
                         onClick={() => {
                             setPhoneOpen(prevPhoneOpen => !prevPhoneOpen)
                         }}
@@ -138,6 +42,50 @@ const Nav = ({ isMobile }: NavProps) => {
                         <em />
                     </div>
                 )}
+                <TweenOne
+                    className="header0-menu"
+                    animation={
+                        isMobile
+                            ? {
+                                height: 0,
+                                duration: 300,
+                                onComplete: (e) => {
+                                    if (phoneOpen) {
+                                        e.target.style.height = 'auto';
+                                    }
+                                },
+                                ease: 'easeInOutQuad',
+                            }
+                            : {}
+                    }
+                    moment={phoneOpen ? 300 : 0}
+                    reverse={phoneOpen}
+                >
+                    <Menu
+                        mode={isMobile ? 'inline' : 'horizontal'}
+                        theme="dark"
+                        selectedKeys={[""]}
+                    >
+                        <Menu.Item className="header0-item" onClick={onClickLogin}>
+                            <div className="header0-item-block">
+                                <div>
+                                    <span>
+                                        Log in
+                                    </span>
+                                </div>
+                            </div>
+                        </Menu.Item>
+                        <Menu.Item className="header0-item" onClick={onClickSignUp}>
+                            <div className="header0-item-block">
+                                <div>
+                                    <span>
+                                        Sign up
+                                    </span>
+                                </div>
+                            </div>
+                        </Menu.Item>
+                    </Menu>
+                </TweenOne>
             </div>
         </TweenOne>
     );
