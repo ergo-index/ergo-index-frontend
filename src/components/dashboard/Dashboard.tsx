@@ -17,7 +17,7 @@ const Dashboard = () => {
 
                 <br /><br /><br />
 
-                <Portfolio />
+
             </div>
         </div>
     );
