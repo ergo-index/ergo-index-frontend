@@ -2,6 +2,8 @@ import React from 'react';
 import { Col, Row } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
+import { PlusOutlined, DollarCircleOutlined, MinusOutlined, UserAddOutlined, UserDeleteOutlined, LoadingOutlined } from '@ant-design/icons';
+
 
 import './Landing1.scss';
 
@@ -14,181 +16,247 @@ const Landing3 = () => {
         <div className="home-page-wrapper content0-wrapper">
             <div className="home-page content0">
                 <div className="title-wrapper">
-                    <h1 style={{fontSize:"40px"}}>Technical Overview -- Protocol</h1>
+                    <h1 style={{ fontSize: "30px" }}>Technical Overview -- Protocol</h1>
                     <img src="/Flowchart.png" alt="icon2" />
                     <br /><br /><br />
                     <h1>Technical Overview -- Transaction Types</h1>
 
 
                 </div>
-            
-               
-                    <QueueAnim
-                        type="bottom"
-                        key="block"
-                        className="content0-block-wrapper"
-                        leaveReverse
-                        component={Row}
+
+
+                <QueueAnim
+                    type="bottom"
+                    key="block"
+                    className="content0-block-wrapper"
+                    leaveReverse
+                    component={Row}
+                >
+
+                    <Col
+                        className="content0-block"
+                        md={12}
+                        xs={24}
                     >
-
-                        <Col
-                            className="content0-block"
-                            md={12}
-                            xs={24}
-                        >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
-                                    <img src="https://zos.alipayobjects.com/rmsportal/YPMsLQuCEXtuEkmXTTdk.png" alt="icon2" />
-                                </div>
-                                <br />
-                                <h2>Investors</h2>
-                                <div>
-                                    <ol className="list">
-                                        <li>Sign up to find a fund that matches your desired
-                                            <ul>
-                                                <li>Asset size</li>
-                                                <li>Historical returns</li>
-                                                <li>Portfolio</li>
-                                                <li>Manager background + credentials</li>
-
-                                            </ul>
-                                        </li>
-                                        <li>Connect Your wallet and invest!</li>
-                                        <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent <br />to the Ergo blockchain network. No worries if you miss these - They're an added security measure</li>
-                                    </ol>
-
-                                </div>
+                        <div className="content0-block-item">
+                            <div className="content0-block-icon">
+                                <PlusOutlined style={{ fontSize: '80px', color: '#08c' }} />
                             </div>
-                        </Col>
-                        <Col
-                            className="content0-block"
-                            md={12}
-                            xs={24}
-                        >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
-                                    <img src="https://zos.alipayobjects.com/rmsportal/EkXWVvAaFJKCzhMmQYiX.png" alt="icon3" />
-                                </div>
-                                <br />
-                                <h2>Managers</h2>
-                                <div>
-                                    <ol className="list">
-                                        <li>Sign up to create a portfolio with your desired fees and target buy/sell prices for each asset in your portfolio</li>
-                                        <li>Connect Your wallet to send your portfolio to the Ergo blockchain</li>
-                                        <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent <br />to the Ergo blockchain network. No worries if you miss these - They're an added security measure</li>
 
-                                    </ol>
+                            <h2>Create Fund Tx</h2>
+                            <div>
+                                <ul className="list">
+                                    <li>
+                                        Create Fund Tx: initializes the fund. Only happens once for each fund
+                                        <ul>
+                                            <li>
+                                                INPUTS(0)-INPUTS(N): Any number of UTXOs guarded by the fund creator's public key
+                                            </li>
+                                            <li>
+                                                OUTPUTS(0): The core state UTXO with portfolio configuration <br />information populated in its registers, as
+                                                well as an initial investment for the fund
+                                            </li>
+                                            <li>
+                                                OUTPUTS(1)-OUTPUTS(N): Any change UTXOs for the fund owner
+                                            </li>
+                                        </ul>
+                                        <br />
+                                    </li>
+                                </ul>
 
-                                </div>
                             </div>
-                        </Col>
-                        <Col
-                            className="content0-block"
-                            md={12}
-                            xs={24}
-                        >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
-                                    <img src="https://zos.alipayobjects.com/rmsportal/YPMsLQuCEXtuEkmXTTdk.png" alt="icon2" />
-                                </div>
-                                <br />
-                                <h2>Transaction 1</h2>
-                                <div>
-                                    <ol className="list">
-                                        <li>Sign up to find a fund that matches your desired
-                                            <ul>
-                                                <li>Asset size</li>
-                                                <li>Historical returns</li>
-                                                <li>Portfolio</li>
-                                                <li>Manager background + credentials</li>
-
-                                            </ul>
-                                        </li>
-                                        <li>Connect Your wallet and invest!</li>
-                                        <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent <br />to the Ergo blockchain network. No worries if you miss these - They're an added security measure</li>
-                                    </ol>
-
-                                </div>
+                        </div>
+                    </Col>
+                    <Col
+                        className="content0-block"
+                        md={12}
+                        xs={24}
+                    >
+                        <div className="content0-block-item">
+                            <div className="content0-block-icon">
+                                <DollarCircleOutlined style={{ fontSize: '80px', color: '#08c' }} />
                             </div>
-                        </Col>
-                        <Col
-                            className="content0-block"
-                            md={12}
-                            xs={24}
-                        >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
-                                    <img src="https://zos.alipayobjects.com/rmsportal/EkXWVvAaFJKCzhMmQYiX.png" alt="icon3" />
-                                </div>
-                                <br />
-                                <h2>Transaction 2</h2>
-                                <div>
-                                    <ol className="list">
-                                        <li>Sign up to create a portfolio with your desired fees and target buy/sell prices for each asset in your portfolio</li>
-                                        <li>Connect Your wallet to send your portfolio to the Ergo blockchain</li>
-                                        <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent <br />to the Ergo blockchain network. No worries if you miss these - They're an added security measure</li>
 
-                                    </ol>
+                            <h2>Buy Token Tx</h2>
+                            <div>
+                                <ul className="list">
+                                    <li>
+                                        Buy Token Tx: creates a UTXO that can be used on the Ergo DEX to purchase an NFT or token. This
+                                        will hopefully <br />be able to work with other blockchains in the future to provide native assets in addition
+                                        to wrapped <br />assets (possibly by using THORchain, Gravity, and/or IBC protocol).
+                                        <ul>
+                                            <li>
+                                                INPUTS(0): The core state UTXO
+                                            </li>
+                                            <li>
+                                                OUTPUTS(0): The core state UTXO with an updated R5 to reflect which investors' Ergs were <br />
+                                                used, as well as an updated R7 to track the token's UTXO(s) that are owned by the fund
+                                            </li>
+                                            <li>
+                                                OUTPUTS(1)-OUTPUTS(N): Any number of UTXOs representing tokens which have a guard allowing them <br />
+                                                to be spent on the Ergo DEX, provided that the resulting UTXOs from any Ergo DEX transaction will <br />
+                                                remain guarded by the script which allows the core state to spend them
+                                            </li>
+                                        </ul>
+                                        <br />
+                                    </li>
 
-                                </div>
+                                </ul>
+
                             </div>
-                        </Col>
-                        <Col
-                            className="content0-block"
-                            md={12}
-                            xs={24}
-                        >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
-                                    <img src="https://zos.alipayobjects.com/rmsportal/YPMsLQuCEXtuEkmXTTdk.png" alt="icon2" />
-                                </div>
-                                <br />
-                                <h2>Investors</h2>
-                                <div>
-                                    <ol className="list">
-                                        <li>Sign up to find a fund that matches your desired
-                                            <ul>
-                                                <li>Asset size</li>
-                                                <li>Historical returns</li>
-                                                <li>Portfolio</li>
-                                                <li>Manager background + credentials</li>
-
-                                            </ul>
-                                        </li>
-                                        <li>Connect Your wallet and invest!</li>
-                                        <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent <br />to the Ergo blockchain network. No worries if you miss these - They're an added security measure</li>
-                                    </ol>
-
-                                </div>
+                        </div>
+                    </Col>
+                    <Col
+                        className="content0-block"
+                        md={12}
+                        xs={24}
+                    >
+                        <div className="content0-block-item">
+                            <div className="content0-block-icon">
+                                <MinusOutlined style={{ fontSize: '80px', color: '#08c' }} />
                             </div>
-                        </Col>
-                        <Col
-                            className="content0-block"
-                            md={12}
-                            xs={24}
-                        >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
-                                    <img src="https://zos.alipayobjects.com/rmsportal/EkXWVvAaFJKCzhMmQYiX.png" alt="icon3" />
-                                </div>
-                                <br />
-                                <h2>Managers</h2>
-                                <div>
-                                    <ol className="list">
-                                        <li>Sign up to create a portfolio with your desired fees and target buy/sell prices for each asset in your portfolio</li>
-                                        <li>Connect Your wallet to send your portfolio to the Ergo blockchain</li>
-                                        <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent <br />to the Ergo blockchain network. No worries if you miss these - They're an added security measure</li>
 
-                                    </ol>
+                            <h2>Sell Token Tx</h2>
+                            <div>
+                                <ul className="list">
+                                    <li>
+                                        Sell Token Tx: Sells a token that is tracked in the core state's R7 and creates a new UTXO that is<br />
+                                        spendable by the fund (i.e., the core state UTXO)
+                                        <ul>
+                                            <li>
+                                                INPUTS(0): The core state UTXO
+                                            </li>
+                                            <li>
+                                                INPUTS(1): The UTXO of a token that the fund owns (and is consequentially stored in R7)
+                                            </li>
+                                            <li>
+                                                OUTPUTS(0): The core state UTXO with an updated R5 to reflect which investors' Ergs were<br />
+                                                moved back into the core state UTXO, as well as an updated R7 to reflect the fact that one less UTXO<br />
+                                                is now spendable by the fund.
+                                            </li>
+                                        </ul>
+                                        <br />
+                                    </li>
+                                </ul>
 
-                                </div>
                             </div>
-                        </Col>
-                    </QueueAnim>
- 
+                        </div>
+                    </Col>
+                    <Col
+                        className="content0-block"
+                        md={12}
+                        xs={24}
+                    >
+                        <div className="content0-block-item">
+                            <div className="content0-block-icon">
+                                <UserAddOutlined style={{ fontSize: '80px', color: '#08c' }} />
+                            </div>
+
+                            <h2>Investor Join Tx</h2>
+                            <div>
+                                <ul className="list">
+                                    <li>
+                                             Investor Joins Tx: Accepts a new investor into the fund, increasing the pool of UTXOs spendable<br />
+                                             by the core state UTXO
+                                             <ul>
+                                                   <li>
+                                                         INPUTS(0): The core state UTXO
+                                                       </li>
+                                                   <li>
+                                                         INPUTS(1)-INPUTS(N): Any number of UTXOs belonging to the new investor
+                                                       </li>
+                                                   <li>
+                                                         OUTPUTS(0): The core state UTXO with an updated R5 to reflect the new investor's shares.
+                                                       </li>
+                                                   <li>
+                                                         OUTPUTS(1)-OUTPUTS(N): Any change UTXOs for the new investor
+                                                       </li>
+                                                 </ul>
+                                             <br />
+                                           </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </Col>
+                    <Col
+                        className="content0-block"
+                        md={12}
+                        xs={24}
+                    >
+                        <div className="content0-block-item">
+                            <div className="content0-block-icon">
+                                <UserDeleteOutlined style={{ fontSize: '80px', color: '#08c' }} />
+                            </div>
+
+                            <h2>Investor Liquidate Tx</h2>
+                            <div>
+                                <ul className="list">
+                                    <li>
+                                             Investor Liquidates Tx: Returns funds to an investor (up to the full value of his/her shares),<br />
+                                             spending some of the fund's invested tokens if necessary
+                                             <ul>
+                                                   <li>
+                                                         INPUTS(0): The core state UTXO
+                                                       </li>
+                                                   <li>
+                                                         INPUTS(1)-INPUTS(N): The UTXOs of tokens that the fund owns (and are consequentially stored in R7).<br />
+                                                         R7 must show that each token is at least partially owned by the investor.
+                                                       </li>
+                                                   <li>
+                                                         OUTPUTS(0): The core state UTXO with updated R5 and R7 to reflect the investor's updated shares, as well<br />
+                                                         as the fund's new amount of tokens if the Tx needed to spend some. If the investor was only partially<br />
+                                                         in some of the tokens, then the change will go back into the fund to be invested in more tokens in<br />
+                                                         a future Buy Token Tx, and R5 will reflect this
+                                                       </li>
+                                                   <li>
+                                                         OUTPUTS(1): A UTXO with the value that the investor liquidated
+                                                       </li>
+                                                 </ul>
+                                             <br />
+                                           </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </Col>
+                    <Col
+                        className="content0-block"
+                        md={12}
+                        xs={24}
+                    >
+                        <div className="content0-block-item">
+                            <div className="content0-block-icon">
+                                <LoadingOutlined style={{ fontSize: '80px', color: '#08c' }} />
+                            </div>
+
+                            <h2>Update Fund Tx</h2>
+                            <div>
+                                <ul className="list">
+                                       <li>
+                                             Update Portfolio Tx: Allows the manager to rebalance the fund's portfolio
+                                             <ul>
+                                                   <li>
+                                                         INPUTS(0): The core state UTXO
+                                                       </li>
+                                                   <li>
+                                                         OUTPUTS(0): The core state UTXO with updated R6. No other registers are allowed to be updated
+                                                       </li>
+                                                 </ul>
+                                             <br />
+                                           </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </Col>
+                </QueueAnim>
+
             </div>
         </div>
-        
+
     );
 };
 
