@@ -4,6 +4,10 @@ import { PlusOutlined } from '@ant-design/icons';
 
 import { TokenType } from './models';
 import InputRow from './InputRow';
+import { useSelector, useDispatch } from 'react-redux'
+import { createFund } from '../../state/ducks/funds/Funds'
+
+
 import './Portfolio.scss';
 
 /**
@@ -18,7 +22,10 @@ export const Portfolio = () => {
         sellTarget: string
     }
 
-    const [rows, setRows] = useState([{} as InputRowType]);
+    const [rows, setRows] = useState([{token:"testToken1"} as InputRowType]);
+    const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
+    const dispatch = useDispatch()
+
 
     /**
      * Updates the given key/value pair at the given row index.
@@ -38,7 +45,7 @@ export const Portfolio = () => {
      * Adds a new (empty) row to the portfolio editor.
      */
     const addRow = () => {
-        setRows(prevRows => ([...prevRows, {} as InputRowType]))
+        setRows(prevRows => ([...prevRows, {token:"testToken1"} as InputRowType]))
     }
 
     /**
@@ -47,7 +54,7 @@ export const Portfolio = () => {
      */
     const removeRow = (row: number) => {
         if (row === 0) {
-            setRows(prevRows => (prevRows.length > 1 ? [...prevRows.slice(1)] : [{} as InputRowType]))
+            setRows(prevRows => (prevRows.length > 1 ? [...prevRows.slice(1)] : [{token:"testToken1"} as InputRowType]))
         } else if (row === rows.length - 1) {
             setRows(prevRows => ([...prevRows.slice(0, row)]))
         } else {
@@ -56,7 +63,8 @@ export const Portfolio = () => {
     }
 
     const onClickSave = () => {
-        alert("Saving data (no backend connected yet)");
+        // props.createPortfolio({"id":fundName, "fund": [...rows]})
+
     }
 
     return (

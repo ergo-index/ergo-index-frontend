@@ -4,6 +4,7 @@
  */
 export interface Fund {
     ownerEmail: string
+    id: string
     portfolio: Portfolio
 }
 
@@ -15,6 +16,7 @@ export interface Fund {
 export interface Portfolio {
     tokens: TokenInfo[]
 }
+
 
 /**
  * Investment information about when to buy/sell a token in a portfolio.
