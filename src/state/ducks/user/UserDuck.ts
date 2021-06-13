@@ -5,7 +5,7 @@ import { message } from 'antd';
 import { AppThunk } from '../../store';
 import {
   apiLoadProfile,
-  apiLogInUser,
+  apiLogInUser, apiSignUpUser,
   setupJwtInterceptor,
   teardownJwtInterceptor,
   UserModel
@@ -14,6 +14,7 @@ import {
 interface UserState {
   profile: UserModel | null
   loginLoading: 'idle' | 'pending'
+  signUpLoading: 'idle' | 'pending'
   profileLoading: 'idle' | 'pending'
   errMsg: string
   isAuthenticated: boolean | null
@@ -24,6 +25,7 @@ interface UserState {
 const initialState: UserState = {
   profile: null,
   loginLoading: 'idle',
+  signUpLoading: 'idle',
   profileLoading: 'idle',
   errMsg: '',
   isAuthenticated: null,
@@ -50,6 +52,19 @@ const userSlice = createSlice({
       state.errMsg = action.payload
       state.isAuthenticated = false
       state.loginLoading = 'idle'
+    },
+    signUpStartAction(state) {
+      if (state.signUpLoading === 'idle') state.signUpLoading = 'pending';
+    },
+    signUpSuccessAction(state) {
+      state.errMsg = '';
+      state.isAuthenticated = true;
+      state.signUpLoading = 'idle';
+    },
+    signUpFailAction(state, action: PayloadAction<string>) {
+      state.errMsg = action.payload
+      state.isAuthenticated = false
+      state.signUpLoading = 'idle'
     },
     logoutAction(state) {
       state.isAuthenticated = false;
@@ -85,6 +100,9 @@ export const {
   loginStartAction,
   loginSuccessAction,
   loginFailAction,
+  signUpStartAction,
+  signUpSuccessAction,
+  signUpFailAction,
   logoutAction,
   loadProfileStartAction,
   loadProfileSuccessAction,
@@ -106,7 +124,7 @@ export default userSlice.reducer;
  * 5. if unsuccessful, setting an error message
  * @param email the email address of the user to login
  * @param password the password associated with the given email address
- * @param jwtAxiosId the ID of the axios interceptor, or null if it's not setup
+ * @param jwtAxiosId the ID of the axios interceptor, or null if it's not setup (it should be null when logging in)
  */
 export const logIn = (
   email: string,
@@ -135,6 +153,30 @@ export const logIn = (
       console.log("Error.config", error.config);
     })
 };
+
+/**
+ * Attempts to create a new user with the given information, updating the signUpLoading state during the process.
+ * @param email the (unique) email address of the new user
+ * @param name the name of the new user
+ * @param password the password of the new user
+ * @param jwtAxiosId the ID of the axios interceptor, or null if it's not setup (it should be null when signing up)
+ */
+export const signUp = (
+    email: string,
+    password: string,
+    name: string,
+    jwtAxiosId: number | null
+): AppThunk => async dispatch => {
+  dispatch(signUpStartAction());
+  apiSignUpUser(email, password, name)
+      .then(_ => {
+        dispatch(signUpSuccessAction())
+        dispatch(logIn(email, password, jwtAxiosId))
+      }).catch(_ => {
+        // TODO: Use the actual response instead of just pretending the error is from a duplicate email
+        dispatch(signUpFailAction("Unable to create an account with that email address because it already exists in the system."));
+  })
+}
 
 export const setJwt = (
     jwt: string | null,
@@ -178,8 +220,6 @@ export const logOut = (
 export const checkAuthentication = (
     jwtAxiosId: number | null
 ): AppThunk => async dispatch => {
-  // TODO: Remove next line once backend is running. This is just a workaround to bypass logging in
-  dispatch(loginSuccessAction());
   const cookies = document.cookie.split(';');
   for (const cookie of cookies) {
     if (cookie.split("=")[0] === "ERGO_INDEX_FUND" && cookie.split("=")[1]) {

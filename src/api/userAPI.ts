@@ -31,6 +31,28 @@ export const teardownJwtInterceptor = (id: number) => {
 };
 
 /**
+ * Attempts to create a new user with the given information.
+ * @param email the (unique) email address of the new user
+ * @param password the password of the new user
+ * @param name the name of the new user
+ */
+export async function apiSignUpUser(
+    email: string,
+    password: string,
+    name: string
+) {
+    const url = `${apiBase}/user/new/`
+
+    const bodyFormData = new FormData();
+    bodyFormData.append("email_address", email);
+    bodyFormData.append("password", password);
+    bodyFormData.append("name", name);
+    return await axios.post(url, bodyFormData, {
+        headers: { "Content-Type": "multipart/form-data" }
+    })
+}
+
+/**
  * Authenticates the user, receiving back an access token and refresh token.
  * If successful, all future API calls will have the access token inserted
  * in the Authorization header.
