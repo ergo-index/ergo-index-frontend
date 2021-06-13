@@ -2,10 +2,10 @@
 /**
  * An index or mutual fund that users can pool their money into.
  */
-export interface Fund {
+export interface FundModel {
     ownerEmail: string
     id: string
-    portfolio: Portfolio
+    portfolio: PortfolioModel
 }
 
 /**
@@ -13,8 +13,8 @@ export interface Fund {
  * The goal of this is to eventually support cross-chain assets rather than just Ergo tokens.
  * The sum of all tokens' portfolioPercent variables must equal 100.
  */
-export interface Portfolio {
-    tokens: TokenInfo[]
+export interface PortfolioModel {
+    tokens: TokenInfoModel[]
 }
 
 
@@ -23,7 +23,7 @@ export interface Portfolio {
  * The amount purchased will be impacted by portfolioPercentage and by the size of the fund's pooled assets.
  * For example, a fund with 100 Ergs will purchase 10 Erg if portfolioPercent is set to 10.
  */
-export interface TokenInfo {
+export interface TokenInfoModel {
     token: TokenType;
     portfolioPercent: number // the percentage of the portfolio that will be invested in this token
     buyTarget: number // the price to purchase the token at

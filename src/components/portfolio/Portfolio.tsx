@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
-import { TokenType } from './models';
+import { TokenInfoModel, PortfolioModel , FundModel } from './models';
 import InputRow from './InputRow';
 import { useSelector, useDispatch } from 'react-redux'
-import { createFund } from '../../state/ducks/funds/Funds'
+import { createFund } from '../../state/ducks/funds/FundsDuck'
 
 
 import './Portfolio.scss';
@@ -15,14 +15,9 @@ import './Portfolio.scss';
  * about which tokens to buy/sell, when to buy/sell them, and how much to buy.
  */
 export const Portfolio = () => {
-    interface InputRowType {
-        token: TokenType
-        portfolioPercent: string
-        buyTarget: string
-        sellTarget: string
-    }
 
-    const [rows, setRows] = useState([{token:"testToken1"} as InputRowType]);
+
+    const [rows, setRows] = useState([{token:"testToken1"} as TokenInfoModel]);
     const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
     const dispatch = useDispatch()
 
@@ -45,7 +40,7 @@ export const Portfolio = () => {
      * Adds a new (empty) row to the portfolio editor.
      */
     const addRow = () => {
-        setRows(prevRows => ([...prevRows, {token:"testToken1"} as InputRowType]))
+        setRows(prevRows => ([...prevRows, {token:"testToken1"} as TokenInfoModel]))
     }
 
     /**
@@ -54,7 +49,7 @@ export const Portfolio = () => {
      */
     const removeRow = (row: number) => {
         if (row === 0) {
-            setRows(prevRows => (prevRows.length > 1 ? [...prevRows.slice(1)] : [{token:"testToken1"} as InputRowType]))
+            setRows(prevRows => (prevRows.length > 1 ? [...prevRows.slice(1)] : [{token:"testToken1"} as TokenInfoModel]))
         } else if (row === rows.length - 1) {
             setRows(prevRows => ([...prevRows.slice(0, row)]))
         } else {
@@ -63,7 +58,8 @@ export const Portfolio = () => {
     }
 
     const onClickSave = () => {
-        // props.createPortfolio({"id":fundName, "fund": [...rows]})
+        // const newPortfolio: Portfolio = 
+        // dispatch(createFund({id:fundName, fund: {tokens: [...rows]}))
 
     }
 
