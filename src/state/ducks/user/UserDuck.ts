@@ -136,7 +136,7 @@ export const logIn = (
     .then(response => {
       dispatch(loginSuccessAction());
       dispatch(setJwt(response.data.access, jwtAxiosId));
-      dispatch(loadProfile(jwtAxiosId));
+      dispatch(loadProfile(email, jwtAxiosId));
     })
     .catch(error => {
       if (error.response && error.response.data && error.response.data.error) {
@@ -236,13 +236,15 @@ export const checkAuthentication = (
 
 /**
  * Loads the user's profile, including information about funds they're invested in.
+ * @param email the email address of the user to load the profile of
  * @param jwtAxiosId the ID of the axios interceptor, or null if it's not setup
  */
 export const loadProfile = (
+    email: string,
     jwtAxiosId: number | null
 ): AppThunk => async dispatch => {
   dispatch(loadProfileStartAction())
-  apiLoadProfile()
+  apiLoadProfile(email)
       .then(response => {
         dispatch(loadProfileSuccessAction(response.data))
       })

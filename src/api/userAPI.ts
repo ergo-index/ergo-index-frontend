@@ -19,7 +19,7 @@ export const setupJwtInterceptor = (token: string): number => {
             config.headers.authorization = token
             return config
         }
-    )
+    );
 };
 
 /**
@@ -27,7 +27,7 @@ export const setupJwtInterceptor = (token: string): number => {
  * @param id the id of the axios interceptor to remove
  */
 export const teardownJwtInterceptor = (id: number) => {
-    axios.interceptors.request.eject(id)
+    axios.interceptors.request.eject(id);
 };
 
 /**
@@ -49,7 +49,7 @@ export async function apiSignUpUser(
     bodyFormData.append("name", name);
     return await axios.post(url, bodyFormData, {
         headers: { "Content-Type": "multipart/form-data" }
-    })
+    });
 }
 
 /**
@@ -60,19 +60,22 @@ export async function apiSignUpUser(
  * @param password the password of the user being authenticated
  */
 export async function apiLogInUser(email: string, password: string) {
-    const url = `${apiBase}/token/new`
+    const url = `${apiBase}/token/new`;
 
     return await axios.post<{ refresh: string, access: string }>(url, {
         username: email,
         password
-    })
+    });
 }
 
 /**
  * Loads profile information for an authenticated user.
+ * @param email the email address of the user to load the profile of
  */
-export async function apiLoadProfile() {
-    const url = `${apiBase}/user/profile`
+export async function apiLoadProfile(email: string) {
+    const url = `${apiBase}/user/profile/`;
 
-    return await axios.get<UserModel>(url)
+    const bodyFormData = new FormData();
+    bodyFormData.append("email_address", email);
+    return await axios.post<UserModel>(url, bodyFormData);
 }

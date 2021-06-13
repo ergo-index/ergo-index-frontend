@@ -13,21 +13,20 @@ import Landing from '../components/landing/Landing';
 
 const Pages = () => {
     const dispatch = useDispatch()
-    const { loginLoading, isAuthenticated } = useSelector(
+    const { loginLoading, isAuthenticated, jwtAxiosId, profile } = useSelector(
         (state: RootState) => state.userState
     )
 
     // Load the user's profile every 5 seconds.
     // If the server says the JWT is invalid, then this will automatically sign the user out
-    // TODO: Uncomment once the backend logic is handled
-    /*useEffect(() => {
+    useEffect(() => {
         const timer = setInterval(() => {
             if (loginLoading === 'idle' && isAuthenticated) {
-                dispatch(loadProfile())
+                dispatch(loadProfile(profile ? profile.email : 'admin@email.com', jwtAxiosId))
             }
         }, 5000);
         return () => clearTimeout(timer);
-    })*/
+    })
 
     return (
         <Switch>
