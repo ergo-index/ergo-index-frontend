@@ -25,8 +25,8 @@ export interface PortfolioModel {
  */
 export interface TokenInfoModel {
     token: TokenType;
-    portfolioPercent: number // the percentage of the portfolio that will be invested in this token
-    buyTarget: number // the price to purchase the token at
-    sellTarget: number // the price to sell the token at
+    portfolioPercent: string // the percentage of the portfolio that will be invested in this token
+    buyTarget: string // the price to purchase the token at
+    sellTarget: string // the price to sell the token at
 }
 export type TokenType = 'testToken1' | 'testToken2' | 'testToken3' | 'testToken4' | 'testToken5';

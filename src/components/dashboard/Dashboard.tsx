@@ -17,7 +17,6 @@ const Dashboard = () => {
 
                 <br /><br /><br />
 
-                <PortfolioHeaders />
                 <Portfolio />
             </div>
         </div>

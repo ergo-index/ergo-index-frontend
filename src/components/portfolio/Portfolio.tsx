@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Button } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
-import { TokenInfoModel, PortfolioModel , FundModel } from './models';
+import { TokenInfoModel, PortfolioModel, FundModel } from './models';
 import InputRow from './InputRow';
 import { useSelector, useDispatch } from 'react-redux'
 import { createFund } from '../../state/ducks/funds/FundsDuck'
+import { Button, Input } from 'antd';
+import PortfolioHeaders from './PortfolioHeaders';
+
 
 
 import './Portfolio.scss';
@@ -17,9 +19,14 @@ import './Portfolio.scss';
 export const Portfolio = () => {
 
 
-    const [rows, setRows] = useState([{token:"testToken1"} as TokenInfoModel]);
+    const [rows, setRows] = useState([{ token: "testToken1" } as TokenInfoModel]);
     const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
     const dispatch = useDispatch()
+
+    const onUpdateName = (e: any) => {
+        setFundName(e.target.value);
+        
+      };
 
 
     /**
@@ -32,7 +39,7 @@ export const Portfolio = () => {
         setRows(prevRows => (
             [...prevRows.slice(0, row),
             { ...prevRows[row], [dataKey]: dataValue },
-            ...prevRows.slice(row + 1) ]
+            ...prevRows.slice(row + 1)]
         ));
     }
 
@@ -40,7 +47,7 @@ export const Portfolio = () => {
      * Adds a new (empty) row to the portfolio editor.
      */
     const addRow = () => {
-        setRows(prevRows => ([...prevRows, {token:"testToken1"} as TokenInfoModel]))
+        setRows(prevRows => ([...prevRows, { token: "testToken1" } as TokenInfoModel]))
     }
 
     /**
@@ -49,7 +56,7 @@ export const Portfolio = () => {
      */
     const removeRow = (row: number) => {
         if (row === 0) {
-            setRows(prevRows => (prevRows.length > 1 ? [...prevRows.slice(1)] : [{token:"testToken1"} as TokenInfoModel]))
+            setRows(prevRows => (prevRows.length > 1 ? [...prevRows.slice(1)] : [{ token: "testToken1" } as TokenInfoModel]))
         } else if (row === rows.length - 1) {
             setRows(prevRows => ([...prevRows.slice(0, row)]))
         } else {
@@ -58,13 +65,15 @@ export const Portfolio = () => {
     }
 
     const onClickSave = () => {
-        // const newPortfolio: Portfolio = 
-        // dispatch(createFund({id:fundName, fund: {tokens: [...rows]}))
-
+        dispatch(createFund({ id: fundName, ownerEmail: "hardcoded", portfolio: { tokens: [...rows] } }))
     }
 
     return (
+
         <>
+            Fund Name (acts as unique ID)
+            <Input value={fundName} onChange={onUpdateName} style={{ marginBottom: "20px" }} />
+            <PortfolioHeaders />
             {rows && rows.map((row, index) => (
                 <InputRow
                     key={index}
