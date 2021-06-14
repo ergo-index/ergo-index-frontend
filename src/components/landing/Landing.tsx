@@ -10,9 +10,8 @@ import Landing0 from './Landing0';
 import Landing1 from './Landing1';
 import Landing2 from './Landing2';
 import Landing3 from './Landing3';
-
-
 import Nav from './Nav';
+
 import './Landing.scss';
 
 /**

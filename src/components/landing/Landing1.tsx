@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row } from 'antd';
+import {Button, Col, Row} from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { ShareAltOutlined, CodeOutlined } from '@ant-design/icons';
@@ -12,8 +12,8 @@ import './Landing1.scss';
 
 const Landing1 = () => {
     return (
-        <div className="home-page-wrapper content0-wrapper">
-            <div className="home-page content0">
+        <div className="home-page-wrapper landing1-wrapper">
+            <div className="home-page landing1">
                 <div className="title-wrapper">
                     <h1>What is it?</h1>
                 </div>
@@ -21,20 +21,19 @@ const Landing1 = () => {
                     <QueueAnim
                         type="bottom"
                         key="block"
-                        className="content0-block-wrapper"
+                        className="landing1-block-wrapper"
                         leaveReverse
                         component={Row}
                     >
                         <Col
-                            className="content0-block"
+                            key="col1"
+                            className="landing1-block"
                             md={8}
                             xs={24}
                         >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
-                                    {/* <img src="https://zos.alipayobjects.com/rmsportal/WBnVOjtIlGWbzyQivuyq.png" alt="icon1" /> */}
+                            <div className="landing1-block-item">
+                                <div className="landing1-block-icon">
                                     <ShareAltOutlined style={{ fontSize: '80px', color: '#08c' }}/>
-
                                 </div>
                                 <div>
                                     <span>
@@ -45,14 +44,14 @@ const Landing1 = () => {
                             </div>
                         </Col>
                         <Col
-                            className="content0-block"
+                            key="col2"
+                            className="landing1-block"
                             md={8}
                             xs={24}
                         >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
+                            <div className="landing1-block-item">
+                                <div className="landing1-block-icon">
                                 <img src="https://zos.alipayobjects.com/rmsportal/EkXWVvAaFJKCzhMmQYiX.png" alt="icon3" />
-                                    {/* <img src="https://zos.alipayobjects.com/rmsportal/YPMsLQuCEXtuEkmXTTdk.png" alt="icon2" /> */}
                                 </div>
                                 <div>
                                     <span>
@@ -64,14 +63,14 @@ const Landing1 = () => {
                             </div>
                         </Col>
                         <Col
-                            className="content0-block"
+                            key="col3"
+                            className="landing1-block"
                             md={8}
                             xs={24}
                         >
-                            <div className="content0-block-item">
-                                <div className="content0-block-icon">
+                            <div className="landing1-block-item">
+                                <div className="landing1-block-icon">
                                     <CodeOutlined style={{ fontSize: '80px', color: '#08c' }} />
-
                                 </div>
                                 <div>
                                     <span>
@@ -82,7 +81,6 @@ const Landing1 = () => {
                         </Col>
                     </QueueAnim>
                 </OverPack>
-                
             </div>
         </div>
     );

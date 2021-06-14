@@ -1,67 +1,63 @@
-.content0-wrapper {
+.landing1-wrapper {
   text-align: center;
-              min-height: 446px;
-              overflow: hidden;
+  min-height: 446px;
+  overflow: hidden;
 
-              .content0 {
-              height: 100%;
-              padding: 64px 24px;
+    .landing1 {
+    height: 100%;
+    padding: 64px 24px;
 
-              > .title-wrapper {
-                margin: 0 auto 48px;
-              }
+    > .title-wrapper {
+      margin: 0 auto 48px;
+    }
 
-              &-block {
-                padding: 0 4%;
-                display: inline-block;
-                text-align: center;
-                min-height: 200px;
-                margin-bottom: 24px;
-                img {
-                  width: 100%;
-                }
+    &-block {
+      padding: 0 4%;
+      display: inline-block;
+      text-align: center;
+      min-height: 200px;
+      margin-bottom: 24px;
+      img {
+        width: 100%;
+      }
 
-                &-wrapper {
-                  position: relative;
-                  height: 100%;
-                  top: 25%;
-                  padding: 20px 0;
-                }
+      &-wrapper {
+        position: relative;
+        height: 100%;
+        top: 25%;
+        padding: 20px 0;
+      }
 
-                &.queue-anim-leaving {
-                  position: relative !important;
-                }
+      & .queue-anim-leaving {
+        position: relative !important;
+      }
 
-                &-icon {
-                  width: 100px;
-                  height: 100px;
-                  margin: auto;
-                }
+      &-icon {
+        width: 100px;
+        height: 100px;
+        margin: auto;
+      }
 
-                &-title {
-                  line-height: 32px;
-                  margin: 10px auto;
-                  font-size: 24px;
-                }
-              }
-            }
-            }
+      &-title {
+        line-height: 32px;
+        margin: 10px auto;
+        font-size: 24px;
+      }
+    }
+  }
+}
 
 @media screen and (max-width: 767px) {
-  .content0-wrapper {
-                min-height: 880px;
-              }
+  .landing1-wrapper {
+    min-height: 880px;
+  }
 }
 
 
-.list{
-  width: max-content;
+.list {
 
-  & li{
-    width: max-content;
+  & li {
     text-align: left;
     overflow-wrap: break-word;
-
-
   }
 }

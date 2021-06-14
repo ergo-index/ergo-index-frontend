@@ -15,10 +15,11 @@ const LoggedOutRoute = ({ component: Component, ...otherProps }: Props) => {
     );
 
     // Redirect to the dashboard if the user logs in
+    // TODO: Change back to /portfolio once the dashboard is complete
     if (isAuthenticated === true) {
         return (
             <>
-                <Redirect to="/dashboard" />
+                <Redirect to="/portfolio" />
             </>
         );
     }
