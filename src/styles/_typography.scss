@@ -1,0 +1,28 @@
+// placeholders
+%heading {
+    font-family: $font-heading;
+}
+
+.heading-1 {
+    @extend %heading;
+    color: $color-heading;
+    font-size: 28px;
+}
+
+// Placeholders
+.heading-2 {
+    @extend %heading;
+    color: $color-heading;
+    font-size: 21px;
+    // Add modifiers in future
+        // &--light { }
+        // &--dark { }
+}
+
+.heading-3 {
+    @extend %heading;
+}
+
+.heading-4 {
+    @extend %heading;
+}

@@ -3,6 +3,8 @@ import { Menu } from 'antd';
 import TweenOne from 'rc-tween-one';
 
 import './Nav.scss';
+import './Landing0.scss';
+
 
 /**
  * Nav bar on the landing page for unauthenticated users.

@@ -4,40 +4,39 @@ import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { TeamOutlined} from '@ant-design/icons';
 
-import './Landing1.scss';
+
 
 /**
- * Component 1 of the landing page for unauthenticated users.
+ * Component 2 of the landing page for unauthenticated users.
  */
 
 const Landing2 = () => {
     return (
-        <div className="home-page-wrapper landing1-wrapper">
-            <div className="home-page landing1">
+            <div className="landing">
                 <div className="title-wrapper">
-                    <h1>How it works</h1>
+                    <h1 className="heading-1">How it works</h1>
                 </div>
                 <OverPack playScale={0.3} >
                     <QueueAnim
                         type="bottom"
                         key="block"
-                        className="landing1-block-wrapper"
+                        className="landing-block-wrapper"
                         leaveReverse
                         component={Row}
                     >
 
                         <Col
                             key="col1"
-                            className="landing1-block"
+                            className="landing-block"
                             md={12}
                             xs={24}
                         >
-                            <div className="landing1-block-item">
-                                <div className="landing1-block-icon">
+                            <div className="landing-block-item">
+                                <div className="landing-block-icon">
                                     <img src="https://zos.alipayobjects.com/rmsportal/YPMsLQuCEXtuEkmXTTdk.png" alt="icon2" />
                                 </div>
                                 <br />
-                                <h2>Investors</h2>
+                                <h2 className="heading-2">Investors</h2>
                                 <div>
                                     <span>
                                         <ol className="list">
@@ -59,16 +58,16 @@ const Landing2 = () => {
                         </Col>
                         <Col
                             key="col2"
-                            className="landing1-block"
+                            className="landing-block"
                             md={12}
                             xs={24}
                         >
-                            <div className="landing1-block-item">
-                                <div className="landing1-block-icon">
+                            <div className="landing-block-item">
+                                <div className="landing-block-icon">
                                 <TeamOutlined style={{ fontSize: '80px', color: '#08c' }} />
                                 </div>
                                 <br />
-                                <h2>Managers</h2>
+                                <h2 className="heading-2">Managers</h2>
                                 <div>
                                     <span>
                                         <ol className="list">
@@ -84,7 +83,6 @@ const Landing2 = () => {
                     </QueueAnim>
                 </OverPack>
             </div>
-        </div>
         
     );
 };

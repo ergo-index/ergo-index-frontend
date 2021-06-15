@@ -9,7 +9,7 @@ import LoggedInRoute from './LoggedInRoute';
 import Dashboard from '../components/dashboard/Dashboard';
 import Portfolio from '../components/portfolio/Portfolio';
 import NotFound from '../components/notFound/NotFound';
-import Landing from '../components/landing/Landing';
+import Landing from '../components/landing/LandingMain';
 
 const Pages = () => {
     const dispatch = useDispatch()

@@ -5,45 +5,40 @@ import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { PlusOutlined, DollarCircleOutlined, MinusOutlined, UserAddOutlined, UserDeleteOutlined, ReloadOutlined } from '@ant-design/icons';
 
 
-import './Landing1.scss';
-
 /**
- * Component 1 of the landing page for unauthenticated users.
+ * Component 3 of the landing page for unauthenticated users.
  */
 
 const Landing3 = () => {
     return (
-        <div className="home-page-wrapper landing1-wrapper">
-            <div className="home-page landing1">
+            <div className="landing">
                 <div className="title-wrapper">
-                    <h1 style={{ fontSize: "30px" }}>Technical Overview -- Protocol</h1>
+                    <h1 className="heading-1">Technical Overview -- Protocol</h1>
                     <img src="/Flowchart.png" alt="icon2" />
                     <br /><br /><br />
                     <h1>Technical Overview -- Transaction Types</h1>
-
-
                 </div>
 
-                <OverPack playScale={0.3} >
+                <OverPack playScale={.01} >
                     <QueueAnim
                         type="bottom"
                         key="block"
-                        className="landing1-block-wrapper"
+                        className="landing-block-wrapper"
                         leaveReverse
                         component={Row}
                     >
                         <Col
                             key="col1"
-                            className="landing1-block"
+                            className="landing-block"
                             md={12}
                             xs={24}
                         >
-                            <div className="landing1-block-item">
-                                <div className="landing1-block-icon">
+                            <div className="landing-block-item">
+                                <div className="landing-block-icon">
                                     <PlusOutlined style={{ fontSize: '80px', color: '#08c' }} />
                                 </div>
 
-                                <h2>Create Fund Tx</h2>
+                                <h2 className="heading-2">Create Fund Tx</h2>
                                 <div>
                                     <ul className="list">
                                         <li>
@@ -68,16 +63,16 @@ const Landing3 = () => {
                         </Col>
                         <Col
                             key="col2"
-                            className="landing1-block"
+                            className="landing-block"
                             md={12}
                             xs={24}
                         >
-                            <div className="landing1-block-item">
-                                <div className="landing1-block-icon">
+                            <div className="landing-block-item">
+                                <div className="landing-block-icon">
                                     <ReloadOutlined style={{ fontSize: '80px', color: '#08c' }} />
                                 </div>
 
-                                <h2>Update Fund Tx</h2>
+                                <h2 className="heading-2">Update Fund Tx</h2>
                                 <div>
                                     <ul className="list">
                                         <li>
@@ -102,22 +97,22 @@ const Landing3 = () => {
                     <QueueAnim
                         type="bottom"
                         key="block"
-                        className="landing1-block-wrapper"
+                        className="landing-block-wrapper"
                         leaveReverse
                         component={Row}
                     >
                         <Col
                             key="col3"
-                            className="landing1-block"
+                            className="landing-block"
                             md={12}
                             xs={24}
                         >
-                            <div className="landing1-block-item">
-                                <div className="landing1-block-icon">
+                            <div className="landing-block-item">
+                                <div className="landing-block-icon">
                                     <MinusOutlined style={{ fontSize: '80px', color: '#08c' }} />
                                 </div>
 
-                                <h2>Sell Token Tx</h2>
+                                <h2 className="heading-2">Sell Token Tx</h2>
                                 <div>
                                     <ul className="list">
                                         <li>
@@ -143,16 +138,16 @@ const Landing3 = () => {
                             </div>
                         </Col>
                         <Col
-                            className="landing1-block"
+                            className="landing-block"
                             md={12}
                             xs={24}
                         >
-                            <div className="landing1-block-item">
-                                <div className="landing1-block-icon">
+                            <div className="landing-block-item">
+                                <div className="landing-block-icon">
                                     <UserAddOutlined style={{ fontSize: '80px', color: '#08c' }} />
                                 </div>
 
-                                <h2>Investor Join Tx</h2>
+                                <h2 className="heading-2">Investor Join Tx</h2>
                                 <div>
                                     <ul className="list">
                                         <li>
@@ -184,22 +179,22 @@ const Landing3 = () => {
                     <QueueAnim
                         type="bottom"
                         key="block"
-                        className="landing1-block-wrapper"
+                        className="landing-block-wrapper"
                         leaveReverse
                         component={Row}
                     >
                         <Col
                             key="col4"
-                            className="landing1-block"
+                            className="landing-block"
                             md={12}
                             xs={24}
                         >
-                            <div className="landing1-block-item">
-                                <div className="landing1-block-icon">
+                            <div className="landing-block-item">
+                                <div className="landing-block-icon">
                                     <UserDeleteOutlined style={{ fontSize: '80px', color: '#08c' }} />
                                 </div>
 
-                                <h2>Investor Liquidate Tx</h2>
+                                <h2 className="heading-2">Investor Liquidate Tx</h2>
                                 <div>
                                     <ul className="list">
                                         <li>
@@ -231,16 +226,16 @@ const Landing3 = () => {
                         </Col>
                         <Col
                             key="col5"
-                            className="landing1-block"
+                            className="landing-block"
                             md={12}
                             xs={24}
                         >
-                            <div className="landing1-block-item">
-                                <div className="landing1-block-icon">
+                            <div className="landing-block-item">
+                                <div className="landing-block-icon">
                                     <DollarCircleOutlined style={{ fontSize: '80px', color: '#08c' }} />
                                 </div>
 
-                                <h2>Buy Token Tx</h2>
+                                <h2 className="heading-2">Buy Token Tx</h2>
                                 <div>
                                     <ul className="list">
                                         <li>
@@ -271,7 +266,6 @@ const Landing3 = () => {
                 </OverPack>
                 <br /><br /><br /><br /><br /><br /><br />
             </div>
-        </div>
 
     );
 };
