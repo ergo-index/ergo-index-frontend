@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Menu } from 'antd';
 import TweenOne from 'rc-tween-one';
 
+import { logOut } from '../../state/ducks/user/UserDuck';
+import { RootState } from '../../state/store';
 import './Nav2.scss';
-//import './Landing0.scss';
 
 
 /**
- * Nav bar on the landing page for unauthenticated users.
+ * Nav bar on the authenticated users.
  */
 interface NavProps {
     isMobile: boolean
 }
 
 const Nav2 = ({ isMobile }: NavProps) => {
+    const dispatch = useDispatch();
     const [phoneOpen, setPhoneOpen] = useState(false);
+    const { jwtAxiosId } = useSelector(
+        (state: RootState) => state.userState
+    );
 
     return (
         <TweenOne
@@ -70,7 +76,7 @@ const Nav2 = ({ isMobile }: NavProps) => {
                         <Menu.Item className="header1-item">
                             <div className="header1-item-block">
                                 <div>
-                                    <span>
+                                    <span onClick={() => { dispatch(logOut(jwtAxiosId))}}>
                                         Log out
                                     </span>
                                 </div>
