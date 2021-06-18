@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { createFund } from '../../state/ducks/funds/FundsDuck'
 import { Button, Input } from 'antd';
 import PortfolioHeaders from './PortfolioHeaders';
+import Nav2 from '../landing/Nav2';
 
 
 
@@ -71,9 +72,8 @@ export const Portfolio = () => {
     return (
 
         <div className="portfolio__container">
+            <Nav2 isMobile={false}></Nav2>
             <h1 className="portfolio__header">Create Fund</h1>
-
-
 
             <div className="portfolio__table">
                 <PortfolioHeaders />
