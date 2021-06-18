@@ -27,13 +27,13 @@ const Nav2 = ({ isMobile }: NavProps) => {
             >
                 <TweenOne
                     animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
-                    className="header0-logo"
+                    className="header1-logo"
                 >
                     <img height="90%" width="90%" src="/ergo-index.fund_large.png" alt="logo" />
                 </TweenOne>
                 {isMobile && (
                     <div
-                        className="header0-mobile-menu"
+                        className="header1-mobile-menu"
                         onClick={() => {
                             setPhoneOpen(prevPhoneOpen => !prevPhoneOpen)
                         }}
@@ -44,7 +44,7 @@ const Nav2 = ({ isMobile }: NavProps) => {
                     </div>
                 )}
                 <TweenOne
-                    className="header0-menu"
+                    className="header1-menu"
                     animation={
                         isMobile
                             ? {
@@ -67,8 +67,8 @@ const Nav2 = ({ isMobile }: NavProps) => {
                         theme="dark"
                         selectedKeys={[""]}
                     >
-                        <Menu.Item className="header0-item">
-                            <div className="header0-item-block">
+                        <Menu.Item className="header1-item">
+                            <div className="header1-item-block">
                                 <div>
                                     <span>
                                         Log out

@@ -2,10 +2,10 @@ $template-nav-bg-color: #001529;
 
 .header1 {
   background: $template-nav-bg-color;
-  min-width: 1589px;
+  min-width: 100%;
   z-index: 1;
   box-shadow: 0 5px 8px transparentize(#000, .85);
-  position: absolute;
+  position: relative;
   top: 0;
   margin: -20px -20px 0 -20px;
 
@@ -92,7 +92,7 @@ $template-nav-bg-color: #001529;
 }
 
 @media screen and (max-width: 767px) {
-  .header0 {
+  .header1 {
     &-logo {
       z-index: 101;
     }
@@ -159,7 +159,7 @@ $template-nav-bg-color: #001529;
     & .open {
       height: auto;
 
-      .header0-mobile-menu {
+      .header1-mobile-menu {
         em {
           &:nth-child(1) {
             transform: translateY(6px) rotate(45deg);
@@ -175,7 +175,7 @@ $template-nav-bg-color: #001529;
         }
       }
 
-      > .header0-menu {
+      > .header1-menu {
         opacity: 1;
         pointer-events: auto;
       }
