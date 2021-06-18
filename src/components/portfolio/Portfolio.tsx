@@ -75,6 +75,7 @@ export const Portfolio = () => {
             <Nav2 isMobile={false}></Nav2>
             <h1 className="portfolio__header">Create Fund</h1>
 
+
             <div className="portfolio__table">
                 <PortfolioHeaders />
                 {rows && rows.map((row, index) => (

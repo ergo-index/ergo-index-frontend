@@ -20,7 +20,7 @@ const Nav2 = ({ isMobile }: NavProps) => {
         <TweenOne
             component="nav"
             animation={{ opacity: 0, type: 'from' }}
-            className="header0 home-page-wrapper"
+            className="header1 home-page-wrapper"
         >
             <div
                 className={`home-page${phoneOpen ? ' open' : ''}`}

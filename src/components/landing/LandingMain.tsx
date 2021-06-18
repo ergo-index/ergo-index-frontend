@@ -91,7 +91,6 @@ const Landing = () => {
             <Landing2 />
             <Landing3 />
 
-
             <Modal style={{ textAlign: "center" }}
                 title="Log In"
                 visible={loginModalVisible}
