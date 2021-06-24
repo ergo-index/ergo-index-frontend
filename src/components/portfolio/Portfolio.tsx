@@ -12,6 +12,7 @@ import Nav2 from '../landing/Nav2';
 
 
 import './Portfolio.scss';
+import {dashboardLoadAction} from "../../state/ducks/user/UserDuck";
 
 /**
  * A portfolio editor with rows and columns for changing information
@@ -69,10 +70,17 @@ export const Portfolio = () => {
         dispatch(createFund({ id: fundName, ownerEmail: "hardcoded", portfolio: { tokens: [...rows] } }))
     }
 
+    function redirectDashboard() {
+        dispatch(dashboardLoadAction())
+    }
+
     return (
 
         <div className="portfolio__container">
-            <Nav2 isMobile={false}></Nav2>
+            <Nav2
+                isMobile={false}
+                onClickDashboard={redirectDashboard}
+            />
             <h1 className="portfolio__header">Create Fund</h1>
 
             <div className="portfolio__table">

@@ -24,7 +24,6 @@ const Landing2 = () => {
                         leaveReverse
                         component={Row}
                     >
-
                         <Col
                             key="col1"
                             className="landing-block"

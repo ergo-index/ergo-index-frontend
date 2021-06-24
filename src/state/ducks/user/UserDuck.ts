@@ -92,6 +92,9 @@ const userSlice = createSlice({
     clearErrMsgAction(state) {
       state.errMsg = '';
     },
+    dashboardLoadAction(state) {
+      state.isAuthenticated = true;
+    },
   }
 });
 
@@ -108,7 +111,8 @@ export const {
   loadProfileSuccessAction,
   loadProfileFailAction,
   setJwtAxiosIdAction,
-  clearErrMsgAction
+  clearErrMsgAction,
+  dashboardLoadAction
 } = userSlice.actions;
 
 export default userSlice.reducer;
@@ -210,6 +214,16 @@ export const logOut = (
   if (staleSession) {
     message.info('You have been automatically logged out due to inactivity');
   }
+};
+
+/**
+ * Brings the user to the dashboard.
+ * @param jwtAxiosId
+ */
+export const dashboard = (
+    jwtAxiosId: number | null
+): AppThunk => async dispatch => {
+  dispatch(dashboardLoadAction())
 };
 
 /**
