@@ -6,6 +6,7 @@ import TweenOne from 'rc-tween-one';
 import {dashboard, logOut} from '../../state/ducks/user/UserDuck';
 import { RootState } from '../../state/store';
 import './Nav2.scss';
+import {Redirect} from "react-router-dom";
 
 
 /**
@@ -36,7 +37,7 @@ const Nav2 = ({ isMobile, onClickDashboard }: NavProps) => {
                     animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
                     className="header1-logo"
                 >
-                    <img height="90%" width="90%" src="/ergo-index.fund_large.png" alt="logo" />
+                    <img height="90%" width="90%" src="/ergo-index.fund_large.png" alt="logo" onClick={onClickDashboard} />
                 </TweenOne>
                 {isMobile && (
                     <div
@@ -74,15 +75,6 @@ const Nav2 = ({ isMobile, onClickDashboard }: NavProps) => {
                         theme="dark"
                         selectedKeys={[""]}
                     >
-                        <Menu.Item className="header1-item">
-                            <div className="header1-item-block">
-                                <div>
-                                    <span onClick={onClickDashboard}>
-                                        Dashboard
-                                    </span>
-                                </div>
-                            </div>
-                        </Menu.Item>
                         <Menu.Item className="header1-item">
                             <div className="header1-item-block">
                                 <div>

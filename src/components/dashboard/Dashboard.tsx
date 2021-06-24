@@ -9,36 +9,34 @@ import '../landing/Nav.scss';
 import Nav from '../landing/Nav';
 import {useDispatch} from "react-redux";
 import {dashboardLoadAction} from "../../state/ducks/user/UserDuck";
+import history, {useHistory} from 'react-router-dom';
 
 /**
  * The main dashboard for logged in users.
  */
 const Dashboard = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
 
-    const handleClick = () => {
+    const handleClick = () => {}
 
-    }
-
-    function redirectDashboard() {
-        dispatch(dashboardLoadAction());
+    function loadPortfolio() {
+        history.push('/portfolio')
     }
 
     return (
-        <>
+        <div className="dashboard__container">
             <Nav2
                 isMobile={false}
-                onClickDashboard={redirectDashboard}
+                onClickDashboard={loadPortfolio}
             />
             Dashboard
             <div>
                 <Button onClick={handleClick}>Create Index</Button>
 
                 <br /><br /><br />
-
-
             </div>
-        </>
+        </div>
     );
 };
 

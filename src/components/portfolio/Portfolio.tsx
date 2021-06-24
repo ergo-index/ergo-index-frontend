@@ -12,7 +12,9 @@ import Nav2 from '../landing/Nav2';
 
 
 import './Portfolio.scss';
-import {dashboardLoadAction} from "../../state/ducks/user/UserDuck";
+import {dashboard, dashboardLoadAction} from "../../state/ducks/user/UserDuck";
+import { useHistory } from "react-router-dom";
+
 
 /**
  * A portfolio editor with rows and columns for changing information
@@ -20,7 +22,7 @@ import {dashboardLoadAction} from "../../state/ducks/user/UserDuck";
  */
 export const Portfolio = () => {
 
-
+    const history = useHistory();
     const [rows, setRows] = useState([{ token: "testToken1" } as TokenInfoModel]);
     const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
     const dispatch = useDispatch()
@@ -70,8 +72,8 @@ export const Portfolio = () => {
         dispatch(createFund({ id: fundName, ownerEmail: "hardcoded", portfolio: { tokens: [...rows] } }))
     }
 
-    function redirectDashboard() {
-        dispatch(dashboardLoadAction())
+    function loadDashboard() {
+        history.push('/dashboard')
     }
 
     return (
@@ -79,7 +81,7 @@ export const Portfolio = () => {
         <div className="portfolio__container">
             <Nav2
                 isMobile={false}
-                onClickDashboard={redirectDashboard}
+                onClickDashboard={loadDashboard}
             />
             <h1 className="portfolio__header">Create Fund</h1>
 
