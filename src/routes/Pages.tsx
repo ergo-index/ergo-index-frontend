@@ -20,14 +20,14 @@ const Pages = () => {
     // Load the user's profile every 5 seconds.
     // If the server says the JWT is invalid, then this will automatically sign the user out
     // TODO: Uncomment once /portfolio doesn't log people out
-    useEffect(() => {
+    /*useEffect(() => {
         const timer = setInterval(() => {
             if (loginLoading === 'idle' && isAuthenticated) {
                 dispatch(loadProfile(profile ? profile.email : 'admin@email.com', jwtAxiosId))
             }
         }, 5000);
         return () => clearTimeout(timer);
-    })
+    })*/
 
     return (
         <Switch>
