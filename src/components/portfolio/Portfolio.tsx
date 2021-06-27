@@ -1,37 +1,26 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
-
-import { TokenInfoModel, PortfolioModel, FundModel } from './models';
-import InputRow from './InputRow';
-import { useSelector, useDispatch } from 'react-redux'
-import { createFund } from '../../state/ducks/funds/FundsDuck'
 import { Button, Input } from 'antd';
+
+import { TokenInfoModel } from './models';
+import InputRow from './InputRow';
+import { createFund } from '../../state/ducks/funds/FundsDuck'
 import PortfolioHeaders from './PortfolioHeaders';
-import Nav2 from '../landing/Nav2';
-
-
-
 import './Portfolio.scss';
-import {dashboard, dashboardLoadAction} from "../../state/ducks/user/UserDuck";
-import { useHistory } from "react-router-dom";
-
 
 /**
  * A portfolio editor with rows and columns for changing information
  * about which tokens to buy/sell, when to buy/sell them, and how much to buy.
  */
 export const Portfolio = () => {
-
-    const history = useHistory();
     const [rows, setRows] = useState([{ token: "testToken1" } as TokenInfoModel]);
     const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
     const dispatch = useDispatch()
 
     const onUpdateName = (e: any) => {
         setFundName(e.target.value);
-
     };
-
 
     /**
      * Updates the given key/value pair at the given row index.
@@ -72,17 +61,9 @@ export const Portfolio = () => {
         dispatch(createFund({ id: fundName, ownerEmail: "hardcoded", portfolio: { tokens: [...rows] } }))
     }
 
-    function loadDashboard() {
-        history.push('/dashboard')
-    }
-
     return (
 
         <div className="portfolio__container">
-            <Nav2
-                isMobile={false}
-                onClickDashboard={loadDashboard}
-            />
             <h1 className="portfolio__header">Create Fund</h1>
 
             <div className="portfolio__table">

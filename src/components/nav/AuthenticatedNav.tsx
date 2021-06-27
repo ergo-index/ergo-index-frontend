@@ -1,47 +1,48 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
 import TweenOne from 'rc-tween-one';
 
-import {dashboard, logOut} from '../../state/ducks/user/UserDuck';
+import { logOut } from '../../state/ducks/user/UserDuck';
 import { RootState } from '../../state/store';
-import './Nav2.scss';
-import {Redirect} from "react-router-dom";
+import useIsMobile from './common';
+import './AuthenticatedNav.scss';
+import './common.scss';
 
 
 /**
- * Nav bar on the authenticated users.
+ * Nav bar displayed to authenticated users.
  */
-interface NavProps {
-    isMobile: boolean
-    onClickDashboard: () => void
-}
-
-const Nav2 = ({ isMobile, onClickDashboard }: NavProps) => {
+const AuthenticatedNav = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
+    const location = useLocation();
     const [phoneOpen, setPhoneOpen] = useState(false);
     const { jwtAxiosId } = useSelector(
         (state: RootState) => state.userState
     );
+    const isMobile = useIsMobile();
+
+    const onClickDashboard = () => {
+        history.push('/dashboard');
+    }
+
+    const onClickPortfolio = () => {
+        history.push('/portfolio');
+    }
 
     return (
-        <TweenOne
-            component="nav"
-            animation={{ opacity: 0, type: 'from' }}
-            className="header1 home-page-wrapper"
-        >
+        <div className="authenticated-nav">
             <div
-                className={`home-page${phoneOpen ? ' open' : ''}`}
+                className={`content-container${phoneOpen ? ' open' : ''}`}
             >
-                <TweenOne
-                    animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
-                    className="header1-logo"
-                >
-                    <img height="90%" width="90%" src="/ergo-index.fund_large.png" alt="logo" onClick={onClickDashboard} />
-                </TweenOne>
+                <div className="authenticated-nav-logo" onClick={onClickDashboard}>
+                    <img height="90%" width="90%" src="/ergo-index.fund_large.png" alt="logo" />
+                </div>
                 {isMobile && (
                     <div
-                        className="header1-mobile-menu"
+                        className="authenticated-nav-mobile-menu"
                         onClick={() => {
                             setPhoneOpen(prevPhoneOpen => !prevPhoneOpen)
                         }}
@@ -52,7 +53,7 @@ const Nav2 = ({ isMobile, onClickDashboard }: NavProps) => {
                     </div>
                 )}
                 <TweenOne
-                    className="header1-menu"
+                    className="authenticated-nav-menu"
                     animation={
                         isMobile
                             ? {
@@ -71,25 +72,40 @@ const Nav2 = ({ isMobile, onClickDashboard }: NavProps) => {
                     reverse={phoneOpen}
                 >
                     <Menu
+                        disabledOverflow={true}
                         mode={isMobile ? 'inline' : 'horizontal'}
                         theme="dark"
                         selectedKeys={[""]}
                     >
-                        <Menu.Item className="header1-item">
-                            <div className="header1-item-block">
+                        <Menu.Item
+                            onClick={onClickPortfolio}
+                            className={`${location.pathname === '/portfolio' ? 'active-route' : ''} 'authenticated-nav-item'`}
+                        >
+                            <div className="authenticated-nav-item-block">
                                 <div>
-                                    <span onClick={() => { dispatch(logOut(jwtAxiosId))}}>
+                                    <span>
+                                        Portfolio
+                                    </span>
+                                </div>
+                            </div>
+                        </Menu.Item>
+                        <Menu.Item
+                            onClick={() => { dispatch(logOut(jwtAxiosId))}}
+                            className="authenticated-nav-item"
+                        >
+                            <div className="authenticated-nav-item-block">
+                                <div>
+                                    <span>
                                         Log out
                                     </span>
                                 </div>
                             </div>
                         </Menu.Item>
-
                     </Menu>
                 </TweenOne>
             </div>
-        </TweenOne>
+        </div>
     );
 };
 
-export default Nav2;
+export default AuthenticatedNav;

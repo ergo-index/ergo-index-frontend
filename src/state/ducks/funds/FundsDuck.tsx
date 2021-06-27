@@ -1,28 +1,32 @@
-
 import { FundModel } from "../../../components/portfolio/models";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 
 interface FundState {
-  [id: string]: FundModel
+  funds: {
+    [id: string]: FundModel
+  }
 }
 
 // The default state of the fund
-const initialState: FundState = {};
+const initialState: FundState = {
+  funds: {}
+};
 
 const fundSlice = createSlice({
   name: "funds",
   initialState,
   reducers: {
-    // payload is ID of fund to delete
+    // Payload is ID of fund to delete
     deleteFund(state, action: PayloadAction<string>) {
-      delete state[action.payload]
+      const { [action.payload]: _, ...newFunds } = state.funds;
+      state.funds = newFunds;
     },
     updateFund(state, action: PayloadAction<FundModel>) {
-      state[action.payload.id] = action.payload
+      state.funds = { [action.payload.id]: action.payload, ...state.funds };
     },
     createFund(state, action: PayloadAction<FundModel>) {
-      state[action.payload.id] = action.payload
+      state.funds = { [action.payload.id]: action.payload, ...state.funds };
     },
   }
 });

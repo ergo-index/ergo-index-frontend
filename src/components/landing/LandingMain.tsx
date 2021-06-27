@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, Input, Modal } from 'antd';
 import { useForm } from 'antd/es/form/Form';
-import { enquireScreen } from 'enquire-js';
 
 import { clearErrMsgAction, logIn, loginFailAction, signUp } from '../../state/ducks/user/UserDuck';
 import { RootState } from '../../state/store';
@@ -10,8 +9,7 @@ import Landing0 from './Landing0';
 import Landing1 from './Landing1';
 import Landing2 from './Landing2';
 import Landing3 from './Landing3';
-import Nav from './Nav';
-
+import LandingNav from '../nav/LandingNav';
 import './Landing0.scss';
 import './common.scss'
 
@@ -27,12 +25,6 @@ const Landing = () => {
     const { errMsg, loginLoading, signUpLoading, jwtAxiosId } = useSelector(
         (state: RootState) => state.userState
     );
-
-    // Determine if we're on a mobile device or not
-    let isMobile: boolean = false;
-    enquireScreen((mobile: any) => {
-        isMobile = mobile;
-    });
 
     function showLoginModal() {
         dispatch(clearErrMsgAction());
@@ -80,8 +72,7 @@ const Landing = () => {
 
     return (
         <>
-            <Nav
-                isMobile={isMobile}
+            <LandingNav
                 onClickLogin={showLoginModal}
                 onClickSignUp={showSignUpModal}
             />

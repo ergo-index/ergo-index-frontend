@@ -1,19 +1,23 @@
-$template-nav-bg-color: #001529;
+@import "common.scss";
 
-.header1 {
+.active-route {
+  color: gold;
+}
+
+.authenticated-nav {
   background: $template-nav-bg-color;
-  min-width: 100%;
+  width: 100%;
   z-index: 1;
   box-shadow: 0 5px 8px transparentize(#000, .85);
   position: relative;
   top: 0;
-  margin: -20px -20px 0 -20px;
 
-  .home-page {
+  .content-container {
     padding: 0 24px;
   }
 
   &-logo {
+    cursor: pointer;
     display: inline-block;
     position: relative;
     width: 150px;
@@ -92,13 +96,9 @@ $template-nav-bg-color: #001529;
 }
 
 @media screen and (max-width: 767px) {
-  .header1 {
+  .authenticated-nav {
     &-logo {
       z-index: 101;
-    }
-
-    &.home-page-wrapper .home-page {
-      padding: 0 24px;
     }
 
     &-menu {
@@ -159,7 +159,7 @@ $template-nav-bg-color: #001529;
     & .open {
       height: auto;
 
-      .header1-mobile-menu {
+      .authenticated-nav-mobile-menu {
         em {
           &:nth-child(1) {
             transform: translateY(6px) rotate(45deg);
@@ -175,7 +175,7 @@ $template-nav-bg-color: #001529;
         }
       }
 
-      > .header1-menu {
+      > .authenticated-nav-menu {
         opacity: 1;
         pointer-events: auto;
       }

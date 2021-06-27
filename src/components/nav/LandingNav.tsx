@@ -2,38 +2,39 @@ import React, { useState } from 'react';
 import { Menu } from 'antd';
 import TweenOne from 'rc-tween-one';
 
-import './Nav.scss';
-import './Landing0.scss';
+import useIsMobile from './common';
+import './LandingNav.scss';
+import './common.scss';
 
 /**
  * Nav bar on the landing page for unauthenticated users.
  */
-interface NavProps {
-    isMobile: boolean
+interface LandingNavProps {
     onClickLogin: () => void
     onClickSignUp: () => void
 }
-const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
+const LandingNav = ({ onClickLogin, onClickSignUp }: LandingNavProps) => {
     const [phoneOpen, setPhoneOpen] = useState(false);
+    const isMobile = useIsMobile();
 
     return (
         <TweenOne
             component="nav"
             animation={{ opacity: 0, type: 'from' }}
-            className="header0 home-page-wrapper"
+            className="landing-nav"
         >
             <div
-                className={`home-page${phoneOpen ? ' open' : ''}`}
+                className={`content-container${phoneOpen ? ' open' : ''}`}
             >
                 <TweenOne
                     animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
-                    className="header0-logo"
+                    className="landing-nav-logo"
                 >
                     <img height="90%" width="90%" src="/ergo-index.fund_large.png" alt="logo" />
                 </TweenOne>
                 {isMobile && (
                     <div
-                        className="header0-mobile-menu"
+                        className="landing-nav-mobile-menu"
                         onClick={() => {
                             setPhoneOpen(prevPhoneOpen => !prevPhoneOpen)
                         }}
@@ -44,7 +45,7 @@ const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
                     </div>
                 )}
                 <TweenOne
-                    className="header0-menu"
+                    className="landing-nav-menu"
                     animation={
                         isMobile
                             ? {
@@ -67,8 +68,8 @@ const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
                         theme="dark"
                         selectedKeys={[""]}
                     >
-                        <Menu.Item className="header0-item" onClick={onClickLogin}>
-                            <div className="header0-item-block">
+                        <Menu.Item className="landing-nav-item" onClick={onClickLogin}>
+                            <div className="landing-nav-item-block">
                                 <div>
                                     <span>
                                         Log in
@@ -76,8 +77,8 @@ const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
                                 </div>
                             </div>
                         </Menu.Item>
-                        <Menu.Item className="header0-item" onClick={onClickSignUp}>
-                            <div className="header0-item-block">
+                        <Menu.Item className="landing-nav-item" onClick={onClickSignUp}>
+                            <div className="landing-nav-item-block">
                                 <div>
                                     <span>
                                         Sign up
@@ -92,4 +93,4 @@ const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
     );
 };
 
-export default Nav;
+export default LandingNav;
