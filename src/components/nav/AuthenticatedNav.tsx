@@ -1,38 +1,48 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
 import TweenOne from 'rc-tween-one';
 
-import './Nav.scss';
+import { logOut } from '../../state/ducks/user/UserDuck';
+import { RootState } from '../../state/store';
+import useIsMobile from './common';
+import './AuthenticatedNav.scss';
+import './common.scss';
+
 
 /**
- * Nav bar on the landing page for unauthenticated users.
+ * Nav bar displayed to authenticated users.
  */
-interface NavProps {
-    isMobile: boolean
-    onClickLogin: () => void
-    onClickSignUp: () => void
-}
-const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
+const AuthenticatedNav = () => {
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const location = useLocation();
     const [phoneOpen, setPhoneOpen] = useState(false);
+    const { jwtAxiosId } = useSelector(
+        (state: RootState) => state.userState
+    );
+    const isMobile = useIsMobile();
+
+    const onClickDashboard = () => {
+        history.push('/dashboard');
+    }
+
+    const onClickPortfolio = () => {
+        history.push('/portfolio');
+    }
 
     return (
-        <TweenOne
-            component="nav"
-            animation={{ opacity: 0, type: 'from' }}
-            className="header0 home-page-wrapper"
-        >
+        <div className="authenticated-nav">
             <div
-                className={`home-page${phoneOpen ? ' open' : ''}`}
+                className={`content-container${phoneOpen ? ' open' : ''}`}
             >
-                <TweenOne
-                    animation={{ x: -30, type: 'from', ease: 'easeOutQuad' }}
-                    className="header0-logo"
-                >
+                <div className="authenticated-nav-logo" onClick={onClickDashboard}>
                     <img height="90%" width="90%" src="/ergo-index.fund_large.png" alt="logo" />
-                </TweenOne>
+                </div>
                 {isMobile && (
                     <div
-                        className="header0-mobile-menu"
+                        className="authenticated-nav-mobile-menu"
                         onClick={() => {
                             setPhoneOpen(prevPhoneOpen => !prevPhoneOpen)
                         }}
@@ -43,7 +53,7 @@ const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
                     </div>
                 )}
                 <TweenOne
-                    className="header0-menu"
+                    className="authenticated-nav-menu"
                     animation={
                         isMobile
                             ? {
@@ -62,24 +72,31 @@ const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
                     reverse={phoneOpen}
                 >
                     <Menu
+                        disabledOverflow={true}
                         mode={isMobile ? 'inline' : 'horizontal'}
                         theme="dark"
                         selectedKeys={[""]}
                     >
-                        <Menu.Item className="header0-item" onClick={onClickLogin}>
-                            <div className="header0-item-block">
+                        <Menu.Item
+                            onClick={onClickPortfolio}
+                            className={`${location.pathname === '/portfolio' ? 'active-route' : ''} 'authenticated-nav-item'`}
+                        >
+                            <div className="authenticated-nav-item-block">
                                 <div>
                                     <span>
-                                        Log in
+                                        Portfolio
                                     </span>
                                 </div>
                             </div>
                         </Menu.Item>
-                        <Menu.Item className="header0-item" onClick={onClickSignUp}>
-                            <div className="header0-item-block">
+                        <Menu.Item
+                            onClick={() => { dispatch(logOut(jwtAxiosId))}}
+                            className="authenticated-nav-item"
+                        >
+                            <div className="authenticated-nav-item-block">
                                 <div>
                                     <span>
-                                        Sign up
+                                        Log out
                                     </span>
                                 </div>
                             </div>
@@ -87,8 +104,8 @@ const Nav = ({ isMobile, onClickLogin, onClickSignUp }: NavProps) => {
                     </Menu>
                 </TweenOne>
             </div>
-        </TweenOne>
+        </div>
     );
 };
 
-export default Nav;
+export default AuthenticatedNav;

@@ -4,10 +4,9 @@ import { DownOutlined } from '@ant-design/icons';
 import QueueAnim from 'rc-queue-anim';
 import TweenOne from 'rc-tween-one';
 
-import './Landing0.scss';
-
 /**
  * Component 0 of the landing page for unauthenticated users.
+ * The logo and main picture
  */
 interface Landing0Props {
     showModal: () => void

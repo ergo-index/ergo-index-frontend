@@ -91,7 +91,7 @@ const userSlice = createSlice({
     },
     clearErrMsgAction(state) {
       state.errMsg = '';
-    },
+    }
   }
 });
 
@@ -136,21 +136,10 @@ export const logIn = (
     .then(response => {
       dispatch(loginSuccessAction());
       dispatch(setJwt(response.data.access, jwtAxiosId));
-      dispatch(loadProfile(email, jwtAxiosId));
+      dispatch(loadProfile(jwtAxiosId, email));
     })
-    .catch(error => {
-      if (error.response && error.response.data && error.response.data.error) {
-        dispatch(loginFailAction(error.response.data.error))
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.log("error.request", error.request);
-        dispatch(loginFailAction("Wrong email/password combination"))
-      } else {
-        // Something happened in setting up the request that triggered an error
-        console.log("Error", error.message);
-        dispatch(loginFailAction("Wrong email/password combination"))
-      }
-      console.log("Error.config", error.config);
+    .catch(_ => {
+      dispatch(loginFailAction("Wrong email/password combination"));
     })
 };
 
@@ -172,8 +161,11 @@ export const signUp = (
       .then(_ => {
         dispatch(signUpSuccessAction())
         dispatch(logIn(email, password, jwtAxiosId))
-      }).catch(_ => {
-        // TODO: Use the actual response instead of just pretending the error is from a duplicate email
+      }).catch(error => {
+        if (error.response && error.response.data && error.response.data.error) {
+          // TODO: Use the actual response instead of just pretending the error is from a duplicate email
+          // (Make backend changes to send an error message in this format)
+        }
         dispatch(signUpFailAction("Unable to create an account with that email address because it already exists in the system."));
   })
 }
@@ -213,6 +205,18 @@ export const logOut = (
 };
 
 /**
+ * Loads all data needed to view the dashboard
+ * @param jwtAxiosId
+ */
+export const dashboard = (
+    jwtAxiosId: number | null
+): AppThunk => async dispatch => {
+  // TODO: Load funds and anything else needed to view the dashboard (don't re-load funds if they're already loaded)
+  // You could do this in a stateful way like how login has loginLoading = 'pending' | 'idle' and display
+  // a loading bar on Dashboard.tsx when loginLoading === 'pending'
+};
+
+/**
  * Checks the browser's cookies to see if the user is authenticated, and
  * automatically logs them in if they are.
  * @param jwtAxiosId the ID of the axios interceptor, or null if it's not setup
@@ -220,8 +224,6 @@ export const logOut = (
 export const checkAuthentication = (
     jwtAxiosId: number | null
 ): AppThunk => async dispatch => {
-  // TODO: Remove next line once backend is running. This is just a workaround to bypass logging in
-  // dispatch(loginSuccessAction());
   const cookies = document.cookie.split(';');
   for (const cookie of cookies) {
     if (cookie.split("=")[0] === "ERGO_INDEX_FUND" && cookie.split("=")[1]) {
@@ -238,12 +240,13 @@ export const checkAuthentication = (
 
 /**
  * Loads the user's profile, including information about funds they're invested in.
- * @param email the email address of the user to load the profile of
  * @param jwtAxiosId the ID of the axios interceptor, or null if it's not setup
+ * @param email the email address of the user to load the profile of
  */
+// TODO: Change the backend to use the JWT's email if none is provided (and make this param optional here)
 export const loadProfile = (
-    email: string,
-    jwtAxiosId: number | null
+    jwtAxiosId: number | null,
+    email: string
 ): AppThunk => async dispatch => {
   dispatch(loadProfileStartAction())
   apiLoadProfile(email)
@@ -253,20 +256,13 @@ export const loadProfile = (
       .catch(error => {
         console.log(error.toString())
         if (error.response) {
-          if (error.response.status === 401) { // Unauthorized
+          if (error.response.status === 401) { // Unauthorized -- log the user out
             dispatch(logOut(jwtAxiosId, true))
           }
-        } else if (error.request) {
-          // The request was made but no response was received
-          console.log("error.request", error.request);
-        } else {
-          // Something happened in setting up the request that triggered an error
-          console.log("Error", error.message);
         }
-        console.log("Error.config", error.config);
-        dispatch(loadProfileFailAction("There was a problem loading your profile. Please try again."))
-      })
-}
+        dispatch(loadProfileFailAction("There was a problem loading your profile."))
+      });
+};
 
 /**
  * Stores in the user's browser a cookie that contains the JWT. This allows

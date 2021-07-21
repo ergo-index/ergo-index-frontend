@@ -9,24 +9,30 @@ import LoggedInRoute from './LoggedInRoute';
 import Dashboard from '../components/dashboard/Dashboard';
 import Portfolio from '../components/portfolio/Portfolio';
 import NotFound from '../components/notFound/NotFound';
-import Landing from '../components/landing/Landing';
+import Landing from '../components/landing/LandingMain';
 
 const Pages = () => {
     const dispatch = useDispatch()
-    const { loginLoading, isAuthenticated, jwtAxiosId, profile } = useSelector(
+    const {
+        loginLoading,
+        isAuthenticated,
+        jwtAxiosId,
+        profileLoading
+    } = useSelector(
         (state: RootState) => state.userState
     )
 
     // Load the user's profile every 5 seconds.
     // If the server says the JWT is invalid, then this will automatically sign the user out
-    useEffect(() => {
+    // TODO: Uncomment once the backend accepts loadEmail() without the email param (using the JWT)
+    /*useEffect(() => {
         const timer = setInterval(() => {
-            if (loginLoading === 'idle' && isAuthenticated) {
-                dispatch(loadProfile(profile ? profile.email : 'admin@email.com', jwtAxiosId))
+            if (loginLoading === 'idle' && isAuthenticated && profileLoading === 'idle') {
+                dispatch(loadProfile(jwtAxiosId))
             }
         }, 5000);
         return () => clearTimeout(timer);
-    })
+    })*/
 
     return (
         <Switch>

@@ -1,0 +1,39 @@
+
+// COLOR VARIABLES - placeholders
+$color-heading: rgba(0, 0, 0, 0.85);;
+
+
+
+// FONT VARIABLES
+$font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
+
+$font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+sans-serif;
+
+$font-code:  source-code-pro, Menlo, Monaco, Consolas, 'Courier New', 
+monospace;
+
+// Base stuff
+*,
+*::before,
+*::after {
+
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-primary;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: $font-code;
+  }

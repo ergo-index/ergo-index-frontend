@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
-
-import { TokenInfoModel, PortfolioModel, FundModel } from './models';
-import InputRow from './InputRow';
-import { useSelector, useDispatch } from 'react-redux'
-import { createFund } from '../../state/ducks/funds/FundsDuck'
 import { Button, Input } from 'antd';
+
+import { TokenInfoModel } from './models';
+import InputRow from './InputRow';
+import { createFund } from '../../state/ducks/funds/FundsDuck'
 import PortfolioHeaders from './PortfolioHeaders';
-
-
-
 import './Portfolio.scss';
 
 /**
@@ -17,17 +14,13 @@ import './Portfolio.scss';
  * about which tokens to buy/sell, when to buy/sell them, and how much to buy.
  */
 export const Portfolio = () => {
-
-
     const [rows, setRows] = useState([{ token: "testToken1" } as TokenInfoModel]);
     const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
     const dispatch = useDispatch()
 
     const onUpdateName = (e: any) => {
         setFundName(e.target.value);
-
     };
-
 
     /**
      * Updates the given key/value pair at the given row index.
@@ -72,8 +65,6 @@ export const Portfolio = () => {
 
         <div className="portfolio__container">
             <h1 className="portfolio__header">Create Fund</h1>
-
-
 
             <div className="portfolio__table">
                 <PortfolioHeaders />

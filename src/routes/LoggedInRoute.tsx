@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { RootState } from '../state/store';
+import AuthenticatedNav from "../components/nav/AuthenticatedNav";
 
 interface Props {
     exact?: boolean
@@ -28,6 +29,7 @@ const LoggedInRoute = ({ component: Component, ...otherProps }: Props) => {
             <Route
                 render={otherProps => (
                     <>
+                        <AuthenticatedNav />
                         <Component {...otherProps} />
                     </>
                 )}
