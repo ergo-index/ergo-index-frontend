@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
+
 import { FundSummaryRow } from '../portfolio/models';
 
 type Direction = "ascending" | "descending"
@@ -9,16 +10,26 @@ export interface SortConfig {
 }
 
 /**
- * Returns all rows sorted by whatever column you want them sorted by
- * Returns function requestSort that you can call to change col we are sorting off of ex) requestSort(newColName)
- * @param items all fund summaries
- * @param config the property you want to sort off of & direction of sort
+ * Hook to sort FundSummaryRows by a given key (column) in a given direction (ascending or descending), which
+ * are both specified in the config.
+ *
+ * @param items all fund summaries, which will be sorted
+ * @param config the key (column) to sort by and the direction (ascending or descending) to sort in
+ * @return object containing:
+ *
+ *
+ * 1) an array of the sorted FundSummaryRows
+ *
+ * 2) a function that changes the key (column) by which the rows are sorted or that, if passed the current key,
+ * changes the direction by which the rows are sorted
+ *
+ * 3) a config that reflects the current key (column) by which the rows are sorted
  */
 export const useSortableData = (items: FundSummaryRow[], config: SortConfig) => {
 
-  const [sortConfig, setSortConfig] = React.useState(config);
+  const [sortConfig, setSortConfig] = useState(config);
 
-  const sortedItems = React.useMemo(() => {
+  const sortedItems = useMemo(() => {
     let sortableItems = [...items];
     sortableItems.sort((a, b) => {
       if (a[sortConfig.key] < b[sortConfig.key]) {
@@ -32,13 +43,13 @@ export const useSortableData = (items: FundSummaryRow[], config: SortConfig) => 
     return sortableItems
   }, [items, sortConfig]);
 
-  const requestSort = (key: keyof FundSummaryRow) => {
+  const setSortKeyOrChangeDirection = (key: keyof FundSummaryRow) => {
     let direction: Direction = "ascending"
     if (key == sortConfig.key) {
       direction = sortConfig.direction === "ascending" ? "descending" : "ascending";
     }
     setSortConfig({ key, direction });
-  }
+  };
 
-  return { rows: sortedItems, requestSort, sortConfig };
+  return { rows: sortedItems, setSortKeyOrChangeDirection, sortConfig };
 }

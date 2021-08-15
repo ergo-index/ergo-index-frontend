@@ -2,9 +2,9 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 
-import './Dashboard.scss';
 import { FundSummaryRow } from '../portfolio/models';
 import FundsTable from './FundsTable';
+import './Dashboard.scss';
 
 
 const mockDataRows: FundSummaryRow[] = [

@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { useSortableData } from './useSortable';
 import { FundSummaryRow, FundSummaryHeader } from '../portfolio/models';
 import './Dashboard.scss'
+
 const headers: FundSummaryHeader[] = [
   {
     sortID: 'name',
@@ -25,9 +27,12 @@ const headers: FundSummaryHeader[] = [
   }
 ];
 
-export const FundsTable = ({ funds }: { funds: FundSummaryRow[] }) => {
+interface FundsTableProps {
+  funds: FundSummaryRow[]
+}
+export const FundsTable = ({ funds }: FundsTableProps) => {
 
-  const { rows, requestSort, sortConfig } = useSortableData(funds, { key: "name", direction: "ascending" });
+  const { rows, setSortKeyOrChangeDirection, sortConfig } = useSortableData(funds, { key: "name", direction: "ascending" });
 
   const getClassNamesFor = (name: keyof FundSummaryRow) => (
     sortConfig.key === name ? sortConfig.direction : undefined
@@ -39,9 +44,9 @@ export const FundsTable = ({ funds }: { funds: FundSummaryRow[] }) => {
       {headers.map(({ sortID, name }, index) => (
 
         <div key={index}
-          onClick={() => requestSort(sortID)}
+          onClick={() => setSortKeyOrChangeDirection(sortID)}
           className={getClassNamesFor(sortID)}
-          style = {{cursor:"pointer"}}
+          style={{ cursor: "pointer" }}
         >
           {name}
         </div>

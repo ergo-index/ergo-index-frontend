@@ -40,7 +40,7 @@ export interface FundSummaryRow {
     totalReturnPercent: number
 }
 
-export interface FundSummaryHeader{
-    sortID: keyof FundSummaryRow, // keyof ensures val is a key in FundSummaryRow
+export interface FundSummaryHeader {
+    sortID: keyof FundSummaryRow, // keyof ensures the value is a key in FundSummaryRow
     name: string
 }
