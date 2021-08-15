@@ -30,3 +30,17 @@ export interface TokenInfoModel {
     sellTarget: string // the price to sell the token at
 }
 export type TokenType = 'testToken1' | 'testToken2' | 'testToken3' | 'testToken4' | 'testToken5';
+
+
+export interface FundSummaryRow {
+    name: string;
+    AUM: number;
+    investors: number
+    totalReturnValue: number
+    totalReturnPercent: number
+}
+
+export interface FundSummaryHeader{
+    sortID: keyof FundSummaryRow, // keyof ensures val is a key in FundSummaryRow
+    name: string
+}

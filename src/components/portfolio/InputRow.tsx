@@ -6,7 +6,7 @@ import { MinusCircleOutlined } from '@ant-design/icons';
 import { TokenType } from './models';
 import * as PortfolioConstants from './PortfolioConstants';
 
-import './InputRow.css';
+import './InputRow.scss';
 
 /**
  * Component for inputting a row into the portfolio, where a row
@@ -47,7 +47,7 @@ const InputRow = (
     };
 
     return (
-        <div id="row-container">
+        <div className="row-container">
             <Select
                 style={{minWidth: PortfolioConstants.TOKEN_WIDTH}}
                 value={token}

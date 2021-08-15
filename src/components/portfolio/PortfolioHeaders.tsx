@@ -14,7 +14,7 @@ export const PortfolioHeaders = () => {
     };
 
     return (
-        <div id="headers-container">
+        <div className="headers-container">
             <div style={{minWidth: LedgerConstants.TOKEN_WIDTH}}>{headers.token}</div>
             <div style={{minWidth: LedgerConstants.PORTFOLIO_PERCENT_WIDTH}}>{headers.portfolioPercent}</div>
             <div style={{minWidth: LedgerConstants.BUY_TARGET_WIDTH}}>{headers.buyTarget}</div>
