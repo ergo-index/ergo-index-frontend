@@ -1,0 +1,1612 @@
+{
+  "funds": [
+    {
+      "ownerEmail": "Bloeme77514@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme77514",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme77514",
+        "AUM": 63,
+        "investors": 95,
+        "totalReturnValue": 151,
+        "totalReturnPercent": 54
+      }
+    },
+    {
+      "ownerEmail": "Bloeme70220@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme70220",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme70220",
+        "AUM": 161,
+        "investors": 90,
+        "totalReturnValue": 670,
+        "totalReturnPercent": 54
+      }
+    },
+    {
+      "ownerEmail": "Bloeme15858@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme15858",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme15858",
+        "AUM": 70,
+        "investors": 12,
+        "totalReturnValue": 384,
+        "totalReturnPercent": 66
+      }
+    },
+    {
+      "ownerEmail": "Bloeme53098@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme53098",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme53098",
+        "AUM": 502,
+        "investors": 50,
+        "totalReturnValue": 162,
+        "totalReturnPercent": 2
+      }
+    },
+    {
+      "ownerEmail": "Bloeme82354@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme82354",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme82354",
+        "AUM": 361,
+        "investors": 53,
+        "totalReturnValue": 765,
+        "totalReturnPercent": 65
+      }
+    },
+    {
+      "ownerEmail": "Bloeme45674@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme45674",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme45674",
+        "AUM": 150,
+        "investors": 91,
+        "totalReturnValue": 870,
+        "totalReturnPercent": 40
+      }
+    },
+    {
+      "ownerEmail": "Bloeme41302@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme41302",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme41302",
+        "AUM": 56,
+        "investors": 91,
+        "totalReturnValue": 964,
+        "totalReturnPercent": 97
+      }
+    },
+    {
+      "ownerEmail": "Bloeme81087@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme81087",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme81087",
+        "AUM": 510,
+        "investors": 11,
+        "totalReturnValue": 910,
+        "totalReturnPercent": 84
+      }
+    },
+    {
+      "ownerEmail": "Bloeme8326@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme8326",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme8326",
+        "AUM": 561,
+        "investors": 0,
+        "totalReturnValue": 474,
+        "totalReturnPercent": 14
+      }
+    },
+    {
+      "ownerEmail": "Bloeme8607@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme8607",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme8607",
+        "AUM": 953,
+        "investors": 61,
+        "totalReturnValue": 472,
+        "totalReturnPercent": 57
+      }
+    },
+    {
+      "ownerEmail": "Bloeme77394@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme77394",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme77394",
+        "AUM": 561,
+        "investors": 50,
+        "totalReturnValue": 498,
+        "totalReturnPercent": 65
+      }
+    },
+    {
+      "ownerEmail": "Bloeme87161@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme87161",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme87161",
+        "AUM": 893,
+        "investors": 54,
+        "totalReturnValue": 169,
+        "totalReturnPercent": 67
+      }
+    },
+    {
+      "ownerEmail": "Bloeme56434@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme56434",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme56434",
+        "AUM": 936,
+        "investors": 91,
+        "totalReturnValue": 887,
+        "totalReturnPercent": 45
+      }
+    },
+    {
+      "ownerEmail": "Bloeme72296@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme72296",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme72296",
+        "AUM": 264,
+        "investors": 18,
+        "totalReturnValue": 334,
+        "totalReturnPercent": 2
+      }
+    },
+    {
+      "ownerEmail": "Bloeme8513@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme8513",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme8513",
+        "AUM": 224,
+        "investors": 62,
+        "totalReturnValue": 101,
+        "totalReturnPercent": 33
+      }
+    },
+    {
+      "ownerEmail": "Bloeme13114@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme13114",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme13114",
+        "AUM": 198,
+        "investors": 32,
+        "totalReturnValue": 437,
+        "totalReturnPercent": 99
+      }
+    },
+    {
+      "ownerEmail": "Bloeme76571@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme76571",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme76571",
+        "AUM": 410,
+        "investors": 43,
+        "totalReturnValue": 589,
+        "totalReturnPercent": 71
+      }
+    },
+    {
+      "ownerEmail": "Bloeme88127@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme88127",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme88127",
+        "AUM": 585,
+        "investors": 34,
+        "totalReturnValue": 220,
+        "totalReturnPercent": 93
+      }
+    },
+    {
+      "ownerEmail": "Bloeme48553@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme48553",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme48553",
+        "AUM": 463,
+        "investors": 75,
+        "totalReturnValue": 18,
+        "totalReturnPercent": 30
+      }
+    },
+    {
+      "ownerEmail": "Bloeme59024@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme59024",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme59024",
+        "AUM": 391,
+        "investors": 2,
+        "totalReturnValue": 525,
+        "totalReturnPercent": 14
+      }
+    },
+    {
+      "ownerEmail": "Bloeme96857@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme96857",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme96857",
+        "AUM": 335,
+        "investors": 58,
+        "totalReturnValue": 789,
+        "totalReturnPercent": 66
+      }
+    },
+    {
+      "ownerEmail": "Bloeme55074@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme55074",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme55074",
+        "AUM": 939,
+        "investors": 9,
+        "totalReturnValue": 959,
+        "totalReturnPercent": 45
+      }
+    },
+    {
+      "ownerEmail": "Bloeme49110@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme49110",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme49110",
+        "AUM": 662,
+        "investors": 10,
+        "totalReturnValue": 665,
+        "totalReturnPercent": 82
+      }
+    },
+    {
+      "ownerEmail": "Bloeme94305@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme94305",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme94305",
+        "AUM": 322,
+        "investors": 44,
+        "totalReturnValue": 793,
+        "totalReturnPercent": 53
+      }
+    },
+    {
+      "ownerEmail": "Bloeme39752@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme39752",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme39752",
+        "AUM": 553,
+        "investors": 52,
+        "totalReturnValue": 469,
+        "totalReturnPercent": 60
+      }
+    },
+    {
+      "ownerEmail": "Bloeme42040@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme42040",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme42040",
+        "AUM": 558,
+        "investors": 17,
+        "totalReturnValue": 358,
+        "totalReturnPercent": 85
+      }
+    },
+    {
+      "ownerEmail": "Bloeme52506@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme52506",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme52506",
+        "AUM": 866,
+        "investors": 4,
+        "totalReturnValue": 958,
+        "totalReturnPercent": 23
+      }
+    },
+    {
+      "ownerEmail": "Bloeme64148@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme64148",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme64148",
+        "AUM": 773,
+        "investors": 25,
+        "totalReturnValue": 144,
+        "totalReturnPercent": 32
+      }
+    },
+    {
+      "ownerEmail": "Bloeme12899@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme12899",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme12899",
+        "AUM": 749,
+        "investors": 58,
+        "totalReturnValue": 431,
+        "totalReturnPercent": 39
+      }
+    },
+    {
+      "ownerEmail": "Bloeme5001@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme5001",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme5001",
+        "AUM": 157,
+        "investors": 89,
+        "totalReturnValue": 823,
+        "totalReturnPercent": 54
+      }
+    },
+    {
+      "ownerEmail": "Bloeme523@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme523",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme523",
+        "AUM": 894,
+        "investors": 27,
+        "totalReturnValue": 443,
+        "totalReturnPercent": 91
+      }
+    },
+    {
+      "ownerEmail": "Bloeme61744@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme61744",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme61744",
+        "AUM": 862,
+        "investors": 8,
+        "totalReturnValue": 944,
+        "totalReturnPercent": 4
+      }
+    },
+    {
+      "ownerEmail": "Bloeme27127@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme27127",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme27127",
+        "AUM": 732,
+        "investors": 89,
+        "totalReturnValue": 389,
+        "totalReturnPercent": 94
+      }
+    },
+    {
+      "ownerEmail": "Bloeme9337@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme9337",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme9337",
+        "AUM": 406,
+        "investors": 73,
+        "totalReturnValue": 266,
+        "totalReturnPercent": 73
+      }
+    },
+    {
+      "ownerEmail": "Bloeme16860@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme16860",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme16860",
+        "AUM": 318,
+        "investors": 14,
+        "totalReturnValue": 65,
+        "totalReturnPercent": 46
+      }
+    },
+    {
+      "ownerEmail": "Bloeme1503@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme1503",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme1503",
+        "AUM": 288,
+        "investors": 98,
+        "totalReturnValue": 702,
+        "totalReturnPercent": 72
+      }
+    },
+    {
+      "ownerEmail": "Bloeme29062@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme29062",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme29062",
+        "AUM": 148,
+        "investors": 2,
+        "totalReturnValue": 363,
+        "totalReturnPercent": 87
+      }
+    },
+    {
+      "ownerEmail": "Bloeme17313@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme17313",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme17313",
+        "AUM": 587,
+        "investors": 41,
+        "totalReturnValue": 781,
+        "totalReturnPercent": 34
+      }
+    },
+    {
+      "ownerEmail": "Bloeme51350@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme51350",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme51350",
+        "AUM": 851,
+        "investors": 53,
+        "totalReturnValue": 203,
+        "totalReturnPercent": 89
+      }
+    },
+    {
+      "ownerEmail": "Bloeme19524@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme19524",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme19524",
+        "AUM": 62,
+        "investors": 43,
+        "totalReturnValue": 832,
+        "totalReturnPercent": 76
+      }
+    },
+    {
+      "ownerEmail": "Bloeme75818@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme75818",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme75818",
+        "AUM": 775,
+        "investors": 86,
+        "totalReturnValue": 775,
+        "totalReturnPercent": 43
+      }
+    },
+    {
+      "ownerEmail": "Bloeme51276@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme51276",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme51276",
+        "AUM": 132,
+        "investors": 18,
+        "totalReturnValue": 47,
+        "totalReturnPercent": 67
+      }
+    },
+    {
+      "ownerEmail": "Bloeme93089@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme93089",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme93089",
+        "AUM": 280,
+        "investors": 73,
+        "totalReturnValue": 35,
+        "totalReturnPercent": 85
+      }
+    },
+    {
+      "ownerEmail": "Bloeme29547@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme29547",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme29547",
+        "AUM": 876,
+        "investors": 61,
+        "totalReturnValue": 753,
+        "totalReturnPercent": 2
+      }
+    },
+    {
+      "ownerEmail": "Bloeme29291@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme29291",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme29291",
+        "AUM": 558,
+        "investors": 54,
+        "totalReturnValue": 770,
+        "totalReturnPercent": 85
+      }
+    },
+    {
+      "ownerEmail": "Bloeme49128@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme49128",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme49128",
+        "AUM": 273,
+        "investors": 75,
+        "totalReturnValue": 249,
+        "totalReturnPercent": 13
+      }
+    },
+    {
+      "ownerEmail": "Bloeme37501@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme37501",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme37501",
+        "AUM": 248,
+        "investors": 94,
+        "totalReturnValue": 852,
+        "totalReturnPercent": 90
+      }
+    },
+    {
+      "ownerEmail": "Bloeme16167@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme16167",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme16167",
+        "AUM": 786,
+        "investors": 68,
+        "totalReturnValue": 289,
+        "totalReturnPercent": 85
+      }
+    },
+    {
+      "ownerEmail": "Bloeme48981@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme48981",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme48981",
+        "AUM": 642,
+        "investors": 19,
+        "totalReturnValue": 957,
+        "totalReturnPercent": 37
+      }
+    },
+    {
+      "ownerEmail": "Bloeme17391@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme17391",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme17391",
+        "AUM": 838,
+        "investors": 6,
+        "totalReturnValue": 934,
+        "totalReturnPercent": 74
+      }
+    },
+    {
+      "ownerEmail": "Bloeme3084@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme3084",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme3084",
+        "AUM": 470,
+        "investors": 6,
+        "totalReturnValue": 595,
+        "totalReturnPercent": 90
+      }
+    },
+    {
+      "ownerEmail": "Bloeme28270@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme28270",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme28270",
+        "AUM": 137,
+        "investors": 81,
+        "totalReturnValue": 791,
+        "totalReturnPercent": 46
+      }
+    },
+    {
+      "ownerEmail": "Bloeme84245@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme84245",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme84245",
+        "AUM": 177,
+        "investors": 69,
+        "totalReturnValue": 740,
+        "totalReturnPercent": 51
+      }
+    },
+    {
+      "ownerEmail": "Bloeme5553@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme5553",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme5553",
+        "AUM": 951,
+        "investors": 88,
+        "totalReturnValue": 11,
+        "totalReturnPercent": 92
+      }
+    },
+    {
+      "ownerEmail": "Bloeme97327@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme97327",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme97327",
+        "AUM": 366,
+        "investors": 5,
+        "totalReturnValue": 396,
+        "totalReturnPercent": 85
+      }
+    },
+    {
+      "ownerEmail": "Bloeme96114@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme96114",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme96114",
+        "AUM": 601,
+        "investors": 58,
+        "totalReturnValue": 874,
+        "totalReturnPercent": 99
+      }
+    },
+    {
+      "ownerEmail": "Bloeme98236@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme98236",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme98236",
+        "AUM": 983,
+        "investors": 37,
+        "totalReturnValue": 476,
+        "totalReturnPercent": 81
+      }
+    },
+    {
+      "ownerEmail": "Bloeme24255@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme24255",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme24255",
+        "AUM": 735,
+        "investors": 23,
+        "totalReturnValue": 840,
+        "totalReturnPercent": 45
+      }
+    },
+    {
+      "ownerEmail": "Bloeme18683@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme18683",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme18683",
+        "AUM": 937,
+        "investors": 59,
+        "totalReturnValue": 214,
+        "totalReturnPercent": 43
+      }
+    },
+    {
+      "ownerEmail": "Bloeme19196@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme19196",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme19196",
+        "AUM": 458,
+        "investors": 87,
+        "totalReturnValue": 885,
+        "totalReturnPercent": 43
+      }
+    },
+    {
+      "ownerEmail": "Bloeme32103@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme32103",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme32103",
+        "AUM": 934,
+        "investors": 16,
+        "totalReturnValue": 359,
+        "totalReturnPercent": 44
+      }
+    },
+    {
+      "ownerEmail": "Bloeme44310@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme44310",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme44310",
+        "AUM": 447,
+        "investors": 10,
+        "totalReturnValue": 573,
+        "totalReturnPercent": 2
+      }
+    },
+    {
+      "ownerEmail": "Bloeme53644@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme53644",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme53644",
+        "AUM": 320,
+        "investors": 49,
+        "totalReturnValue": 874,
+        "totalReturnPercent": 95
+      }
+    },
+    {
+      "ownerEmail": "Bloeme85782@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme85782",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme85782",
+        "AUM": 597,
+        "investors": 97,
+        "totalReturnValue": 44,
+        "totalReturnPercent": 21
+      }
+    },
+    {
+      "ownerEmail": "Bloeme54682@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme54682",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme54682",
+        "AUM": 720,
+        "investors": 96,
+        "totalReturnValue": 252,
+        "totalReturnPercent": 71
+      }
+    },
+    {
+      "ownerEmail": "Bloeme90654@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme90654",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme90654",
+        "AUM": 618,
+        "investors": 54,
+        "totalReturnValue": 462,
+        "totalReturnPercent": 77
+      }
+    },
+    {
+      "ownerEmail": "Bloeme79624@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme79624",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme79624",
+        "AUM": 637,
+        "investors": 29,
+        "totalReturnValue": 372,
+        "totalReturnPercent": 91
+      }
+    },
+    {
+      "ownerEmail": "Bloeme99083@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme99083",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme99083",
+        "AUM": 379,
+        "investors": 32,
+        "totalReturnValue": 492,
+        "totalReturnPercent": 17
+      }
+    },
+    {
+      "ownerEmail": "Bloeme82047@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme82047",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme82047",
+        "AUM": 265,
+        "investors": 41,
+        "totalReturnValue": 273,
+        "totalReturnPercent": 0
+      }
+    },
+    {
+      "ownerEmail": "Bloeme92445@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme92445",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme92445",
+        "AUM": 284,
+        "investors": 12,
+        "totalReturnValue": 332,
+        "totalReturnPercent": 34
+      }
+    },
+    {
+      "ownerEmail": "Bloeme58401@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme58401",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme58401",
+        "AUM": 110,
+        "investors": 86,
+        "totalReturnValue": 430,
+        "totalReturnPercent": 96
+      }
+    },
+    {
+      "ownerEmail": "Bloeme14333@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme14333",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme14333",
+        "AUM": 581,
+        "investors": 96,
+        "totalReturnValue": 942,
+        "totalReturnPercent": 48
+      }
+    },
+    {
+      "ownerEmail": "Bloeme99010@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme99010",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme99010",
+        "AUM": 684,
+        "investors": 31,
+        "totalReturnValue": 716,
+        "totalReturnPercent": 12
+      }
+    },
+    {
+      "ownerEmail": "Bloeme3732@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme3732",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme3732",
+        "AUM": 721,
+        "investors": 76,
+        "totalReturnValue": 625,
+        "totalReturnPercent": 14
+      }
+    },
+    {
+      "ownerEmail": "Bloeme6020@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme6020",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme6020",
+        "AUM": 296,
+        "investors": 0,
+        "totalReturnValue": 68,
+        "totalReturnPercent": 55
+      }
+    },
+    {
+      "ownerEmail": "Bloeme9118@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme9118",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme9118",
+        "AUM": 355,
+        "investors": 42,
+        "totalReturnValue": 564,
+        "totalReturnPercent": 34
+      }
+    },
+    {
+      "ownerEmail": "Bloeme34253@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme34253",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme34253",
+        "AUM": 754,
+        "investors": 80,
+        "totalReturnValue": 442,
+        "totalReturnPercent": 11
+      }
+    },
+    {
+      "ownerEmail": "Bloeme93931@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme93931",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme93931",
+        "AUM": 216,
+        "investors": 21,
+        "totalReturnValue": 381,
+        "totalReturnPercent": 51
+      }
+    },
+    {
+      "ownerEmail": "Bloeme87337@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme87337",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme87337",
+        "AUM": 689,
+        "investors": 50,
+        "totalReturnValue": 775,
+        "totalReturnPercent": 21
+      }
+    },
+    {
+      "ownerEmail": "Bloeme28765@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme28765",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme28765",
+        "AUM": 535,
+        "investors": 51,
+        "totalReturnValue": 327,
+        "totalReturnPercent": 13
+      }
+    },
+    {
+      "ownerEmail": "Bloeme96149@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme96149",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme96149",
+        "AUM": 557,
+        "investors": 78,
+        "totalReturnValue": 436,
+        "totalReturnPercent": 36
+      }
+    },
+    {
+      "ownerEmail": "Bloeme21060@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme21060",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme21060",
+        "AUM": 875,
+        "investors": 58,
+        "totalReturnValue": 805,
+        "totalReturnPercent": 75
+      }
+    },
+    {
+      "ownerEmail": "Bloeme93400@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme93400",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme93400",
+        "AUM": 801,
+        "investors": 17,
+        "totalReturnValue": 67,
+        "totalReturnPercent": 42
+      }
+    },
+    {
+      "ownerEmail": "Bloeme60472@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme60472",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme60472",
+        "AUM": 190,
+        "investors": 90,
+        "totalReturnValue": 672,
+        "totalReturnPercent": 50
+      }
+    },
+    {
+      "ownerEmail": "Bloeme37957@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme37957",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme37957",
+        "AUM": 941,
+        "investors": 62,
+        "totalReturnValue": 340,
+        "totalReturnPercent": 96
+      }
+    },
+    {
+      "ownerEmail": "Bloeme25825@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme25825",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme25825",
+        "AUM": 742,
+        "investors": 99,
+        "totalReturnValue": 743,
+        "totalReturnPercent": 98
+      }
+    },
+    {
+      "ownerEmail": "Bloeme81633@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme81633",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme81633",
+        "AUM": 548,
+        "investors": 61,
+        "totalReturnValue": 830,
+        "totalReturnPercent": 80
+      }
+    },
+    {
+      "ownerEmail": "Bloeme80477@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme80477",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme80477",
+        "AUM": 520,
+        "investors": 69,
+        "totalReturnValue": 705,
+        "totalReturnPercent": 9
+      }
+    },
+    {
+      "ownerEmail": "Bloeme99464@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme99464",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme99464",
+        "AUM": 482,
+        "investors": 86,
+        "totalReturnValue": 337,
+        "totalReturnPercent": 77
+      }
+    },
+    {
+      "ownerEmail": "Bloeme64520@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme64520",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme64520",
+        "AUM": 135,
+        "investors": 95,
+        "totalReturnValue": 333,
+        "totalReturnPercent": 4
+      }
+    },
+    {
+      "ownerEmail": "Bloeme4877@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme4877",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme4877",
+        "AUM": 947,
+        "investors": 84,
+        "totalReturnValue": 617,
+        "totalReturnPercent": 31
+      }
+    },
+    {
+      "ownerEmail": "Bloeme29730@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme29730",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme29730",
+        "AUM": 948,
+        "investors": 28,
+        "totalReturnValue": 121,
+        "totalReturnPercent": 28
+      }
+    },
+    {
+      "ownerEmail": "Bloeme16074@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme16074",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme16074",
+        "AUM": 242,
+        "investors": 33,
+        "totalReturnValue": 800,
+        "totalReturnPercent": 67
+      }
+    },
+    {
+      "ownerEmail": "Bloeme83669@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme83669",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme83669",
+        "AUM": 534,
+        "investors": 70,
+        "totalReturnValue": 471,
+        "totalReturnPercent": 42
+      }
+    },
+    {
+      "ownerEmail": "Bloeme98457@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme98457",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme98457",
+        "AUM": 347,
+        "investors": 44,
+        "totalReturnValue": 822,
+        "totalReturnPercent": 14
+      }
+    },
+    {
+      "ownerEmail": "Bloeme54458@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme54458",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme54458",
+        "AUM": 91,
+        "investors": 20,
+        "totalReturnValue": 377,
+        "totalReturnPercent": 82
+      }
+    },
+    {
+      "ownerEmail": "Bloeme47033@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme47033",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme47033",
+        "AUM": 742,
+        "investors": 71,
+        "totalReturnValue": 327,
+        "totalReturnPercent": 29
+      }
+    },
+    {
+      "ownerEmail": "Bloeme72102@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme72102",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme72102",
+        "AUM": 972,
+        "investors": 89,
+        "totalReturnValue": 988,
+        "totalReturnPercent": 61
+      }
+    },
+    {
+      "ownerEmail": "Bloeme49802@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme49802",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme49802",
+        "AUM": 521,
+        "investors": 1,
+        "totalReturnValue": 553,
+        "totalReturnPercent": 84
+      }
+    },
+    {
+      "ownerEmail": "Bloeme95867@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme95867",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme95867",
+        "AUM": 817,
+        "investors": 22,
+        "totalReturnValue": 259,
+        "totalReturnPercent": 24
+      }
+    },
+    {
+      "ownerEmail": "Bloeme90860@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme90860",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme90860",
+        "AUM": 582,
+        "investors": 2,
+        "totalReturnValue": 211,
+        "totalReturnPercent": 39
+      }
+    },
+    {
+      "ownerEmail": "Bloeme63862@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme63862",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme63862",
+        "AUM": 421,
+        "investors": 81,
+        "totalReturnValue": 92,
+        "totalReturnPercent": 16
+      }
+    },
+    {
+      "ownerEmail": "Bloeme97449@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme97449",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme97449",
+        "AUM": 766,
+        "investors": 57,
+        "totalReturnValue": 447,
+        "totalReturnPercent": 19
+      }
+    },
+    {
+      "ownerEmail": "Bloeme70071@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme70071",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme70071",
+        "AUM": 572,
+        "investors": 12,
+        "totalReturnValue": 626,
+        "totalReturnPercent": 37
+      }
+    },
+    {
+      "ownerEmail": "Bloeme68349@gmail.com",
+      "isOwner": true,
+      "isInvestor": false,
+      "id": "Bloeme68349",
+      "portfolio": "placeholder",
+      "portfolioSummary": {
+        "id": "Bloeme68349",
+        "AUM": 290,
+        "investors": 7,
+        "totalReturnValue": 769,
+        "totalReturnPercent": 67
+      }
+    },
+    {
+      "id": "Jordan",
+      "ownerEmail": "hardcoded",
+      "isOwner": true,
+      "isInvestor": false,
+      "portfolio": {
+        "tokens": [
+          {
+            "token": "testToken1",
+            "portfolioPercent": 100,
+            "buyTarget": 12,
+            "sellTarget": 12
+          }
+        ]
+      },
+      "portfolioSummary": {
+        "id": "Jordan",
+        "AUM": 317,
+        "investors": 7,
+        "totalReturnValue": 599,
+        "totalReturnPercent": 10
+      }
+    },
+    {
+      "id": "Jordanasd",
+      "ownerEmail": "hardcoded",
+      "isOwner": true,
+      "isInvestor": false,
+      "portfolio": {
+        "tokens": [
+          {
+            "token": "testToken1",
+            "portfolioPercent": 100,
+            "buyTarget": 2323,
+            "sellTarget": 213123
+          }
+        ]
+      },
+      "portfolioSummary": {
+        "id": "Jordanasd",
+        "AUM": 559,
+        "investors": 19,
+        "totalReturnValue": 84,
+        "totalReturnPercent": 38
+      }
+    },
+    {
+      "id": "Jordanasddsa",
+      "ownerEmail": "hardcoded",
+      "isOwner": true,
+      "isInvestor": false,
+      "portfolio": {
+        "tokens": [
+          {
+            "token": "testToken1",
+            "portfolioPercent": 100,
+            "buyTarget": 2323,
+            "sellTarget": 213123
+          }
+        ]
+      },
+      "portfolioSummary": {
+        "id": "Jordanasddsa",
+        "AUM": 707,
+        "investors": 10,
+        "totalReturnValue": 593,
+        "totalReturnPercent": 21
+      }
+    },
+    {
+      "id": "Jordanasddsadsa",
+      "ownerEmail": "hardcoded",
+      "isOwner": true,
+      "isInvestor": false,
+      "portfolio": {
+        "tokens": [
+          {
+            "token": "testToken1",
+            "portfolioPercent": 100,
+            "buyTarget": 2323,
+            "sellTarget": 213123
+          }
+        ]
+      },
+      "portfolioSummary": {
+        "id": "Jordanasddsadsa",
+        "AUM": 858,
+        "investors": 72,
+        "totalReturnValue": 217,
+        "totalReturnPercent": 26
+      }
+    },
+    {
+      "id": "Jordansadasdsda",
+      "ownerEmail": "hardcoded",
+      "isOwner": true,
+      "isInvestor": false,
+      "portfolio": {
+        "tokens": [
+          {
+            "token": "testToken1",
+            "portfolioPercent": 100,
+            "buyTarget": 123,
+            "sellTarget": 321123
+          }
+        ]
+      },
+      "portfolioSummary": {
+        "id": "Jordansadasdsda",
+        "AUM": 882,
+        "investors": 59,
+        "totalReturnValue": 753,
+        "totalReturnPercent": 22
+      }
+    },
+    {
+      "id": "Theo",
+      "ownerEmail": "hardcoded",
+      "isOwner": true,
+      "isInvestor": false,
+      "portfolio": {
+        "tokens": [
+          {
+            "token": "testToken1",
+            "portfolioPercent": 100,
+            "buyTarget": 2312,
+            "sellTarget": 12
+          }
+        ]
+      },
+      "portfolioSummary": {
+        "id": "Theo",
+        "AUM": 346,
+        "investors": 66,
+        "totalReturnValue": 580,
+        "totalReturnPercent": 41
+      }
+    }
+  ]
+}

@@ -1,20 +1,23 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 
-import { TokenInfoModel } from './models';
+import { FundSummaryRow, TokenInfoModel } from '../models/models';
 import InputRow from './InputRow';
-import { createFund } from '../../state/ducks/funds/FundsDuck'
+import { postFund } from '../../state/ducks/funds/FundsDuck'
 import PortfolioHeaders from './PortfolioHeaders';
 import './Portfolio.scss';
+import { useImmer } from 'use-immer'; // https://css-tricks.com/using-immer-for-react-state-management/
+// feel free to undo but I thought logic much clearer w mutable syntax
+
 
 /**
  * A portfolio editor with rows and columns for changing information
  * about which tokens to buy/sell, when to buy/sell them, and how much to buy.
  */
 export const Portfolio = () => {
-    const [rows, setRows] = useState([{ token: "testToken1" } as TokenInfoModel]);
+    const [rows, setRows] = useImmer([{ token: "testToken1" } as TokenInfoModel]);
     const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
     const dispatch = useDispatch()
 
@@ -28,20 +31,42 @@ export const Portfolio = () => {
      * @param dataKey the key to update
      * @param dataValue the new value of the given key
      */
-    const onUpdateData = (row: number, dataKey: string, dataValue: any) => {
-        setRows(prevRows => (
-            [...prevRows.slice(0, row),
-            { ...prevRows[row], [dataKey]: dataValue },
-            ...prevRows.slice(row + 1)]
-        ));
+    const onUpdateData = (row: number, dataKey: keyof TokenInfoModel, dataValue: any) => {
+        setRows(prevRows => { prevRows[row][dataKey] = dataValue });
     }
 
     /**
      * Adds a new (empty) row to the portfolio editor.
      */
     const addRow = () => {
-        setRows(prevRows => ([...prevRows, { token: "testToken1" } as TokenInfoModel]))
+        setRows(prevRows => { prevRows.push({ token: "testToken1" } as TokenInfoModel) })
     }
+
+    const createFundSummary = (): FundSummaryRow => {
+        function getRandomInt(max: number) {
+            return Math.floor(Math.random() * max);
+        }
+        const fakeSummary = {
+            id: fundName,
+            AUM: getRandomInt(1000),
+            investors: getRandomInt(100),
+            totalReturnValue: getRandomInt(1000),
+            totalReturnPercent: getRandomInt(100)
+        }
+
+        return fakeSummary
+    }
+
+    const onClickSave = () => {
+        if (validPortfolioPercent()) {
+            const portfolio = { tokens: [...rows] }
+            dispatch(postFund({ id: fundName, ownerEmail: "hardcoded", isOwner: true, isInvestor: false, portfolio, portfolioSummary: createFundSummary() }))
+        }
+        else {
+            alert("Your addition is wrong. Tokens must add up to 100% of portfolio.")
+        }
+    }
+
 
     /**
      * Removes a row from the portfolio editor.
@@ -49,17 +74,20 @@ export const Portfolio = () => {
      */
     const removeRow = (row: number) => {
         if (row === 0) {
-            setRows(prevRows => (prevRows.length > 1 ? [...prevRows.slice(1)] : [{ token: "testToken1" } as TokenInfoModel]))
+            setRows(prevRows => { prevRows.length > 1 ? prevRows.shift() : prevRows = [{ token: "testToken1" } as TokenInfoModel] })
         } else if (row === rows.length - 1) {
-            setRows(prevRows => ([...prevRows.slice(0, row)]))
+            setRows(prevRows => { prevRows.pop() })
         } else {
-            setRows(prevRows => ([...prevRows.slice(0, row), ...prevRows.slice(row + 1)]))
+            setRows(prevRows => { prevRows.splice(row, 1) })
         }
     }
 
-    const onClickSave = () => {
-        dispatch(createFund({ id: fundName, ownerEmail: "hardcoded", portfolio: { tokens: [...rows] } }))
+    const validPortfolioPercent = () => {
+        let total = 0
+        rows.forEach(tokenInfo => total += Number(tokenInfo.portfolioPercent))
+        return total === 100 ? true : false
     }
+
 
     return (
 
@@ -71,7 +99,7 @@ export const Portfolio = () => {
                 {rows && rows.map((row, index) => (
                     <InputRow
                         key={index}
-                        onUpdateData={(key: string, value: any) => onUpdateData(index, key, value)}
+                        onUpdateData={(key: keyof TokenInfoModel, value: any) => onUpdateData(index, key, value)}
                         onRemoveRow={() => removeRow(index)}
                         token={row.token}
                         portfolioPercent={row.portfolioPercent}
@@ -84,15 +112,15 @@ export const Portfolio = () => {
                 <Button type="dashed" onClick={() => addRow()} block icon={<PlusOutlined />}>
                     Add token
                 </Button>
-            
 
-            <div className="portfolio__name">
-                Fund Name (acts as unique ID)
-                <Input value={fundName} onChange={onUpdateName} />
-            </div>
+
+                <div className="portfolio__name">
+                    Fund Name (acts as unique ID)
+                    <Input value={fundName} onChange={onUpdateName} />
+                </div>
             </div>
             <div>
-                <Button onClick={onClickSave}>Save</Button>
+                <Button onClick={onClickSave} style={{ color: validPortfolioPercent() ? "green" : "red" }}>Save</Button>
             </div>
         </div>
     )

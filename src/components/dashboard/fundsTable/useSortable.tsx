@@ -1,6 +1,5 @@
-import React, { useMemo, useState } from 'react';
-
-import { FundSummaryRow } from '../portfolio/models';
+import { useMemo, useState } from 'react';
+import { FundSummaryRow } from '../../models/models';
 
 type Direction = "ascending" | "descending"
 
@@ -10,7 +9,7 @@ export interface SortConfig {
 }
 
 /**
- * Hook to sort FundSummaryRows by a given key (column) in a given direction (ascending or descending), which
+* Hook to sort FundSummaryRows by a given key (column) in a given direction (ascending or descending), which
  * are both specified in the config.
  *
  * @param items all fund summaries, which will be sorted
@@ -23,7 +22,8 @@ export interface SortConfig {
  * 2) a function that changes the key (column) by which the rows are sorted or that, if passed the current key,
  * changes the direction by which the rows are sorted
  *
- * 3) a config that reflects the current key (column) by which the rows are sorted
+ * 3) a function that returns the class name of "ascending" or "descending" depending which direciton the key is being sorted on.
+ *    If called on a key that isn't being sorted on, it returns undefined
  */
 export const useSortableData = (items: FundSummaryRow[], config: SortConfig) => {
 
@@ -45,11 +45,15 @@ export const useSortableData = (items: FundSummaryRow[], config: SortConfig) => 
 
   const setSortKeyOrChangeDirection = (key: keyof FundSummaryRow) => {
     let direction: Direction = "ascending"
-    if (key == sortConfig.key) {
+    if (key === sortConfig.key) {
       direction = sortConfig.direction === "ascending" ? "descending" : "ascending";
     }
     setSortConfig({ key, direction });
-  };
+  }
 
-  return { rows: sortedItems, setSortKeyOrChangeDirection, sortConfig };
+  const getClassNamesFor = (name: keyof FundSummaryRow) => (
+    sortConfig.key === name ? sortConfig.direction : undefined
+  );
+
+  return { rows: sortedItems, requestSort: setSortKeyOrChangeDirection, sortConfig, getClassNamesFor };
 }

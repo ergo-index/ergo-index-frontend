@@ -1,12 +1,10 @@
-import { FundModel } from "../../../components/portfolio/models";
+import { FundModel, FundState } from "../../../components/models/models";
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AppThunk } from '../../store';
+import _ from 'lodash';
+import { http } from "../../../api/fundsApi";
 
 
-interface FundState {
-  funds: {
-    [id: string]: FundModel
-  }
-}
 
 // The default state of the fund
 const initialState: FundState = {
@@ -19,14 +17,16 @@ const fundSlice = createSlice({
   reducers: {
     // Payload is ID of fund to delete
     deleteFund(state, action: PayloadAction<string>) {
-      const { [action.payload]: _, ...newFunds } = state.funds;
-      state.funds = newFunds;
+      delete state.funds[action.payload]
     },
     updateFund(state, action: PayloadAction<FundModel>) {
-      state.funds = { [action.payload.id]: action.payload, ...state.funds };
+      state.funds[action.payload.id] = action.payload
     },
     createFund(state, action: PayloadAction<FundModel>) {
-      state.funds = { [action.payload.id]: action.payload, ...state.funds };
+      state.funds[action.payload.id] = action.payload
+    },
+    fetchFunds(state, action: PayloadAction<FundModel[]>) {
+      state.funds = _.mapKeys(action.payload, "id")
     },
   }
 });
@@ -35,71 +35,27 @@ export const {
   deleteFund,
   updateFund,
   createFund,
+  fetchFunds
 } = fundSlice.actions;
 
 export default fundSlice.reducer;
 
 
+export const getAllFunds = (): AppThunk => async dispatch => {
+  try {
+    let response = await http.get<FundModel[]>("/funds")
+    dispatch(fetchFunds(response.data))
+  } catch (e) {
+    console.log('Error: ', e.message)
+  }
+};
 
+export const postFund = (fund: FundModel): AppThunk => async dispatch => {
+  try {
+    await http.post<FundModel>("/funds", fund)
+    dispatch(createFund(fund))
+  } catch (e) {
+    console.log('Error: ', e.message)
+  }
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const DELETEFUND: string = 'UPDATEFUND';
-// const UPDATEFUND: string = 'UPDATEFUND';
-// const CREATEFUND: string = 'CREATEFUND';
-
-
-// export default (state = initialState, action: any) => {
-//   switch (action.type) {
-//     // case DELETEFUND:
-//     //   return _.omit(state, action.payload.id);
-//     case UPDATEFUND:
-//       return { ...state, [action.payload.id]: action.payload };
-//     case CREATEFUND:
-//       return { ...state, [action.payload.id]: action.payload };
-//     default:
-//       return state;
-//   }
-// };
-
-
-// // action creators
-// export const deleteFund = (id: string): AppThunk => async (dispatch) => {
-//   // await requestToSomewhere.delete(`FUND/${id}`); - idfk
-//   dispatch({ type: DELETEFUND, payload: { id } });
-// };
-
-// export const updateFund = (updatedFund: FundModel): AppThunk => async (dispatch) => {
-//   // const response = await requestToSomewhere.put(`FUND/${id}`, updateFUND);
-//   dispatch({ type: UPDATEFUND, payload: updatedFund });
-// };
-
-// export const createFund = (newFund: FundModel): AppThunk => async (dispatch) => {
-//   // const response = await requestToSomewhere.post(`FUND/${id}`, neFUND);
-//   dispatch({ type: CREATEFUND, payload: newFund });
-// };
-
-
-// interface FundState {
-//   funds: {
-//     [id: string]: FundModel
-//   }
-// }
-
-// // The default state of the fund
-// const initialState: FundState = {
-//   funds: {}
-// };
