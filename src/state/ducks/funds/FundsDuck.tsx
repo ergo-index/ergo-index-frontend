@@ -1,9 +1,14 @@
-import { FundModel, FundState } from "../../../components/models/models";
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AppThunk } from '../../store';
+import { FundModel } from "../../../components/models/models";
+import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AppThunk, RootState } from '../../store';
 import _ from 'lodash';
 import { http } from "../../../api/fundsApi";
-
+ 
+export interface FundState { // REDUX STATE
+  funds: {
+    [id: string]: FundModel
+  }
+}
 
 
 // The default state of the fund
@@ -40,6 +45,18 @@ export const {
 
 export default fundSlice.reducer;
 
+export const selectFunds = (state: RootState) => {
+  return state.fundsState.funds
+}
+
+export const selectPortfolioSummaries = createSelector(
+  selectFunds,
+  funds => {
+    console.log("useSelector: selectPortfolioSummaries");
+    return Object.values(funds).map((fund: FundModel) => fund.portfolioSummary)
+  }
+  
+)
 
 export const getAllFunds = (): AppThunk => async dispatch => {
   try {

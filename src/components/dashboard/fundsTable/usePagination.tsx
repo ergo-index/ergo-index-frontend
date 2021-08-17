@@ -1,4 +1,4 @@
-import { useState } from "react";
+import  { useState } from "react";
 import { FundSummaryRow } from '../../models/models';
 
 /**
@@ -24,7 +24,7 @@ import { FundSummaryRow } from '../../models/models';
 export const usePagination = (rows: FundSummaryRow[], itemsPerPage: number) => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const maxPage = Math.ceil(rows.length / itemsPerPage);
+    const maxPage = Math.max(Math.ceil(rows.length / itemsPerPage), 1);
 
     function currentData() {
         const begin = (currentPage - 1) * itemsPerPage;
@@ -32,7 +32,7 @@ export const usePagination = (rows: FundSummaryRow[], itemsPerPage: number) => {
         return rows.slice(begin, end); // returns shallow copy
     }
 
-    function next() {
+    function next() {        
         setCurrentPage((currentPage) => Math.min(currentPage + 1, maxPage));
     }
 

@@ -12,12 +12,16 @@ export const FundsTable = ({ funds }: FundsTableProps) => {
 
   const { rows, requestSort, getClassNamesFor } = useSortableData(funds, { key: "id", direction: "ascending" });
   const { next, prev, jump, currentData, currentPage, maxPage } = usePagination(rows, 20)
+  
 
   const renderHeaders = () => (
     <div className="headers-container">
       {fundTableHeaders.map(({ sortID, name }, index) => (
         <div key={index}
-          onClick={() => requestSort(sortID)}
+          onClick={() => {
+            requestSort(sortID)
+            jump(1)
+          }}
           className={getClassNamesFor(sortID)}
           style={{ cursor: "pointer" }}
         >
@@ -45,6 +49,8 @@ export const FundsTable = ({ funds }: FundsTableProps) => {
     </>
   );
 
+  console.log("Table rendered");
+  
   return (
     <div className="portfolio__container">
       <div className="portfolio__table">

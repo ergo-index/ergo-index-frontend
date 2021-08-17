@@ -20,13 +20,6 @@ export interface FundSummaryRow {
     totalReturnPercent: number
 }
 
-export interface FundState { // REDUX STATE
-    funds: {
-      [id: string]: FundModel
-    }
-  }
-
-
 /**
  * A portfolio of tokens that a fund invests in.
  * The goal of this is to eventually support cross-chain assets rather than just Ergo tokens.
