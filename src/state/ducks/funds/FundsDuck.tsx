@@ -45,19 +45,6 @@ export const {
 
 export default fundSlice.reducer;
 
-export const selectFunds = (state: RootState) => {
-  return state.fundsState.funds
-}
-
-export const selectPortfolioSummaries = createSelector(
-  selectFunds,
-  funds => {
-    console.log("useSelector: selectPortfolioSummaries");
-    return Object.values(funds).map((fund: FundModel) => fund.portfolioSummary)
-  }
-  
-)
-
 export const getAllFunds = (): AppThunk => async dispatch => {
   try {
     let response = await http.get<FundModel[]>("/funds")

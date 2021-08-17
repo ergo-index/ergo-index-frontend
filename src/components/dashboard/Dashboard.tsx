@@ -5,8 +5,10 @@ import { Button } from 'antd';
 import { FundSummaryRow } from '../models/models';
 import FundsTable from './fundsTable/FundsTable';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllFunds, selectPortfolioSummaries } from '../../state/ducks/funds/FundsDuck';
+import { getAllFunds } from '../../state/ducks/funds/FundsDuck';
 import { useState } from 'react';
+import { FundModel } from '../models/models';
+import { RootState } from '../../state/store';
 
 /**
  * The main dashboard for logged in users.
@@ -22,7 +24,13 @@ const Dashboard = () => {
     }, [dispatch]);
 
 
-    const fundSummaries: FundSummaryRow[] = useSelector(selectPortfolioSummaries)
+
+   const fundSummaries: FundSummaryRow[] = useSelector(
+        (state: RootState) => {
+            console.log("useSelector: Get all fundSummaries from redux state");
+            return Object.values(state.fundsState.funds).map(fund => fund.portfolioSummary)
+        }
+    );
 
     const onClickCreateIndex = () => {
         history.push('/portfolio')
@@ -43,12 +51,6 @@ export default Dashboard;
 
 
 
-// Way 1
-   // const fundsState: FundState = useSelector(
-    //     (state: RootState) => {
-    //         console.log("useSelector: Get all funs from redux state");
-    //         return state.fundsState
-    //     }
-    // );
+
 
 
