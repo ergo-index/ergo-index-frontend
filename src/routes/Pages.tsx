@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import { RootState } from '../state/store';
-import { loadProfile } from '../state/ducks/user/UserDuck';
+import { loadProfile } from '../state/UI/UserDuck';
 import LoggedOutRoute from './LoggedOutRoute';
 import LoggedInRoute from './LoggedInRoute';
 import Dashboard from '../components/dashboard/Dashboard';

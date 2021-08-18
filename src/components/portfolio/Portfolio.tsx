@@ -5,7 +5,7 @@ import { Button, Input } from 'antd';
 
 import { FundSummaryRow, TokenInfoModel } from '../models/models';
 import InputRow from './InputRow';
-import { postFund } from '../../state/ducks/funds/FundsDuck'
+// import { postFund } from '../../state/ducks/funds/FundsDuck'
 import PortfolioHeaders from './PortfolioHeaders';
 import './Portfolio.scss';
 import { useImmer } from 'use-immer'; // https://css-tricks.com/using-immer-for-react-state-management/
@@ -60,7 +60,7 @@ export const Portfolio = () => {
     const onClickSave = () => {
         if (validPortfolioPercent()) {
             const portfolio = { tokens: [...rows] }
-            dispatch(postFund({ id: fundName, ownerEmail: "hardcoded", isOwner: true, isInvestor: false, portfolio, portfolioSummary: createFundSummary() }))
+            // dispatch(postFund({ id: fundName, ownerEmail: "hardcoded", isOwner: true, isInvestor: false, portfolio, portfolioSummary: createFundSummary() }))
         }
         else {
             alert("Your addition is wrong. Tokens must add up to 100% of portfolio.")

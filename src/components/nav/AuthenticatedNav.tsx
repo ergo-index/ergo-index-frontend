@@ -4,7 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
 import TweenOne from 'rc-tween-one';
 
-import { logOut } from '../../state/ducks/user/UserDuck';
+import { logOut } from '../../state/UI/UserDuck';
 import { RootState } from '../../state/store';
 import useIsMobile from './common';
 import './AuthenticatedNav.scss';

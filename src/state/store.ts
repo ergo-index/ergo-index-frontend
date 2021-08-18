@@ -1,3 +1,4 @@
+
 import {
     configureStore,
     ThunkAction,
@@ -5,13 +6,30 @@ import {
     combineReducers
 } from '@reduxjs/toolkit';
 
-import * as reducers from './ducks';
+import { setupListeners } from '@reduxjs/toolkit/query'
 
-// Create a store with all of our reducers
-const rootReducer = combineReducers(reducers);
+import userState from './UI/UserDuck'
+import {fundsApi} from './server/FundsDuck'
+
+const rootReducer = combineReducers({
+    [fundsApi.reducerPath]: fundsApi.reducer,
+    userState
+})
+
 const store = configureStore({
-    reducer: rootReducer
+    reducer: rootReducer,
+
+    // Adding the api middleware enables caching, invalidation, polling,
+    // and other useful features of `rtk-query`.
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(fundsApi.middleware),
 });
+
+
+// optional, but required for refetchOnFocus/refetchOnReconnect behaviors
+// see `setupListeners` docs - takes an optional callback as the 2nd arg for customization
+setupListeners(store.dispatch)
+
 
 // Export types to use elsewhere
 export type RootState = ReturnType<typeof rootReducer>;

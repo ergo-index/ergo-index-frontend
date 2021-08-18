@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, Input, Modal } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 
-import { clearErrMsgAction, logIn, loginFailAction, signUp } from '../../state/ducks/user/UserDuck';
+import { clearErrMsgAction, logIn, loginFailAction, signUp } from '../../state/UI/UserDuck';
 import { RootState } from '../../state/store';
 import Landing0 from './Landing0';
 import Landing1 from './Landing1';

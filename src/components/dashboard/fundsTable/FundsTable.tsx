@@ -1,18 +1,20 @@
 import { useSortableData } from './useSortable';
-import { FundSummaryRow, fundTableHeaders } from '../../models/models';
+import { fundTableHeaders } from '../../models/models';
 import '../Dashboard.scss'
 import { usePagination } from './usePagination';
+import { useGetFundSummariesQuery } from '../../../state/server/FundsDuck';
 
+export const FundsTable = () => {
 
-interface FundsTableProps {
-  funds: FundSummaryRow[]
-}
+  const { data, isLoading, isError } = useGetFundSummariesQuery(
+    undefined, {
+    pollingInterval: 10000,
+  }
+  )
 
-export const FundsTable = ({ funds }: FundsTableProps) => {
-
-  const { rows, requestSort, getClassNamesFor } = useSortableData(funds, { key: "id", direction: "ascending" });
+  const { rows, requestSort, getClassNamesFor } = useSortableData(data ? data : [], { key: "id", direction: "ascending" });
   const { next, prev, jump, currentData, currentPage, maxPage } = usePagination(rows, 20)
-  
+
 
   const renderHeaders = () => (
     <div className="headers-container">
@@ -50,12 +52,12 @@ export const FundsTable = ({ funds }: FundsTableProps) => {
   );
 
   console.log("Table rendered");
-  
   return (
     <div className="portfolio__container">
       <div className="portfolio__table">
         <h1 className="portfolio__header">All Funds</h1>
         {renderHeaders()}
+        <h1>{isLoading ? "Loading..." : ""}</h1>
         {renderBody()}
       </div>
       <div>Page {currentPage} </div>
