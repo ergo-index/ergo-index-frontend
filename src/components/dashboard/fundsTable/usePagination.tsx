@@ -23,6 +23,8 @@ import { FundSummaryRow } from '../../models/models';
  */
 export const usePagination = (rows: FundSummaryRow[], itemsPerPage: number) => {
 
+    console.log("Pagination hook run");
+    
     const [currentPage, setCurrentPage] = useState(1);
     const maxPage = Math.max(Math.ceil(rows.length / itemsPerPage), 1);
 

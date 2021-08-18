@@ -7,9 +7,12 @@ import { fundSummarySelector, getFunds } from '../../../api/fundsApi';
 
 export const FundsTable = () => {
 
+  // https://stackoverflow.com/questions/67040687/react-query-doesnt-seem-to-be-caching
   // https://tkdodo.eu/blog/react-query-and-type-script
   const { isLoading, data } = useQuery<FundModel[], Error, FundSummaryRow[]>('funds', getFunds, {
     select: fundSummarySelector,
+    retry: false,
+    staleTime: 30000, // only eligible to refetch after 30 seconds
   })
 
   const { rows, requestSort, getClassNamesFor } = useSortableData(data ? data : [], { key: "id", direction: "ascending" });

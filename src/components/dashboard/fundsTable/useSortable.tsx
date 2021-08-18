@@ -26,10 +26,12 @@ export interface SortConfig {
  *    If called on a key that isn't being sorted on, it returns undefined
  */
 export const useSortableData = (items: FundSummaryRow[], config: SortConfig) => {
+  console.log("sortable hook run");
+
 
   const [sortConfig, setSortConfig] = useState(config);
 
-  const sortedItems = useMemo(() => {
+  const sortedItems = (() => {
     let sortableItems = [...items];
     sortableItems.sort((a, b) => {
       if (a[sortConfig.key] < b[sortConfig.key]) {
@@ -41,7 +43,7 @@ export const useSortableData = (items: FundSummaryRow[], config: SortConfig) => 
       return 0;
     });
     return sortableItems
-  }, [items, sortConfig]);
+  })()
 
   const setSortKeyOrChangeDirection = (key: keyof FundSummaryRow) => {
     let direction: Direction = "ascending"
