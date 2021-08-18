@@ -9,20 +9,13 @@ import {
 import { setupListeners } from '@reduxjs/toolkit/query'
 
 import userState from './UI/UserDuck'
-import {fundsApi} from './server/FundsDuck'
 
 const rootReducer = combineReducers({
-    [fundsApi.reducerPath]: fundsApi.reducer,
     userState
 })
 
 const store = configureStore({
-    reducer: rootReducer,
-
-    // Adding the api middleware enables caching, invalidation, polling,
-    // and other useful features of `rtk-query`.
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(fundsApi.middleware),
+    reducer: rootReducer
 });
 
 

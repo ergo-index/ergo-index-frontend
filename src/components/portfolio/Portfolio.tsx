@@ -1,16 +1,12 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 
 import { FundSummaryRow, TokenInfoModel } from '../models/models';
 import InputRow from './InputRow';
-// import { postFund } from '../../state/ducks/funds/FundsDuck'
 import PortfolioHeaders from './PortfolioHeaders';
 import './Portfolio.scss';
 import { useImmer } from 'use-immer'; // https://css-tricks.com/using-immer-for-react-state-management/
-// feel free to undo but I thought logic much clearer w mutable syntax
-
 
 /**
  * A portfolio editor with rows and columns for changing information
@@ -19,7 +15,6 @@ import { useImmer } from 'use-immer'; // https://css-tricks.com/using-immer-for-
 export const Portfolio = () => {
     const [rows, setRows] = useImmer([{ token: "testToken1" } as TokenInfoModel]);
     const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
-    const dispatch = useDispatch()
 
     const onUpdateName = (e: any) => {
         setFundName(e.target.value);

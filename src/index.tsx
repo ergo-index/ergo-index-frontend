@@ -2,14 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
+// By default, React Query Devtools are not included in production bundles 
+// when process.env.NODE_ENV === 'production', 
+// so you don't need to worry about excluding them during a production build.
+import { ReactQueryDevtools } from 'react-query/devtools' 
+
 import App from './app/App';
 import store from './state/store';
 
 import './styles/index.scss'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+const queryClient = new QueryClient()
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <App />
+      <ReactQueryDevtools position={"bottom-right"}/>
+
+    </QueryClientProvider>
   </Provider>,
   document.getElementById('root')
 );

@@ -1,16 +1,16 @@
 import { useSortableData } from './useSortable';
-import { fundTableHeaders } from '../../models/models';
+import { FundSummaryRow, fundTableHeaders, FundModel } from '../../models/models';
 import '../Dashboard.scss'
 import { usePagination } from './usePagination';
-import { useGetFundSummariesQuery } from '../../../state/server/FundsDuck';
+import { useQuery } from 'react-query'
+import { fundSummarySelector, getFunds } from '../../../api/fundsApi';
 
 export const FundsTable = () => {
 
-  const { data, isLoading, isError } = useGetFundSummariesQuery(
-    undefined, {
-    pollingInterval: 10000,
-  }
-  )
+  // https://tkdodo.eu/blog/react-query-and-type-script
+  const { isLoading, data } = useQuery<FundModel[], Error, FundSummaryRow[]>('funds', getFunds, {
+    select: fundSummarySelector,
+  })
 
   const { rows, requestSort, getClassNamesFor } = useSortableData(data ? data : [], { key: "id", direction: "ascending" });
   const { next, prev, jump, currentData, currentPage, maxPage } = usePagination(rows, 20)
@@ -52,12 +52,13 @@ export const FundsTable = () => {
   );
 
   console.log("Table rendered");
+
   return (
     <div className="portfolio__container">
       <div className="portfolio__table">
         <h1 className="portfolio__header">All Funds</h1>
         {renderHeaders()}
-        <h1>{isLoading ? "Loading..." : ""}</h1>
+        <h1>{isLoading ? "Loading...  I added fake latency" : ""}</h1>
         {renderBody()}
       </div>
       <div>Page {currentPage} </div>
