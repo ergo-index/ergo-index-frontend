@@ -1,25 +1,31 @@
-import { useHistory } from 'react-router-dom';
-import { Button } from 'antd';
-import FundsTable from './fundsTable/FundsTable';
 import { useState } from 'react';
-
+import DashboardTabs from './DashboardTabs';
+import MyFundsTable from './myFundsTable/MyFundsTable';
+import AllFundsTable from './allFundsTable/AllFundsTable';
+import Shell from '../Shell';
 /**
  * The main dashboard for logged in users.
  */
 const Dashboard = () => {
-    const history = useHistory();
-    const [count, setCount] = useState(0);
+    const [activeTab, setActiveTab] = useState(0);
 
-    const onClickCreateIndex = () => {
-        history.push('/portfolio')
+    const renderContent = () => {
+        if (activeTab === 0) {
+            return <AllFundsTable />
+        }
+        if (activeTab === 1) {
+            return <MyFundsTable />
+        }
     }
-
     return (
-        <div className="dashboard__container">
-            <Button onClick={onClickCreateIndex}>Create Index</Button>
-            <FundsTable />
-            <Button onClick={() => setCount(count + 1)}>Fetch</Button>
-        </div>
+        <>
+            <DashboardTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+            <Shell>
+                <>
+                    {renderContent()}
+                </>
+            </Shell>
+        </>
     );
 };
 

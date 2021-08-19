@@ -1,19 +1,8 @@
 /* React-specific entry point that automatically generates
    hooks corresponding to the defined endpoints */
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
-
 import { mockServerBase } from '../../api/api'
-import { FundModel, FundSummaryRow } from '../../components/models/models'
-
-
-function sleep(milliseconds: any) {
-  const date = Date.now();
-  let currentDate = null;
-  do {
-    currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
-}
+import { FundModel, FundSummaryRow } from '../../models/models'
 
 // Define a service using a base URL and expected endpoints
 export const fundsApi = createApi({
@@ -32,7 +21,6 @@ export const fundsApi = createApi({
       //                                           v
       transformResponse: (rawResult: FundModel[]) => {
         // The return value for `transformResponse` must match `ResultType` 
-        sleep(3000);  // simulate latency
         return rawResult.map(fund => fund.portfolioSummary)
       },
     }),

@@ -14,6 +14,8 @@ module.exports = {
            300: "red",  OVERRIDE TAILWIND'S DEFAULT COLOR PALETTE HERE
          },
          'regal-blue': '#243c5a', - ADD OWN COLORS LIKE THIS */
+         'navBlue': '#001529',
+         'textBlue': 'rgba(255, 255, 255, 0.65)'
       },
       fontFamily: {
         sans: ["Inter var", ...defaultTheme.fontFamily.sans],

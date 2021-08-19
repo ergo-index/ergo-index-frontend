@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 
-import { FundSummaryRow, TokenInfoModel } from '../models/models';
+import { FundSummaryRow, TokenInfoModel } from '../../models/models';
 import InputRow from './InputRow';
 // import { postFund } from '../../state/ducks/funds/FundsDuck'
 import PortfolioHeaders from './PortfolioHeaders';
@@ -96,7 +96,7 @@ export const Portfolio = () => {
 
             <div className="portfolio__table">
                 <PortfolioHeaders />
-                {rows && rows.map((row, index) => (
+                {/* {rows && rows.map((row, index) => (
                     <InputRow
                         key={index}
                         onUpdateData={(key: keyof TokenInfoModel, value: any) => onUpdateData(index, key, value)}
@@ -106,12 +106,12 @@ export const Portfolio = () => {
                         buyTarget={row.buyTarget}
                         sellTarget={row.sellTarget}
                     />
-                ))}
+                ))} */}
 
 
-                <Button type="dashed" onClick={() => addRow()} block icon={<PlusOutlined />}>
+                {/* <Button type="dashed" onClick={() => addRow()} block icon={<PlusOutlined />}>
                     Add token
-                </Button>
+                </Button> */}
 
 
                 <div className="portfolio__name">

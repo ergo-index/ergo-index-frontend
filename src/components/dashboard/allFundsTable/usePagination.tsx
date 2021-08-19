@@ -1,5 +1,5 @@
 import  { useState } from "react";
-import { FundSummaryRow } from '../../models/models';
+import { FundSummaryRow } from '../../../models/models';
 
 /**
 * Hook for paginating rows. Can be used on any set of rows in any table to paginate (assuming you update TS types)
