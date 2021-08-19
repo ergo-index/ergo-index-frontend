@@ -4,7 +4,13 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
+    "@craco/craco": "^6.2.0",
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.4",
     "@reduxjs/toolkit": "^1.6.0",
+    "@tailwindcss/aspect-ratio": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/typography": "^0.4.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -19,7 +25,6 @@
     "immer": "^9.0.5",
     "jwt-decode": "^3.1.2",
     "lodash": "^4.17.21",
-    "node-sass": "^6.0.0",
     "rc-queue-anim": "^1.8.5",
     "rc-scroll-anim": "^2.7.6",
     "rc-tween-one": "^2.7.3",
@@ -28,15 +33,15 @@
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "sass-loader": "^12.1.0",
+    "sass": "^1.38.0",
     "typescript": "^4.1.2",
     "use-immer": "^0.6.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -58,6 +63,10 @@
     ]
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.172"
+    "@tailwindcss/postcss7-compat": "^2.2.7",
+    "@types/lodash": "^4.14.172",
+    "autoprefixer": "^9",
+    "postcss": "^7",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
   }
 }
