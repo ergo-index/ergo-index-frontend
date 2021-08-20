@@ -2,8 +2,7 @@ import React from 'react';
 import { Col, Row } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack';
-import { TeamOutlined} from '@ant-design/icons';
-
+import { TeamOutlined } from '@ant-design/icons';
 
 
 /**
@@ -39,17 +38,16 @@ const Landing2 = () => {
                                 <div>
                                     <span>
                                         <ol className="list">
-                                            <li>Sign up to find a fund that matches your desired
+                                            <li>Sign up to find a fund that matches your desired:
                                                 <ul>
                                                     <li>Asset size</li>
                                                     <li>Historical returns</li>
                                                     <li>Portfolio</li>
                                                     <li>Manager background + credentials</li>
-
                                                 </ul>
                                             </li>
                                             <li>Connect your wallet and invest!</li>
-                                            <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent <br />to the Ergo blockchain network. No worries if you miss these - They're an added security measure</li>
+                                            <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent to the Ergo blockchain network. No worries if you miss these -- they're an added security measure</li>
                                         </ol>
                                     </span>
                                 </div>
@@ -71,9 +69,8 @@ const Landing2 = () => {
                                     <span>
                                         <ol className="list">
                                             <li>Sign up to create a portfolio with your desired fees and target buy/sell prices for each asset in your portfolio</li>
-                                            <li>Connect Your wallet to send your portfolio to the Ergo blockchain</li>
-                                            <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent <br />to the Ergo blockchain network. No worries if you miss these - They're an added security measure</li>
-
+                                            <li>Connect your wallet to send your portfolio to the Ergo blockchain</li>
+                                            <li>From time to time, you'll be prompted to optionally sign a transaction that gets sent to the Ergo blockchain network. No worries if you miss these -- they're an added security measure</li>
                                         </ol>
                                     </span>
                                 </div>
