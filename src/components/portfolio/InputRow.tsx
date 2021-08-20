@@ -5,7 +5,6 @@ import { MinusCircleOutlined } from '@ant-design/icons';
 
 import { TokenType } from '../models/models';
 import * as PortfolioConstants from './PortfolioConstants';
-
 import './InputRow.scss';
 
 /**

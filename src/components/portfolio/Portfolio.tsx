@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useImmer } from 'use-immer';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 
@@ -8,9 +9,6 @@ import InputRow from './InputRow';
 import { postFund } from '../../state/ducks/funds/FundsDuck'
 import PortfolioHeaders from './PortfolioHeaders';
 import './Portfolio.scss';
-import { useImmer } from 'use-immer'; // https://css-tricks.com/using-immer-for-react-state-management/
-// feel free to undo but I thought logic much clearer w mutable syntax
-
 
 /**
  * A portfolio editor with rows and columns for changing information

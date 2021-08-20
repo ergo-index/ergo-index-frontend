@@ -1,28 +1,31 @@
-import { useSortableData } from './useSortable';
 import { FundSummaryRow, fundTableHeaders } from '../../models/models';
-import '../Dashboard.scss'
+import { useSortableData } from './useSortable';
 import { usePagination } from './usePagination';
-
+import '../Dashboard.scss'
 
 interface FundsTableProps {
   funds: FundSummaryRow[]
 }
 
+/**
+ * An interactive table where each row represents a fund.
+ * Columns (properties of each fund) are sortable, and rows are paginated.
+ * @param funds the funds to display in the table
+ */
 export const FundsTable = ({ funds }: FundsTableProps) => {
 
-  const { rows, requestSort, getClassNamesFor } = useSortableData(funds, { key: "id", direction: "ascending" });
-  const { next, prev, jump, currentData, currentPage, maxPage } = usePagination(rows, 20)
-  
+  const { sortedItems: rows, setSortKeyOrChangeDirection, getDirectionForKey } = useSortableData(funds, { key: "id", direction: "ascending" });
+  const { nextPage, prevPage, jumpToPage, getCurrentItems, currentPage, maxPage } = usePagination(rows, 20)
 
   const renderHeaders = () => (
     <div className="headers-container">
       {fundTableHeaders.map(({ sortID, name }, index) => (
         <div key={index}
           onClick={() => {
-            requestSort(sortID)
-            jump(1)
+              setSortKeyOrChangeDirection(sortID)
+              jumpToPage(1)
           }}
-          className={getClassNamesFor(sortID)}
+          className={getDirectionForKey(sortID)}
           style={{ cursor: "pointer" }}
         >
           {name}
@@ -34,7 +37,7 @@ export const FundsTable = ({ funds }: FundsTableProps) => {
   const renderBody = () => (
     <>
       {
-        currentData().map((fund, index) => (
+        getCurrentItems().map((fund, index) => (
           <div className="row-container" key={index}>
             {
               Object.values(fund).map((val, index) => (
@@ -49,8 +52,6 @@ export const FundsTable = ({ funds }: FundsTableProps) => {
     </>
   );
 
-  console.log("Table rendered");
-  
   return (
     <div className="portfolio__container">
       <div className="portfolio__table">
@@ -62,8 +63,8 @@ export const FundsTable = ({ funds }: FundsTableProps) => {
       <div>Max Page {maxPage} </div>
       <div>Total Posts {rows.length}</div>
       <div>
-        <button onClick={prev} >prev</button>
-        <button onClick={next}>next</button>
+        <button onClick={prevPage} >prev</button>
+        <button onClick={nextPage}>next</button>
       </div>
     </div>
   );

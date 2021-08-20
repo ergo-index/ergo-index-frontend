@@ -13,8 +13,6 @@ import LandingNav from '../nav/LandingNav';
 import './Landing0.scss';
 import './common.scss'
 
-// Possible way to handle errors cleanly and use asynch await
-
 /**
  * The landing page for unauthenticated users.
  */

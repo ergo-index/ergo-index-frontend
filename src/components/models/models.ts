@@ -2,7 +2,6 @@
 /**
  * An index or mutual fund that users can pool their money into.
  */
-
 export interface FundModel {
     ownerEmail: string
     isOwner: boolean,
