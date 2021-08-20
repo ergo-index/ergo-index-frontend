@@ -1,9 +1,9 @@
-#row-container {
+.row-container {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-#row-container > div {
+.row-container > div {
     width: 100%;
     text-align: center;
 }

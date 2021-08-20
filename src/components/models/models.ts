@@ -4,8 +4,19 @@
  */
 export interface FundModel {
     ownerEmail: string
+    isOwner: boolean,
+    isInvestor: boolean
     id: string
     portfolio: PortfolioModel
+    portfolioSummary: FundSummaryRow
+}
+
+export interface FundSummaryRow {
+    id: string; // the id is really the "name" of the fund
+    AUM: number;
+    investors: number
+    totalReturnValue: number
+    totalReturnPercent: number
 }
 
 /**
@@ -16,7 +27,6 @@ export interface FundModel {
 export interface PortfolioModel {
     tokens: TokenInfoModel[]
 }
-
 
 /**
  * Investment information about when to buy/sell a token in a portfolio.
@@ -30,3 +40,34 @@ export interface TokenInfoModel {
     sellTarget: string // the price to sell the token at
 }
 export type TokenType = 'testToken1' | 'testToken2' | 'testToken3' | 'testToken4' | 'testToken5';
+
+
+
+// Fund summary stuff, put here since this stuff is usually updated when any model is updated -------------------------------------------------
+export interface FundSummaryHeader {
+    sortID: keyof FundSummaryRow, // keyof ensures the value is a key in FundSummaryRow
+    name: string
+}
+
+export const fundTableHeaders: FundSummaryHeader[] = [
+    {
+      sortID: 'id',
+      name: 'Name',
+    },
+    {
+      sortID: 'AUM',
+      name: 'AUM',
+    },
+    {
+      sortID: 'investors',
+      name: '# of Investors',
+    },
+    {
+      sortID: 'totalReturnValue',
+      name: 'Total Return ($)',
+    },
+    {
+      sortID: 'totalReturnPercent',
+      name: 'Total Return (%)',
+    }
+  ];

@@ -2,6 +2,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/mockServer/node_modules
 
 # testing
 /coverage
@@ -44,3 +45,5 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+
+test.mjs

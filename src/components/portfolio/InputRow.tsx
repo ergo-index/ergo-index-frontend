@@ -3,10 +3,9 @@ import React from 'react';
 import { InputNumber, Select } from 'antd';
 import { MinusCircleOutlined } from '@ant-design/icons';
 
-import { TokenType } from './models';
+import { TokenType } from '../models/models';
 import * as PortfolioConstants from './PortfolioConstants';
-
-import './InputRow.css';
+import './InputRow.scss';
 
 /**
  * Component for inputting a row into the portfolio, where a row
@@ -30,7 +29,7 @@ const InputRow = (
         sellTarget
     }: InputRowProps) => {
 
-    const onChangeToken = (value: string, _: any) => {
+    const onChangeToken = (value: TokenType, _: any) => {
         onUpdateData("token", value);
     };
 
@@ -47,9 +46,9 @@ const InputRow = (
     };
 
     return (
-        <div id="row-container">
+        <div className="row-container">
             <Select
-                style={{minWidth: PortfolioConstants.TOKEN_WIDTH}}
+                style={{ minWidth: PortfolioConstants.TOKEN_WIDTH }}
                 value={token}
                 defaultValue="testToken1"
                 onChange={onChangeToken}
@@ -63,19 +62,19 @@ const InputRow = (
             </Select>
             <InputNumber
                 min={"0"}
-                style={{minWidth: PortfolioConstants.PORTFOLIO_PERCENT_WIDTH}}
+                style={{ minWidth: PortfolioConstants.PORTFOLIO_PERCENT_WIDTH }}
                 value={portfolioPercent}
                 onChange={onChangePortfolioPercent}
             />
             <InputNumber
                 min={"0"}
-                style={{minWidth: PortfolioConstants.BUY_TARGET_WIDTH}}
+                style={{ minWidth: PortfolioConstants.BUY_TARGET_WIDTH }}
                 value={buyTarget}
                 onChange={onChangeBuyTarget}
             />
             <InputNumber
                 min={"0"}
-                style={{minWidth: PortfolioConstants.SELL_TARGET_WIDTH}}
+                style={{ minWidth: PortfolioConstants.SELL_TARGET_WIDTH }}
                 value={sellTarget}
                 onChange={onChangeSellTarget}
             />
