@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useImmer } from 'use-immer';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
-import { useImmer } from 'use-immer';
 
 import { FundSummaryRow, TokenInfoModel } from '../../models/models';
 import InputRow from './InputRow';

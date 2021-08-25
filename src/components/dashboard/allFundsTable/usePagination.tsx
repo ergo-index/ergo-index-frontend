@@ -1,11 +1,10 @@
 import  { useState } from "react";
-import { FundSummaryRow } from '../../../models/models';
 
 /**
-* Hook for paginating rows. Can be used on any set of rows in any table to paginate (assuming you update TS types)
+* Hook for breaking an array into smaller subarrays and navigating between those subarrays.
  *
- * @param rows all fund summaries, which will be paginated
- * @param itemsPerPage the items you want on each page
+ * @param arr the array to break into subarrays
+ * @param itemsPerPage the length of each subarray
  * @return object containing:
  *
  *
@@ -15,34 +14,36 @@ import { FundSummaryRow } from '../../../models/models';
  *
  * 3) a function to jump to any page number
  * 
- * 4) a function that returns only the rows on current page
+ * 4) a function that returns only the array items on the current page
  * 
- * 5) the current page
+ * 5) the current page (number)
  * 
- * 6) the max page
+ * 6) the highest page that can be jumped to (number)
  */
-export const usePagination = (rows: FundSummaryRow[], itemsPerPage: number) => {
+
+export const usePagination = <T extends unknown>(arr: T[], itemsPerPage: number) => {
 
     const [currentPage, setCurrentPage] = useState(1);
-    const maxPage = Math.max(Math.ceil(rows.length / itemsPerPage), 1);
+    const maxPage = Math.max(Math.ceil(arr.length / itemsPerPage), 1);
 
-    function currentData() {
+    const getCurrentItems = () => {
         const begin = (currentPage - 1) * itemsPerPage;
         const end = begin + itemsPerPage;
-        return rows.slice(begin, end); // returns shallow copy
-    }
+        return arr.slice(begin, end); // returns shallow copy
+    };
 
-    function next() {        
+    const nextPage = () => {
         setCurrentPage((currentPage) => Math.min(currentPage + 1, maxPage));
-    }
+    };
 
-    function prev() {
+    const prevPage = () => {
         setCurrentPage((currentPage) => Math.max(currentPage - 1, 1));
-    }
+    };
 
-    function jump(page: number) {
+    const jumpToPage = (page: number) => {
         const pageNumber = Math.min(Math.max(1, page), maxPage);
         setCurrentPage(pageNumber);
-    }
-    return { next, prev, jump, currentData, currentPage, maxPage };
-}
+    };
+
+    return { nextPage, prevPage, jumpToPage, getCurrentItems, currentPage, maxPage };
+};

@@ -13,11 +13,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-/*
-TODOs (loosely order of importance -- pick any)
-TODO: Style landing.tsx (very important!)
-TODO: Clean up and reformat (and indent) the stylesheets for various landing components
-TODO: Clean up the code in Landing.tsx -- maybe extract the login and sign up modals into their own components
-TODO: Delete the commented out code in FundsDuck.tsx?
- */
