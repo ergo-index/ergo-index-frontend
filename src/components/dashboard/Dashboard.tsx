@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import Shell from '../Shell';
+
 import DashboardTabs from './DashboardTabs';
 import MyFundsTable from './myFundsTable/MyFundsTable';
 import AllFundsTable from './allFundsTable/AllFundsTable';
-import Shell from '../Shell';
+
 /**
  * The main dashboard for logged in users.
  */
@@ -11,12 +13,13 @@ const Dashboard = () => {
 
     const renderContent = () => {
         if (activeTab === 0) {
-            return <AllFundsTable />
+            return <AllFundsTable />;
         }
         if (activeTab === 1) {
-            return <MyFundsTable />
+            return <MyFundsTable />;
         }
-    }
+    };
+
     return (
         <>
             <DashboardTabs activeTab={activeTab} setActiveTab={setActiveTab} />

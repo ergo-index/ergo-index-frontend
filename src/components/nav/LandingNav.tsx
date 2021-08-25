@@ -34,7 +34,6 @@ const LandingNav = ({ onClickLogin, onClickSignUp }: LandingNavProps) => {
                         </div>
                     </div>
                 </div>
-
             </nav>
         </header>
     );

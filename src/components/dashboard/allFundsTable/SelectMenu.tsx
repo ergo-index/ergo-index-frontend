@@ -1,35 +1,40 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { useState } from 'react'
-import { Listbox } from '@headlessui/react'
-import { CheckIcon, SelectorIcon } from '@heroicons/react/solid'
-import { classNames } from '../../../utils/tailwind'
-import { toInteger } from 'lodash'
+import { useState } from 'react';
+import { Listbox } from '@headlessui/react';
+import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
-const rowOptions = [
-    { id: 1, name: '5' },
-    { id: 2, name: '10' },
-    { id: 3, name: '15' },
-    { id: 4, name: '25' },
-    { id: 5, name: '50' },
-]
+import { classNames } from '../../../utils/tailwind';
 
+interface RowOption {
+    id: number
+    numRowsPerPage: number
+}
+const rowOptions: RowOption[] = [
+    { id: 1, numRowsPerPage: 5 },
+    { id: 2, numRowsPerPage: 10 },
+    { id: 3, numRowsPerPage: 15 },
+    { id: 4, numRowsPerPage: 25 },
+    { id: 5, numRowsPerPage: 50 },
+];
 
-export const SelectMenu = ({ setRowsPerPage }: { setRowsPerPage: (x: number) => void }) => {
-    const [selected, setSelected] = useState(rowOptions[0])
-    const onCheckboxChange = (val: {
-        id: number;
-        name: string;
-    }) => {
-        setSelected(val)
-        setRowsPerPage(toInteger(val.name))
-    }
+/**
+ * Drop-down menu for selecting the number of rows to display on each page of a table.
+ *
+ * @param setRowsPerPage a function that sets the number of rows to display on each page to the given number
+ */
+export const SelectMenu = ({ setRowsPerPage }: { setRowsPerPage: (rowsPerPage: number) => void }) => {
+    const [selected, setSelected] = useState(rowOptions[0]);
+    const onCheckboxChange = (rowOption: RowOption) => {
+        setSelected(rowOption);
+        setRowsPerPage(rowOption.numRowsPerPage);
+    };
+
     return (
         <Listbox value={selected} onChange={onCheckboxChange}>
-            {({ open }) => (
+            {() => (
                 <>
-                    <div className="mt-1 relative inline-block">
+                    <div className="relative inline-block">
                         <Listbox.Button className="bg-white relative w-full border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <span className="block">{selected.name}</span>
+                            <span className="block">{selected.numRowsPerPage}</span>
                             <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                                 <SelectorIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                             </span>
@@ -51,7 +56,7 @@ export const SelectMenu = ({ setRowsPerPage }: { setRowsPerPage: (x: number) => 
                                     {({ selected, active }) => (
                                         <>
                                             <span className={classNames(selected ? 'font-semibold' : 'font-normal', 'block')}>
-                                                {rowOption.name}
+                                                {rowOption.numRowsPerPage}
                                             </span>
 
                                             {selected ? (
@@ -74,4 +79,4 @@ export const SelectMenu = ({ setRowsPerPage }: { setRowsPerPage: (x: number) => 
             )}
         </Listbox>
     )
-}
+};

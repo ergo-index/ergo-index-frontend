@@ -1,11 +1,10 @@
+import { useState } from 'react';
+
 import { fundTableHeaders } from '../../../models/models';
 import { useSortableData } from './useSortable';
 import { usePagination } from './usePagination';
 import { useGetFundSummariesQuery } from '../../../state/server/FundsDuck';
-import { Pagination } from './Pagination';
-import { useState } from 'react';
-
-
+import Pagination from './Pagination';
 
 export default function AllFundsTable() {
     const [rowsPerPage, setRowsPerPage] = useState(5)
@@ -73,7 +72,16 @@ export default function AllFundsTable() {
                     </div>
                 </div>
             </div >
-            <Pagination currentPage={currentPage} rowsPerPage={rowsPerPage} totalRows={rows.length} prev={prev} next={next} maxPage={maxPage} jump={jump} setRowsPerPage={setRowsPerPage} />
+            <Pagination
+                currentPage={currentPage}
+                rowsPerPage={rowsPerPage}
+                totalRows={rows.length}
+                prev={prev}
+                next={next}
+                jump={jump}
+                maxPage={maxPage}
+                setRowsPerPage={setRowsPerPage}
+            />
         </>
     )
 }

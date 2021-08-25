@@ -2,18 +2,12 @@ const colors = require("tailwindcss/colors");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-
-  // If a CSS class is found in one of these files, PurgeCSS will make sure to include it in the build output – otherwise, it’s ripped out.
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     extend: {
       colors: {
-        /* green: {
-           300: "red",  OVERRIDE TAILWIND'S DEFAULT COLOR PALETTE HERE
-         },
-         'regal-blue': '#243c5a', - ADD OWN COLORS LIKE THIS */
          'navBlue': '#001529',
          'textBlue': 'rgba(255, 255, 255, 0.65)'
       },

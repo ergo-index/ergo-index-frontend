@@ -1,9 +1,11 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
+
+import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+
 import { logOut } from '../../state/UI/UserDuck';
 import { RootState } from '../../state/store';
 import { classNames } from '../../utils/tailwind';
@@ -21,22 +23,29 @@ const AuthenticatedNav = () => {
 
   const onClickDashboard = () => {
     history.push('/dashboard');
-  }
+  };
 
   const onClickPortfolio = () => {
     history.push('/portfolio');
-  }
+  };
 
   const navigation: {
     name: string;
     pathname: string,
     onclick: () => void;
-  }[] = [{ 'name': 'Dashboard', 'onclick': onClickDashboard, 'pathname': '/dashboard' }, { 'name': 'Portfolio', 'onclick': onClickPortfolio, 'pathname': '/portfolio' }]
+  }[] = [
+      { 'name': 'Dashboard', 'onclick': onClickDashboard, 'pathname': '/dashboard' },
+      { 'name': 'Portfolio', 'onclick': onClickPortfolio, 'pathname': '/portfolio' },
+  ];
 
   const profile: {
     name: string;
     onclick: () => void;
-  }[] = [{ 'name': 'Your Profile', 'onclick': () => { } }, { 'name': 'Settings', 'onclick': () => { } }, { 'name': 'Sign out', 'onclick': () => dispatch(logOut(jwtAxiosId)) }]
+  }[] = [
+      { 'name': 'Your Profile', 'onclick': () => { } },
+      { 'name': 'Settings', 'onclick': () => { } },
+      { 'name': 'Sign out', 'onclick': () => dispatch(logOut(jwtAxiosId)) },
+  ];
 
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -58,7 +67,6 @@ const AuthenticatedNav = () => {
                     {navigation.map(item =>
                       location.pathname === item.pathname ? (
                         <Fragment key={item.name}>
-                          {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                           <a onClick={item.onclick} className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
                             {item.name}
                           </a>
@@ -146,7 +154,6 @@ const AuthenticatedNav = () => {
               {navigation.map(item =>
                 location.pathname === item.pathname ? (
                   <Fragment key={item.name}>
-                    {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                     <a onClick={item.onclick} className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
                       {item.name}
                     </a>
@@ -173,7 +180,7 @@ const AuthenticatedNav = () => {
                 </div>
                 <div className="ml-3">
                   <div className="text-base font-medium leading-none text-white">Bloeme</div>
-                  <div className="text-sm font-medium leading-none text-gray-400">Bloeme@unimelb.sexy</div>
+                  <div className="text-sm font-medium leading-none text-gray-400">Bloeme@unimelb.edu</div>
                 </div>
                 <button
                   type="button"
@@ -199,11 +206,7 @@ const AuthenticatedNav = () => {
         </>
       )}
     </Disclosure>
-
   );
 };
 
 export default AuthenticatedNav;
-
-
-

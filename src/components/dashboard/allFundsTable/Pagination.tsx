@@ -1,81 +1,107 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
-import { SelectMenu } from './SelectMenu'
+import { Dispatch, SetStateAction } from 'react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid';
 
-// ryan make a proptypes interface for this im just not going to do it
-export function Pagination({ currentPage, rowsPerPage, totalRows, prev, next, maxPage, jump, setRowsPerPage }: any) {
-    
-    const elipses = generateElipses(currentPage, maxPage)
+import { SelectMenu } from './SelectMenu';
 
-    {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */ }
-    const renderElipses = () => (
-        elipses.map((val, index) => {
+interface PaginationProps {
+    currentPage: number
+    rowsPerPage: number
+    totalRows: number
+    prev: () => void
+    next: () => void
+    jump: (page: number) => void
+    maxPage: number
+    setRowsPerPage: Dispatch<SetStateAction<number>>
+}
+const Pagination = (
+    {
+        currentPage,
+        rowsPerPage,
+        totalRows,
+        prev,
+        next,
+        jump,
+        maxPage,
+        setRowsPerPage
+    }: PaginationProps
+) => {
+    const ellipses = generateEllipses(currentPage, maxPage)
 
-            if (val === "...") {
-                return <span key={index} className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700"> ...</span>
+    const renderEllipses = () => (
+        ellipses.map((val, index) =>
+            {
+                if (val === "...") {
+                    return (
+                        <span
+                        key={index}
+                        className="relative inline-flex items-center justify-center py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 select-none">
+                            ...
+                        </span>
+                    );
+                } else if (val === currentPage) {
+                    return (
+                        <a
+                            onClick={() => jump(parseInt(val + ''))}
+                            aria-current="page"
+                            key={index}
+                            className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center justify-center py-2 border text-sm font-medium select-none"
+                        >
+                            {val}
+                        </a>
+                    );
+                } else {
+                    return (
+                        <a
+                            onClick={() => jump(parseInt(val + ''))}
+                            key={index}
+                            className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center justify-center py-2 border text-sm font-medium select-none"
+                        >
+                            {val}
+                        </a>
+                    );
+                }
             }
-
-            else if (val === currentPage) {
-                return (<a
-                    onClick={() => jump(val)}
-                    aria-current="page"
-                    key={index} 
-                    className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                >
-                    {val}
-                </a>)
-            }
-
-            else {
-                return (<a
-                    onClick={() => jump(val)}
-                    key={index} 
-                    className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
-                >
-                    {val}
-                </a>)
-            }
-        }
         )
-    )
+    );
 
     return (
         <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-0">
             <div className="flex-1 flex justify-between sm:hidden">
                 <a
+                    onClick={prev}
                     href="#"
                     className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                 >
                     Previous
                 </a>
                 <a
+                    onClick={next}
                     href="#"
                     className="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
                 >
                     Next
                 </a>
             </div>
-            <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
-                <div>
+            <div className="hidden sm:grid sm:grid-cols-3 sm:w-full">
+                <div className="flex items-center">
                     <p className="text-sm text-gray-700">
                         Showing <span className="font-medium">{totalRows ? rowsPerPage * currentPage - rowsPerPage + 1: 0}</span> to <span className="font-medium">{Math.min(rowsPerPage * currentPage, totalRows)}</span> of{' '}
                         <span className="font-medium">{totalRows}</span> results
                     </p>
                 </div>
                 <div>
-                    <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                    <nav className="relative z-0 grid grid-cols-7 rounded-md shadow-sm -space-x-px" aria-label="Pagination">
                         <a
                             onClick={prev}
-                            className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                            className="relative inline-flex items-center justify-center py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 select-none"
                         >
                             <span className="sr-only">Previous</span>
                             <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
                         </a>
-                        {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
-                        {renderElipses()}
+                        {renderEllipses()}
                         <a
                             onClick={next}
-                            className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+                            className="relative inline-flex items-center justify-center py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 select-none"
                         >
                             <span className="sr-only">Next</span>
                             <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
@@ -83,7 +109,7 @@ export function Pagination({ currentPage, rowsPerPage, totalRows, prev, next, ma
                     </nav>
 
                 </div>
-                <div>
+                <div className={'inline-flex items-center justify-end'}>
                     <div className={'text-sm hidden text-gray-700 md:inline-block mr-2'}>
                         Show Rows
                     </div>
@@ -91,36 +117,37 @@ export function Pagination({ currentPage, rowsPerPage, totalRows, prev, next, ma
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
+const generateEllipses = (current: number, last: number): (string | number)[] => {
 
-
-function generateElipses(c: number, m: number) {
-
-    if (m <= 5) {
-        let ans = []
-        for (let i = 1; i <= m; i++) {
-            ans.push(i)
+    // Return 1 through last if the last page is <= 5
+    if (last <= 5) {
+        let ans = [];
+        for (let i = 1; i <= last; i++) {
+            ans.push(i);
         }
-        return ans
+        return ans;
     }
 
-    var current = c,
-        last = m,
-        delta = 1,
-        left = current - delta,
-        right = current + delta + 1,
-        range = [],
-        rangeWithDots = [],
-        l;
-
-    for (let i = 1; i <= last; i++) {
-        if (i === 1 || i === last || (i >= left && i < right)) {
-            range.push(i);
-        }
+    // Make a range with the first page, last page, and current page in between
+    // If the current page is not far enough in between the first and last pages, then add extra pages to keep width fixed
+    const range = [], rangeWithDots = [];
+    range.push(1);
+    if (current < 3) {
+        range.push(2);
+        range.push(3);
     }
+    if (current >= 3 && last - current >= 2) range.push(current);
+    if (last - current < 2) {
+        range.push(last - 2);
+        range.push(last - 1);
+    }
+    range.push(last);
 
+    // Add in the ellipses when there's a gap of more than 2 pages
+    let l;
     for (let i of range) {
         if (l) {
             if (i - l === 2) {
@@ -135,3 +162,5 @@ function generateElipses(c: number, m: number) {
 
     return rangeWithDots;
 }
+
+export default Pagination;

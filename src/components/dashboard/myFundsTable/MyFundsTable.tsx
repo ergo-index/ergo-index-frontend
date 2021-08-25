@@ -1,13 +1,13 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { PlusIcon } from '@heroicons/react/solid'
+import { PlusIcon } from '@heroicons/react/solid';
 import { useHistory } from 'react-router-dom';
 
-export default function MyFundsTable() {
+const MyFundsTable = () => {
 
     const history = useHistory();
     const onClickCreateFund = () => {
         history.push('/portfolio');
-    }
+    };
+
     return (
         <div className="text-center mt-20">
             <svg
@@ -39,4 +39,6 @@ export default function MyFundsTable() {
             </div>
         </div>
     )
-}
+};
+
+export default MyFundsTable;
