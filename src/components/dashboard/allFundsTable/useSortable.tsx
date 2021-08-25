@@ -28,7 +28,7 @@ export const useSortableData = <T extends unknown>(arr: T[], config: SortConfig<
 
   const [sortConfig, setSortConfig] = useState(config);
 
-  const sortedItems = (() => {
+  const getSortedItems = () => {
     let sortableItems = [...arr];
     sortableItems.sort((a, b) => {
       if (a[sortConfig.key] < b[sortConfig.key]) {
@@ -40,7 +40,7 @@ export const useSortableData = <T extends unknown>(arr: T[], config: SortConfig<
       return 0;
     });
     return sortableItems;
-  });
+  };
 
   const setSortKeyOrChangeDirection = (key: keyof T) => {
     let direction: Direction = 'ascending';
@@ -54,5 +54,5 @@ export const useSortableData = <T extends unknown>(arr: T[], config: SortConfig<
     sortConfig.key === name ? sortConfig.direction : undefined
   );
 
-  return { sortedItems, setSortKeyOrChangeDirection, getDirectionForKey };
+  return { getSortedItems, setSortKeyOrChangeDirection, getDirectionForKey };
 };

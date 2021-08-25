@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { fundTableHeaders } from '../../../models/models';
+import {FundSummaryRow, fundTableHeaders} from '../../../models/models';
 import { useSortableData } from './useSortable';
 import { usePagination } from './usePagination';
 import { useGetFundSummariesQuery } from '../../../state/server/FundsDuck';
@@ -10,8 +10,8 @@ export default function AllFundsTable() {
     const [rowsPerPage, setRowsPerPage] = useState(5)
     const { data, isLoading, isError } = useGetFundSummariesQuery(undefined, {})
 
-    const { rows, requestSort, getClassNamesFor } = useSortableData(data ? data : [], { key: "id", direction: "ascending" });
-    const { next, prev, jump, currentData, currentPage, maxPage } = usePagination(rows, rowsPerPage)
+    const { getSortedItems, setSortKeyOrChangeDirection, getDirectionForKey } = useSortableData(data || [] as FundSummaryRow[], { key: "id", direction: "ascending" });
+    const { nextPage, prevPage, jumpToPage, getCurrentItems, currentPage, maxPage } = usePagination(getSortedItems(), rowsPerPage);
 
     const renderHeaders = () => (
         fundTableHeaders.map(
@@ -20,10 +20,10 @@ export default function AllFundsTable() {
                     key={name}
                     scope="col"
                     onClick={() => {
-                        requestSort(sortID)
-                        jump(1)
+                      setSortKeyOrChangeDirection(sortID)
+                        jumpToPage(1)
                     }}
-                    className={"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-black cursor-pointer " + getClassNamesFor(sortID)}
+                    className={"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-black cursor-pointer " + getDirectionForKey(sortID)}
                 >
                     {name}
                 </th>
@@ -32,7 +32,7 @@ export default function AllFundsTable() {
     )
 
     const renderBody = () => (
-        currentData().map((fund, index) => (
+        getCurrentItems().map((fund, index) => (
             <tr key={index} >
                 {Object.values(fund).map((val, index) => (
                     <td key={index} className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{val}</td>
@@ -75,10 +75,10 @@ export default function AllFundsTable() {
             <Pagination
                 currentPage={currentPage}
                 rowsPerPage={rowsPerPage}
-                totalRows={rows.length}
-                prev={prev}
-                next={next}
-                jump={jump}
+                totalRows={getSortedItems().length}
+                prev={prevPage}
+                next={nextPage}
+                jump={jumpToPage}
                 maxPage={maxPage}
                 setRowsPerPage={setRowsPerPage}
             />
