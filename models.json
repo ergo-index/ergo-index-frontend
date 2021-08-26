@@ -1,0 +1,41 @@
+{
+    "FundModel": {
+        "ownerEmail": true,
+        "isOwner": true,
+        "isInvestor": false,
+        "id": "JohnsFund1",
+        "portfolio": {
+            "tokens": [
+                {
+                    "token": "ergo",
+                    "portfolioPercent": 50,
+                    "buyTarget": 1.50,
+                    "sellTarget": 2.50,
+                },
+                {
+                    "token": "bitcoin",
+                    "portfolioPercent": 50,
+                    "buyTarget": 1.50,
+                    "sellTarget": 2.50
+                }
+            ]
+        },
+        "portfolioSummary": {
+            "AUM": 400,
+            "investors": [
+                "jordan@gmail.com",
+                "theo@gmail.com",
+                "ryan@gmail.com"
+            ],
+            "totalReturnValue": 500,
+            "totalReturnPercent": 50
+        }
+    },
+
+    "userModel":{
+            "username":"tom",
+            "email":"tom@gmail.com",
+            "hashedpass":"hojdsahkjahjda"
+    }
+}
+

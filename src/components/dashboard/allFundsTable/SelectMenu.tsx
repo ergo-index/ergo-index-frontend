@@ -20,12 +20,14 @@ const rowOptions: RowOption[] = [
  * Drop-down menu for selecting the number of rows to display on each page of a table.
  *
  * @param setRowsPerPage a function that sets the number of rows to display on each page to the given number
+ * @param jump a function that sets the current page
  */
-export const SelectMenu = ({ setRowsPerPage }: { setRowsPerPage: (rowsPerPage: number) => void }) => {
+export const SelectMenu = ({ setRowsPerPage, jump }: { setRowsPerPage: (rowsPerPage: number) => void, jump: (pageToJumpTo: number) => void }) => {
     const [selected, setSelected] = useState(rowOptions[0]);
     const onCheckboxChange = (rowOption: RowOption) => {
         setSelected(rowOption);
         setRowsPerPage(rowOption.numRowsPerPage);
+        jump(1)
     };
 
     return (

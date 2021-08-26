@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import {FundSummaryRow, fundTableHeaders} from '../../../models/models';
+import { FundSummaryRow, fundTableHeaders } from '../../../models/models';
 import { useSortableData } from './useSortable';
 import { usePagination } from './usePagination';
 import { useGetFundSummariesQuery } from '../../../state/server/FundsDuck';
@@ -10,8 +10,8 @@ export default function AllFundsTable() {
     const [rowsPerPage, setRowsPerPage] = useState(5)
     const { data, isLoading, isError } = useGetFundSummariesQuery(undefined, {})
 
-    const { getSortedItems, setSortKeyOrChangeDirection, getDirectionForKey } = useSortableData(data || [] as FundSummaryRow[], { key: "id", direction: "ascending" });
-    const { nextPage, prevPage, jumpToPage, getCurrentItems, currentPage, maxPage } = usePagination(getSortedItems(), rowsPerPage);
+    const { sortedRows, setSortKeyOrChangeDirection, getDirectionForKey } = useSortableData(data || [] as FundSummaryRow[], { key: "id", direction: "ascending" });
+    const { nextPage, prevPage, jumpToPage, getCurrentItems, currentPage, maxPage } = usePagination(sortedRows, rowsPerPage);
 
     const renderHeaders = () => (
         fundTableHeaders.map(
@@ -20,7 +20,7 @@ export default function AllFundsTable() {
                     key={name}
                     scope="col"
                     onClick={() => {
-                      setSortKeyOrChangeDirection(sortID)
+                        setSortKeyOrChangeDirection(sortID)
                         jumpToPage(1)
                     }}
                     className={"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hover:text-black cursor-pointer " + getDirectionForKey(sortID)}
@@ -75,7 +75,7 @@ export default function AllFundsTable() {
             <Pagination
                 currentPage={currentPage}
                 rowsPerPage={rowsPerPage}
-                totalRows={getSortedItems().length}
+                totalRows={sortedRows.length}
                 prev={prevPage}
                 next={nextPage}
                 jump={jumpToPage}
