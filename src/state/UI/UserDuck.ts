@@ -2,14 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import jwt_decode from 'jwt-decode';
 import { message } from 'antd';
 
-import { AppThunk } from '../../store';
+import { AppThunk } from '../store';
 import {
   apiLoadProfile,
   apiLogInUser, apiSignUpUser,
   setupJwtInterceptor,
   teardownJwtInterceptor,
   UserModel
-} from '../../../api/userAPI';
+} from '../../api/userAPI';
 
 interface UserState {
   profile: UserModel | null

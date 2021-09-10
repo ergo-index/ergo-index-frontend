@@ -1,5 +1,4 @@
-import { useMemo, useState } from 'react';
-import { FundSummaryRow } from '../../models/models';
+import { useState } from 'react';
 
 export type Direction = "ascending" | "descending";
 
@@ -29,7 +28,7 @@ export const useSortableData = <T extends unknown>(arr: T[], config: SortConfig<
 
   const [sortConfig, setSortConfig] = useState(config);
 
-  const sortedItems = useMemo(() => {
+  const sortedRows = (() => {
     let sortableItems = [...arr];
     sortableItems.sort((a, b) => {
       if (a[sortConfig.key] < b[sortConfig.key]) {
@@ -41,7 +40,7 @@ export const useSortableData = <T extends unknown>(arr: T[], config: SortConfig<
       return 0;
     });
     return sortableItems;
-  }, [arr, sortConfig]);
+  })();
 
   const setSortKeyOrChangeDirection = (key: keyof T) => {
     let direction: Direction = 'ascending';
@@ -51,9 +50,9 @@ export const useSortableData = <T extends unknown>(arr: T[], config: SortConfig<
     setSortConfig({ key, direction });
   };
 
-  const getDirectionForKey = (name: keyof FundSummaryRow) => (
+  const getDirectionForKey = (name: keyof T) => (
     sortConfig.key === name ? sortConfig.direction : undefined
   );
 
-  return { sortedItems, setSortKeyOrChangeDirection, getDirectionForKey };
+  return {sortedRows, setSortKeyOrChangeDirection, getDirectionForKey };
 };

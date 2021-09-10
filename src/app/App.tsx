@@ -3,7 +3,7 @@ import { Route, BrowserRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { RootState } from '../state/store';
-import { checkAuthentication } from '../state/ducks/user/UserDuck';
+import { checkAuthentication } from '../state/UI/UserDuck';
 import Pages from '../routes/Pages';
 import './App.scss';
 

@@ -4,9 +4,9 @@ import { useImmer } from 'use-immer';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 
-import { FundSummaryRow, TokenInfoModel } from '../models/models';
+import { FundSummaryRow, TokenInfoModel } from '../../models/models';
 import InputRow from './InputRow';
-import { postFund } from '../../state/ducks/funds/FundsDuck'
+//import { postFund } from '../../state/server/FundsDuck';
 import PortfolioHeaders from './PortfolioHeaders';
 import './Portfolio.scss';
 
@@ -17,7 +17,7 @@ import './Portfolio.scss';
 export const Portfolio = () => {
     const [rows, setRows] = useImmer([{ token: "testToken1" } as TokenInfoModel]);
     const [fundName, setFundName] = useState("" as string); // Acts as ID for fund
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const onUpdateName = (e: any) => {
         setFundName(e.target.value);
@@ -50,18 +50,19 @@ export const Portfolio = () => {
             investors: getRandomInt(100),
             totalReturnValue: getRandomInt(1000),
             totalReturnPercent: getRandomInt(100)
-        }
+        };
 
-        return fakeSummary
+        return fakeSummary;
     }
 
     const onClickSave = () => {
         if (validPortfolioPercent()) {
-            const portfolio = { tokens: [...rows] }
-            dispatch(postFund({ id: fundName, ownerEmail: "hardcoded", isOwner: true, isInvestor: false, portfolio, portfolioSummary: createFundSummary() }))
+            alert('Functionality not yet implemented');
+            const portfolio = { tokens: [...rows] };
+            //dispatch(postFund({ id: fundName, ownerEmail: "hardcoded", isOwner: true, isInvestor: false, portfolio, portfolioSummary: createFundSummary() }));
         }
         else {
-            alert("Your addition is wrong. Tokens must add up to 100% of portfolio.")
+            alert('Your addition is wrong. Tokens must add up to 100% of portfolio.');
         }
     }
 
@@ -81,14 +82,12 @@ export const Portfolio = () => {
     }
 
     const validPortfolioPercent = () => {
-        let total = 0
-        rows.forEach(tokenInfo => total += Number(tokenInfo.portfolioPercent))
-        return total === 100 ? true : false
-    }
-
+        let total = 0;
+        rows.forEach(tokenInfo => total += Number(tokenInfo.portfolioPercent));
+        return total === 100;
+    };
 
     return (
-
         <div className="portfolio__container">
             <h1 className="portfolio__header">Create Fund</h1>
 
@@ -106,22 +105,21 @@ export const Portfolio = () => {
                     />
                 ))}
 
-
                 <Button type="dashed" onClick={() => addRow()} block icon={<PlusOutlined />}>
                     Add token
                 </Button>
-
 
                 <div className="portfolio__name">
                     Fund Name (acts as unique ID)
                     <Input value={fundName} onChange={onUpdateName} />
                 </div>
             </div>
+
             <div>
                 <Button onClick={onClickSave} style={{ color: validPortfolioPercent() ? "green" : "red" }}>Save</Button>
             </div>
         </div>
-    )
+    );
 }
 
 export default Portfolio;
