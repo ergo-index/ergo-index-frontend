@@ -1,25 +1,20 @@
 import { Fragment } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
 
+import { signOut } from 'firebase/auth';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 
-import { logOut } from '../../state/UI/UserDuck';
-import { RootState } from '../../state/store';
 import { classNames } from '../../utils/tailwind';
+import { auth } from '../../firebase';
 
 /**
  * Nav bar displayed to authenticated users.
  */
 const AuthenticatedNav = () => {
-  const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
-  const { jwtAxiosId } = useSelector(
-    (state: RootState) => state.userState
-  );
 
   const onClickDashboard = () => {
     history.push('/dashboard');
@@ -44,7 +39,7 @@ const AuthenticatedNav = () => {
   }[] = [
       { 'name': 'Your Profile', 'onclick': () => { } },
       { 'name': 'Settings', 'onclick': () => { } },
-      { 'name': 'Sign out', 'onclick': () => dispatch(logOut(jwtAxiosId)) },
+      { 'name': 'Sign out', 'onclick': () => signOut(auth) },
   ];
 
   return (

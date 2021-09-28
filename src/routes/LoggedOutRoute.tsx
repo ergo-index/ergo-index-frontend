@@ -1,8 +1,7 @@
-import React  from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-import { RootState } from '../state/store';
+import { auth, useAuthState } from '../firebase';
 
 interface Props {
     exact?: boolean
@@ -10,17 +9,15 @@ interface Props {
     component: React.ComponentType<any>
 }
 const LoggedOutRoute = ({ component: Component, ...otherProps }: Props) => {
-    const { isAuthenticated } = useSelector(
-        (state: RootState) => state.userState
-    );
+    const [authUser, authUserLoading] = useAuthState(auth);
 
     // Redirect to the dashboard if the user logs in
-    if (isAuthenticated === true) {
-        return (
-            <>
-                <Redirect to="/dashboard" />
-            </>
-        );
+    if (authUser && !authUserLoading) {
+      return (
+          <>
+            <Redirect to="/dashboard" />
+          </>
+      );
     }
 
     return (

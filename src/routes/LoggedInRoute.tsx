@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-import { RootState } from '../state/store';
-import AuthenticatedNav from "../components/nav/AuthenticatedNav";
+import AuthenticatedNav from '../components/nav/AuthenticatedNav';
+import { auth, useAuthState } from '../firebase';
 
 interface Props {
     exact?: boolean
@@ -11,12 +10,10 @@ interface Props {
     component: React.ComponentType<any>
 }
 const LoggedInRoute = ({ component: Component, ...otherProps }: Props) => {
-    const { isAuthenticated } = useSelector(
-        (state: RootState) => state.userState
-    );
+    const [authUser, authUserLoading] = useAuthState(auth);
 
     // Redirect to the landing page if the user isn't logged in
-    if (isAuthenticated === false) {
+    if (!authUser && !authUserLoading) {
         return (
             <>
                 <Redirect to="/" />

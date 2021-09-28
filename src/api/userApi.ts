@@ -1,34 +1,14 @@
 import axios from 'axios';
+import { User } from 'firebase/auth';
+
 import apiBase from './api';
+import { getAuthHeader } from '../firebase';
 
 export interface UserModel {
     email: string
     name: string
     funds: string[] // The IDs of funds that the user is invested in and/or owns
 }
-
-/**
- * Creates an axios interceptor that adds an authorization header
- * containing a JWT to every request.
- * @param token the token
- * @return the id of the axios interceptor (this can be used later to remove the interceptor)
- */
-export const setupJwtInterceptor = (token: string): number => {
-    return axios.interceptors.request.use(
-        config => {
-            config.headers.authorization = token
-            return config
-        }
-    );
-};
-
-/**
- * Removes an axios interceptor with the given id.
- * @param id the id of the axios interceptor to remove
- */
-export const teardownJwtInterceptor = (id: number) => {
-    axios.interceptors.request.eject(id);
-};
 
 /**
  * Attempts to create a new user with the given information.
@@ -70,12 +50,11 @@ export async function apiLogInUser(email: string, password: string) {
 
 /**
  * Loads profile information for an authenticated user.
- * @param email the email address of the user to load the profile of
+ * @param user the auth user whose profile information will be loaded
  */
-export async function apiLoadProfile(email: string) {
+export const apiLoadProfile = async (user: User) => {
     const url = `${apiBase}/user/profile/`;
+    const authHeader = await getAuthHeader(user);
 
-    const bodyFormData = new FormData();
-    bodyFormData.append("email_address", email);
-    return await axios.post<UserModel>(url, bodyFormData);
-}
+    return await axios.post<UserModel>(url, null, authHeader);
+};
