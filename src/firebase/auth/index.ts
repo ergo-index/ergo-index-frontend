@@ -2,11 +2,11 @@ import { User } from 'firebase/auth';
 
 export { useAuthState } from './useAuthState';
 export type { AuthStateHook } from './useAuthState';
-export { useSignInWithEmailAndPassword } from './useSignInWithEmailAndPassword';
-export { useCreateUserWithEmailAndPassword } from './useCreateUserWithEmailAndPassword';
+export { default as useSignInWithEmailAndPassword } from './useSignInWithEmailAndPassword';
+export { default as useCreateUserWithEmailAndPassword } from './useCreateUserWithEmailAndPassword';
 
 export type { EmailAndPasswordActionHook } from './types';
-export type AuthHeader =  { headers: { Authorization: string, "Content-Type": string } };
+export type AuthHeader = { headers: { Authorization: string, 'Content-Type': string } };
 
 /**
  * Fetches the user's JWT and returns an Authorization header that contains it.

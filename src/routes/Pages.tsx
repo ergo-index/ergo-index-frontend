@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';
+import React, { Route, Switch } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -12,25 +12,25 @@ import Landing from '../components/landing/LandingMain';
 import { loadProfile } from '../state/UI/UserDuck';
 
 const Pages = () => {
-    const [authUser, authUserLoading] = useAuthState(auth);
-    const dispatch = useDispatch();
+  const [authUser, authUserLoading] = useAuthState(auth);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-      if (authUser && !authUserLoading) {
-        dispatch(loadProfile(authUser));
-      }
-    }, [authUser, authUserLoading]);
+  useEffect(() => {
+    if (authUser && !authUserLoading) {
+      dispatch(loadProfile(authUser));
+    }
+  }, [authUser, authUserLoading, dispatch]);
 
-    // TODO: Don't display anything until authentication is checked
+  // TODO: Don't display anything until authentication is checked
 
-    return (
-        <Switch>
-            <LoggedOutRoute path='/' exact={true} component={Landing} />
-            <LoggedInRoute path='/dashboard' exact={true} component={Dashboard} />
-            <LoggedInRoute path='/portfolio' exact={true} component={Portfolio} />
-            <Route component={NotFound} />
-        </Switch>
-    )
-}
+  return (
+    <Switch>
+      <LoggedOutRoute path="/" exact component={Landing} />
+      <LoggedInRoute path="/dashboard" exact component={Dashboard} />
+      <LoggedInRoute path="/portfolio" exact component={Portfolio} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+};
 
 export default Pages;

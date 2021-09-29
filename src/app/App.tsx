@@ -5,15 +5,15 @@ import Pages from '../routes/Pages';
 import './App.scss';
 
 const App = () => {
-    return (
-        <>
-            <div className='App'>
-                <BrowserRouter>
-                    <Route component={Pages} />
-                </BrowserRouter>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="App">
+        <BrowserRouter>
+          <Route component={Pages} />
+        </BrowserRouter>
+      </div>
+    </>
+  );
 };
 
 export default App;

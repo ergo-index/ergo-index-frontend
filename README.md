@@ -22,3 +22,8 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
 REACT_APP_FIREBASE_APP_ID=
 REACT_APP_FIREBASE_MEASUREMENT_ID=
 ```
+
+# Coding Style
+We use ESLint to enforce the airbnb style, so all you have to do is run `yarn lint` to check new code,
+and `yarn lint:fix` to fix issues that can be resolved automatically.
+Alternatively, point your IDE to our .eslintrc file for a smoother, more incremental coding process.

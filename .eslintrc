@@ -1,0 +1,32 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "eqeqeq": ["error", "smart"],
+    "no-multi-spaces": "warn",
+    "camelcase": "warn",
+    "comma-dangle": "warn",
+    "consistent-return": "warn",
+    "arrow-body-style": "off",
+    "max-len": "off",
+    "prefer-arrow-callback": "warn",
+    "indent": "off",
+    "@typescript-eslint/indent": ["error", 2, {
+      "ignoredNodes": ["TSTypeParameterInstantiation"]
+    }]
+  }
+}

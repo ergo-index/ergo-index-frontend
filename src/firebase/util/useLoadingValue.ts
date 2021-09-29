@@ -29,27 +29,27 @@ const defaultState = (defaultValue?: any) => {
 
 const reducer = <E>() => (
   state: ReducerState<E>,
-  action: ReducerAction<E>
+  action: ReducerAction<E>,
 ): ReducerState<E> => {
   switch (action.type) {
-    case 'error':
-      return {
-        ...state,
-        error: action.error,
-        loading: false,
-        value: undefined,
-      };
-    case 'reset':
-      return defaultState(action.defaultValue);
-    case 'value':
-      return {
-        ...state,
-        error: undefined,
-        loading: false,
-        value: action.value,
-      };
-    default:
-      return state;
+  case 'error':
+    return {
+      ...state,
+      error: action.error,
+      loading: false,
+      value: undefined,
+    };
+  case 'reset':
+    return defaultState(action.defaultValue);
+  case 'value':
+    return {
+      ...state,
+      error: undefined,
+      loading: false,
+      value: action.value,
+    };
+  default:
+    return state;
   }
 };
 
@@ -57,7 +57,7 @@ export const useLoadingValue = <T, E>(getDefaultValue?: () => T): LoadingValue<T
   const defaultValue = getDefaultValue ? getDefaultValue() : undefined;
   const [state, dispatch] = useReducer(
     reducer<E>(),
-    defaultState(defaultValue)
+    defaultState(defaultValue),
   );
 
   const reset = () => {
@@ -82,6 +82,6 @@ export const useLoadingValue = <T, E>(getDefaultValue?: () => T): LoadingValue<T
       setValue,
       value: state.value,
     }),
-    [state.error, state.loading, reset, setError, setValue, state.value]
+    [state.error, state.loading, reset, setError, setValue, state.value],
   );
 };

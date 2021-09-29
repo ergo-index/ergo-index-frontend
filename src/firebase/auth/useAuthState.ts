@@ -5,17 +5,19 @@ import { LoadingHook, useLoadingValue } from '../util';
 export type AuthStateHook = LoadingHook<User | null, Error>;
 
 export const useAuthState = (auth: Auth): AuthStateHook => {
-  const { error, loading, setError, setValue, value } = useLoadingValue<
+  const {
+    error, loading, setError, setValue, value,
+  } = useLoadingValue<
     User | null,
     Error
-  >(() => auth.currentUser);
+    >(() => auth.currentUser);
 
   useEffect(() => {
     const listener = onAuthStateChanged(auth, setValue, setError);
 
     return () => listener();
-  }, [auth]);
+  }, [auth, setError, setValue]);
 
   const resArray: AuthStateHook = [value, loading, error];
-  return useMemo<AuthStateHook>(() => resArray, resArray);
+  return useMemo<AuthStateHook>(() => resArray, [resArray]);
 };

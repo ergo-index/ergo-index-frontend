@@ -5,9 +5,9 @@ import apiBase from './api';
 import { getAuthHeader } from '../firebase';
 
 export interface UserModel {
-    email: string
-    name: string
-    funds: string[] // The IDs of funds that the user is invested in and/or owns
+  email: string
+  name: string
+  funds: string[] // The IDs of funds that the user is invested in and/or owns
 }
 
 /**
@@ -17,19 +17,19 @@ export interface UserModel {
  * @param name the name of the new user
  */
 export async function apiSignUpUser(
-    email: string,
-    password: string,
-    name: string
+  email: string,
+  password: string,
+  name: string,
 ) {
-    const url = `${apiBase}/user/new/`
+  const url = `${apiBase}/user/new/`;
 
-    const bodyFormData = new FormData();
-    bodyFormData.append("email_address", email);
-    bodyFormData.append("password", password);
-    bodyFormData.append("name", name);
-    return await axios.post(url, bodyFormData, {
-        headers: { "Content-Type": "multipart/form-data" }
-    });
+  const bodyFormData = new FormData();
+  bodyFormData.append('email_address', email);
+  bodyFormData.append('password', password);
+  bodyFormData.append('name', name);
+  return axios.post(url, bodyFormData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
 }
 
 /**
@@ -40,12 +40,12 @@ export async function apiSignUpUser(
  * @param password the password of the user being authenticated
  */
 export async function apiLogInUser(email: string, password: string) {
-    const url = `${apiBase}/token/new`;
+  const url = `${apiBase}/token/new`;
 
-    return await axios.post<{ refresh: string, access: string }>(url, {
-        username: email,
-        password
-    });
+  return axios.post<{ refresh: string, access: string }>(url, {
+    username: email,
+    password,
+  });
 }
 
 /**
@@ -53,8 +53,8 @@ export async function apiLogInUser(email: string, password: string) {
  * @param user the auth user whose profile information will be loaded
  */
 export const apiLoadProfile = async (user: User) => {
-    const url = `${apiBase}/user/profile/`;
-    const authHeader = await getAuthHeader(user);
+  const url = `${apiBase}/user/profile/`;
+  const authHeader = await getAuthHeader(user);
 
-    return await axios.post<UserModel>(url, null, authHeader);
+  return axios.post<UserModel>(url, null, authHeader);
 };

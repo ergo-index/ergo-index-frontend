@@ -1,17 +1,17 @@
 import { useState, useMemo } from 'react';
-import { CreateUserOptions, EmailAndPasswordActionHook } from './types';
 import {
   Auth,
   UserCredential,
   createUserWithEmailAndPassword as _createUserWithEmailAndPassword,
   sendEmailVerification,
-  AuthError
+  AuthError,
 } from 'firebase/auth';
+import { CreateUserOptions, EmailAndPasswordActionHook } from './types';
 import { useCancellablePromise } from '../util';
 
-export const useCreateUserWithEmailAndPassword = (
+const useCreateUserWithEmailAndPassword = (
   auth: Auth,
-  options?: CreateUserOptions
+  options?: CreateUserOptions,
 ): EmailAndPasswordActionHook => {
   const [error, setError] = useState<AuthError>();
   const [
@@ -24,28 +24,28 @@ export const useCreateUserWithEmailAndPassword = (
 
   const createUserWithEmailAndPassword = (
     email: string,
-    password: string
+    password: string,
   ) => {
     setLoading(true);
     cancellablePromiseSignUp(_createUserWithEmailAndPassword(auth, email, password))
-        .then((user) => {
-          if (options && options.sendEmailVerification && user.user) {
-            cancellablePromiseVerification(sendEmailVerification(user.user, options.emailVerificationOptions))
-                .then(() => {
-                  setRegisteredUser(user);
-                  setLoading(false);
-                }).catch((error) => {
-                  setError(error);
-                  setLoading(false);
-            })
-          } else {
-            setRegisteredUser(user);
-            setLoading(false);
-          }
-        }).catch((error) => {
-          setError(error);
+      .then((user) => {
+        if (options && options.sendEmailVerification && user.user) {
+          cancellablePromiseVerification(sendEmailVerification(user.user, options.emailVerificationOptions))
+            .then(() => {
+              setRegisteredUser(user);
+              setLoading(false);
+            }).catch((verificationError) => {
+              setError(verificationError);
+              setLoading(false);
+            });
+        } else {
+          setRegisteredUser(user);
           setLoading(false);
-        });
+        }
+      }).catch((error) => {
+        setError(error);
+        setLoading(false);
+      });
   };
 
   const resArray: EmailAndPasswordActionHook = [
@@ -54,5 +54,7 @@ export const useCreateUserWithEmailAndPassword = (
     loading,
     error,
   ];
-  return useMemo<EmailAndPasswordActionHook>(() => resArray, resArray);
+  return useMemo<EmailAndPasswordActionHook>(() => resArray, [resArray]);
 };
+
+export default useCreateUserWithEmailAndPassword;

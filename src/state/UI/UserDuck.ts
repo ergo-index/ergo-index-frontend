@@ -22,7 +22,7 @@ const initialState: UserState = {
 
 // Create a slice that makes actions and reducers for us
 const userSlice = createSlice({
-  name: "user",
+  name: 'user',
   initialState,
   reducers: {
     loadProfileStartAction(state) {
@@ -41,7 +41,7 @@ const userSlice = createSlice({
         state.profileLoading = 'idle';
       }
     },
-  }
+  },
 });
 
 export const {
@@ -56,18 +56,18 @@ export default userSlice.reducer;
  * Loads the user's profile, including information about funds they're invested in.
  * @param user the auth user whose profile information will be loaded
  */
-export const loadProfile = (user: User): AppThunk => async dispatch => {
-  dispatch(loadProfileStartAction())
+export const loadProfile = (user: User): AppThunk => async (dispatch) => {
+  dispatch(loadProfileStartAction());
   apiLoadProfile(user)
-      .then(response => {
-        dispatch(loadProfileSuccessAction(response.data))
-      })
-      .catch(error => {
-        console.log(error.toString())
-        if (error.response) {
-          if (error.response.status === 401) { // Unauthorized -- log the user out
-          }
+    .then((response) => {
+      dispatch(loadProfileSuccessAction(response.data));
+    })
+    .catch((error) => {
+      console.log(error.toString());
+      if (error.response) {
+        if (error.response.status === 401) { // Unauthorized -- log the user out
         }
-        dispatch(loadProfileFailAction("There was a problem loading your profile."))
-      });
+      }
+      dispatch(loadProfileFailAction('There was a problem loading your profile.'));
+    });
 };

@@ -3,12 +3,12 @@ import {
   Auth,
   UserCredential,
   signInWithEmailAndPassword as _signInWithEmailAndPassword,
-  AuthError
+  AuthError,
 } from 'firebase/auth';
 import { EmailAndPasswordActionHook } from './types';
 import { useCancellablePromise } from '../util';
 
-export const useSignInWithEmailAndPassword = (auth: Auth): EmailAndPasswordActionHook => {
+const useSignInWithEmailAndPassword = (auth: Auth): EmailAndPasswordActionHook => {
   const [error, setError] = useState<AuthError>();
   const [
     loggedInUser,
@@ -23,14 +23,14 @@ export const useSignInWithEmailAndPassword = (auth: Auth): EmailAndPasswordActio
   ) => {
     setLoading(true);
     cancellablePromise(_signInWithEmailAndPassword(auth, email, password))
-        .then(user => {
-          setLoggedInUser(user);
-          setLoading(false);
-        })
-        .catch(err => {
-          setError(err);
-          setLoading(false);
-        });
+      .then((user) => {
+        setLoggedInUser(user);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err);
+        setLoading(false);
+      });
   };
 
   const resArray: EmailAndPasswordActionHook = [
@@ -39,5 +39,7 @@ export const useSignInWithEmailAndPassword = (auth: Auth): EmailAndPasswordActio
     loading,
     error,
   ];
-  return useMemo<EmailAndPasswordActionHook>(() => resArray, resArray);
+  return useMemo<EmailAndPasswordActionHook>(() => resArray, [resArray]);
 };
+
+export default useSignInWithEmailAndPassword;

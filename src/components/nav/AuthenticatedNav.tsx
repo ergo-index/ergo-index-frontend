@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router';
 
@@ -29,17 +29,17 @@ const AuthenticatedNav = () => {
     pathname: string,
     onclick: () => void;
   }[] = [
-      { 'name': 'Dashboard', 'onclick': onClickDashboard, 'pathname': '/dashboard' },
-      { 'name': 'Portfolio', 'onclick': onClickPortfolio, 'pathname': '/portfolio' },
+    { name: 'Dashboard', onclick: onClickDashboard, pathname: '/dashboard' },
+    { name: 'Portfolio', onclick: onClickPortfolio, pathname: '/portfolio' },
   ];
 
   const profile: {
     name: string;
     onclick: () => void;
   }[] = [
-      { 'name': 'Your Profile', 'onclick': () => { } },
-      { 'name': 'Settings', 'onclick': () => { } },
-      { 'name': 'Sign out', 'onclick': () => signOut(auth) },
+    { name: 'Your Profile', onclick: () => { } },
+    { name: 'Settings', onclick: () => { } },
+    { name: 'Sign out', onclick: () => signOut(auth) },
   ];
 
   return (
@@ -59,23 +59,21 @@ const AuthenticatedNav = () => {
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
-                    {navigation.map(item =>
-                      location.pathname === item.pathname ? (
-                        <Fragment key={item.name}>
-                          <a onClick={item.onclick} className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
-                            {item.name}
-                          </a>
-                        </Fragment>
-                      ) : (
-                        <a
-                          key={item.name}
-                          onClick={item.onclick}
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                        >
+                    {navigation.map((item) => (location.pathname === item.pathname ? (
+                      <Fragment key={item.name}>
+                        <a onClick={item.onclick} className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">
                           {item.name}
                         </a>
-                      )
-                    )}
+                      </Fragment>
+                    ) : (
+                      <a
+                        key={item.name}
+                        onClick={item.onclick}
+                        className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                      >
+                        {item.name}
+                      </a>
+                    )))}
                   </div>
                 </div>
               </div>
@@ -111,14 +109,14 @@ const AuthenticatedNav = () => {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        {profile.map(item => (
+                        {profile.map((item) => (
                           <Menu.Item key={item.name}>
                             {({ active }) => (
                               <a
                                 onClick={item.onclick}
                                 className={classNames(
                                   active ? 'bg-gray-100' : '',
-                                  'block px-4 py-2 text-sm text-gray-700'
+                                  'block px-4 py-2 text-sm text-gray-700',
                                 )}
                               >
                                 {item.name}
@@ -146,23 +144,21 @@ const AuthenticatedNav = () => {
 
           <Disclosure.Panel className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navigation.map(item =>
-                location.pathname === item.pathname ? (
-                  <Fragment key={item.name}>
-                    <a onClick={item.onclick} className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
-                      {item.name}
-                    </a>
-                  </Fragment>
-                ) : (
-                  <a
-                    key={item.name}
-                    onClick={item.onclick}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-                  >
+              {navigation.map((item) => (location.pathname === item.pathname ? (
+                <Fragment key={item.name}>
+                  <a onClick={item.onclick} className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
                     {item.name}
                   </a>
-                )
-              )}
+                </Fragment>
+              ) : (
+                <a
+                  key={item.name}
+                  onClick={item.onclick}
+                  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                >
+                  {item.name}
+                </a>
+              )))}
             </div>
             <div className="pt-4 pb-3 border-t border-gray-700">
               <div className="flex items-center px-5">
@@ -186,7 +182,7 @@ const AuthenticatedNav = () => {
                 </button>
               </div>
               <div className="mt-3 px-2 space-y-1">
-                {profile.map(item => (
+                {profile.map((item) => (
                   <a
                     key={item.name}
                     onClick={item.onclick}

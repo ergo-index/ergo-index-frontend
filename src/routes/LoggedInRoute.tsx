@@ -5,34 +5,34 @@ import AuthenticatedNav from '../components/nav/AuthenticatedNav';
 import { auth, useAuthState } from '../firebase';
 
 interface Props {
-    exact?: boolean
-    path: string
-    component: React.ComponentType<any>
+  exact?: boolean
+  path: string
+  component: React.ComponentType<any>
 }
 const LoggedInRoute = ({ component: Component, ...otherProps }: Props) => {
-    const [authUser, authUserLoading] = useAuthState(auth);
+  const [authUser, authUserLoading] = useAuthState(auth);
 
-    // Redirect to the landing page if the user isn't logged in
-    if (!authUser && !authUserLoading) {
-        return (
-            <>
-                <Redirect to="/" />
-            </>
-        );
-    }
-
+  // Redirect to the landing page if the user isn't logged in
+  if (!authUser && !authUserLoading) {
     return (
-        <>
-            <Route
-                render={otherProps => (
-                    <>
-                        <AuthenticatedNav />
-                        <Component {...otherProps} />
-                    </>
-                )}
-            />
-        </>
+      <>
+        <Redirect to="/" />
+      </>
     );
+  }
+
+  return (
+    <>
+      <Route
+        render={(otherProps) => (
+          <>
+            <AuthenticatedNav />
+            <Component {...otherProps} />
+          </>
+        )}
+      />
+    </>
+  );
 };
 
 export default LoggedInRoute;
