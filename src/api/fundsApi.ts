@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { mockServerBase } from './api';
 
-export const http = axios.create({
-    baseURL: mockServerBase
+const http = axios.create({
+  baseURL: mockServerBase,
 });
 
-
+export default http;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export type Direction = "ascending" | "descending";
+export type Direction = 'ascending' | 'descending';
 
 export interface SortConfig<T> {
   key: keyof T,
@@ -25,11 +25,10 @@ export interface SortConfig<T> {
  * Returns undefined for keys that are not currently being sorted
  */
 export const useSortableData = <T extends unknown>(arr: T[], config: SortConfig<T>) => {
-
   const [sortConfig, setSortConfig] = useState(config);
 
   const sortedRows = (() => {
-    let sortableItems = [...arr];
+    const sortableItems = [...arr];
     sortableItems.sort((a, b) => {
       if (a[sortConfig.key] < b[sortConfig.key]) {
         return sortConfig.direction === 'ascending' ? -1 : 1;
@@ -54,5 +53,5 @@ export const useSortableData = <T extends unknown>(arr: T[], config: SortConfig<
     sortConfig.key === name ? sortConfig.direction : undefined
   );
 
-  return {sortedRows, setSortKeyOrChangeDirection, getDirectionForKey };
+  return { sortedRows, setSortKeyOrChangeDirection, getDirectionForKey };
 };
